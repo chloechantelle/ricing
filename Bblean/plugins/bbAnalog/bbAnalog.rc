@@ -1,0 +1,14 @@
+bbAnalog.placement: User
+bbAnalog.position.x: 1141
+bbAnalog.position.y: 429
+bbanalog.useSlit: true
+bbanalog.OnTop: true
+bbanalog.autoHide: false
+bbanalog.clickRaise: true
+bbanalog.snapToEdge: true
+bbanalog.pluginToggle: true
+bbanalog.alpha.enabled: false
+bbanalog.alpha.value: 192
+bbanalog.orientation: vertical
+bbanalog.antiAliasing: true
+bbAnalog.Size: 43

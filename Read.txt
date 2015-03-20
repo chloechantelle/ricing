@@ -1,0 +1,12 @@
+Both versions of my updated VS included, ie w/ and w/o transparent borders, make sure to make a system restore point and patch your windows before installing.
+
+I upload my CSS here (https://userstyles.org/users/268662) now and update them pretty frequently so I won't bother keeping them at git/gist.
+
+Fb2 skins require all the components from ncmpcpp_mod, again from twnsnd.
+
+Download Core Temp and MSI Afterburner from these links to get the CPU and GPU percentage to work, set them to open on startup as well.
+
+ - http://www.alcpu.com/CoreTemp/Core-Temp-installer.exe
+ - http://download.msi.com/uti_exe/vga/MSIAfterburnerSetup400.zip
+
+Startpages are edited from various anon's and tripfags from various desktop threads.

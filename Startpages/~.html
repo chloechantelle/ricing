@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>~new tab~</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <link rel="stylesheet" style="text/css"    href="themes/ruri-dark/colors.css" />
+</head>
+<body onload=setTimeout("appear()",400);>
+    
+    <main> <!-- Random mascot image will be set as background-image by javascript -->
+            <header>
+                <h1> <span class="name-highlight"> </span></h1>
+                <p class="subtitle"> </p>
+            </header>
+            <section class="searchContainer">
+                <form class="searchForm" method="get" action="https://google.com/search">
+                    <input class="searchBar search_google" type="text" name="q" placeholder="Google" autofocus="autofocus" search_/>
+                </form>
+
+            <!--  <form class="searchForm" method="get" action="https://www.google.com.au/search?tbm=isch&q=">
+                    <input class="searchBar search_image" type="text" name="search_query" placeholder="Images" search_/>
+                </form> -->
+
+               <form class="searchForm" method="get" action="https://youtube.com/results">
+                    <input class="searchBar search_youtube" type="text" name="search_query" placeholder="Youtube" search_/>
+                </form>
+                <form class="searchForm" method="get" action="http://ffxiv.gamerescape.com/wiki/Special:Search?search">
+                    <input class="searchBar search_ffxiv" type="text" name="search" placeholder="FFXIV" search_/>
+                </form>
+            </section>           
+            </nav>
+        </main>
+
+    <div id="parent">
+        <div id="panel">
+            <div id="navigation">
+                <ul></ul>
+            </div>
+            <div id="wrapper">
+                <div id="sites"></div>
+                <div id="search">
+                    <form method="get">
+                        <input type="text" autocomplete="off" />
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

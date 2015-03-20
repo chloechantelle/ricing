@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# bbLeanbar 1.17 - configuration
+
+# Lines starting with # or ! are ignored
+
+# ---------------------
+# The items on the bar:
+# This builds a toolbar with tasks and tray. You can
+# change the order of items or uncomment some of the
+# currently disabled (!) items)
+
+!bbleanbar.item: WindowButtonL
+!bbleanbar.item: WindowButtonR
+!bbleanbar.item: TaskStyleButton
+!bbleanbar.item: WorkspaceLabel
+!bbleanbar.item: WorkspaceButtonL
+!bbleanbar.item: WorkspaceButtonR
+!bbleanbar.item: Tray
+bbleanbar.item: CurrentOnlyButton
+bbleanbar.item: Tray
+!bbleanbar.item: CurrentOnlyButton
+
+bbleanbar.item: Tasks
+!bbleanbar.item: Clock
+
+!bbleanbar.item: WindowLabel
+!bbleanbar.item: NewLine
+!bbleanbar.item: Space
+
+# ----------------
+# General Settings (ctrl-right-click menu)
+bbLeanBar.placement: User
+bbLeanBar.position.x: 1990
+bbLeanBar.position.y: 19
+bbLeanBar.widthPercent: 91
+bbLeanBar.useSlit: false
+bbLeanBar.AutoHide: false
+bbleanbar.OnTop: true
+bbleanbar.autoRaise: true
+bbleanbar.snapToEdge: true
+bbLeanBar.pluginToggle: true
+
+bbLeanBar.alpha.enabled: false
+bbLeanBar.alpha.value: 205
+
+# ---------
+# Task Tabs
+bbLeanBar.tasks.style: 0
+bbLeanBar.tasks.maxWidth: 100
+bbLeanBar.tasks.reverse: false
+bbLeanBar.tasks.current: false
+bbLeanBar.tasks.sysmenu: true
+bbLeanBar.tasks.drawBorder: true
+
+------------
+# Icons
+bbLeanBar.smallIcons: false
+bbLeanBar.icon.saturation: 0
+bbLeanBar.icon.hue: 168
+
+# ------------
+# Clock-Format
+bbLeanBar.strftimeFormat: %#H:%M
+
+# ---------------
+# Special Options
+bbLeanBar.autoFullscreenHide: true
+bbLeanBar.setDesktopMargin: true
+bbLeanBar.sendToSwitchTo: false
+bbLeanBar.sendToGesture: true
+
+# -------------------------
+# hidden icons (auto saved)
+bbLeanBar.tray.hidden.count: 24
+bbLeanBar.tray.hidden.1: "ATL:000007FEFB9F41F0",100
+bbLeanBar.tray.hidden.2: "WindowsUpdateNotificationWindow",0
+bbLeanBar.tray.hidden.3: "CORETEMP",0
+bbLeanBar.tray.hidden.4: "STARTKILLER",0
+bbLeanBar.tray.hidden.5: "AltDrag",0
+bbLeanBar.tray.hidden.6: "ATL:000007FEF7BA52C0",49376
+bbLeanBar.tray.hidden.7: "wxWindowClassNR",99
+bbLeanBar.tray.hidden.8: "MiniServerTrayIconDummyWnd",13
+bbLeanBar.tray.hidden.9: "AutoHotkey",1028
+bbLeanBar.tray.hidden.10: "{A63A8632-01B1-42f7-8F3A-546EDDB8B354}",0
+bbLeanBar.tray.hidden.11: "AutoHotkey",1028
+bbLeanBar.tray.hidden.12: "RainmeterTrayClass",101
+bbLeanBar.tray.hidden.13: "TPUtilWindow",33432320
+bbLeanBar.tray.hidden.14: "QWidget",0
+bbLeanBar.tray.hidden.15: "USurface_418182012",1
+bbLeanBar.tray.hidden.16: "DropboxTrayIcon",0
+bbLeanBar.tray.hidden.17: "Afx:400000:20:10005:0:0",197536
+bbLeanBar.tray.hidden.18: "WorkerW",123
+bbLeanBar.tray.hidden.19: "AAMUPDATESNOTIFIER",130
+bbLeanBar.tray.hidden.20: "{E7076D1C-A7BF-4f39-B771-BCBE88F2A2A8}",1
+bbLeanBar.tray.hidden.21: "TPUtilWindow",16910096
+bbLeanBar.tray.hidden.22: "SystemTray_Main",1226
+bbLeanBar.tray.hidden.23: "WindowsForms10.Window.0.app.0.1ca0192_r17_ad1",1
+bbLeanBar.tray.hidden.24: "WindowsForms10.Window.0.app.0.33c0d9d",1
+bbLeanBar.alwaysOnTop: false
