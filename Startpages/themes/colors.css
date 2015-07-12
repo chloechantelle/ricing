@@ -4,45 +4,87 @@
     as published by Sam Hocevar. See the COPYING file for more details. */
 
 .name-highlight {
-    color: #6d7393;;
+    color: #6f535e;;
 }
 
-
 h1 {
-    color: #6d7393;
+    color: #6f535e;
 }
 
 .subtitle {
-    color: #6d7393;
+    color: #6f535e;
 }
 
 main {
-    background-color: #121212;
-    border-color: #6d7393;
+    background-color: #1d1e2a;
+    border-color: #1d1e2a;
+    /*border-color: #1d1e2a;*/
+}
+
+table {
+    color: #926d7b;
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: -440px;
+}
+
+.jspTrack {
+    background: #323448 none repeat scroll 0% 0%;
+}
+.jspDrag {
+    background: #1d1e2a none repeat scroll 0% 0%;
+}
+
+a:link {
+    color: #6f535e;
+    text-decoration: none;
+}
+a:visited {
+    color: #6f535e;
+    text-decoration: none;
+}
+a:hover {
+    color: #496d60;
+    text-decoration: none;
+}
+a:active {
+    color: #6f535e;
+    text-decoration: none;
+}
+a {
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .searchBar {
-    color: #6d7393;
-    border-color: #6d7393;
+    color: #707880;
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 14px;
+    /*border-color: #6f535e;*/
+    border-color: #1d1e2a;
 }
 .searchBar:hover {
-    box-shadow: 0 0 5px #6d7393;
-    border-color: #6d7393;
+    box-shadow: 0 0 5px #6f535e;
+   /*border-color: #6f535e;*/
+    border-color: #1d1e2a;
 }
 
 .searchBar::-webkit-input-placeholder { color: rgba(0,0,0,0); }
-.searchBar:-moz-placeholder           { color: #6d7393; opacity: 1; } /* Fx 4-18 */
+.searchBar:-moz-placeholder           { color: #6f535e; opacity: 1; } /* Fx 4-18 */
 .searchBar::-moz-placeholder          { color: rgba(0,0,0,0); opacity: 1; } /* Fx 19+ */
 .searchBar:-ms-input-placeholder      { color: rgba(0,0,0,0); } /* IE 10+ */
 
-.searchBar:focus::-webkit-input-placeholder { color: #6d7393; }
-.searchBar:focus:-moz-placeholder           { color: #6d7393; opacity: 1; } /* Fx 4-18 */
-.searchBar:focus::-moz-placeholder          { color: #6d7393; opacity: 1; } /* Fx 19+ */
-.searchBar:focus:-ms-input-placeholder      { color: #6d7393; } /* IE 10+ */
+.searchBar:focus::-webkit-input-placeholder { color: #6f535e; }
+.searchBar:focus:-moz-placeholder           { color: #6f535e; opacity: 1; } /* Fx 4-18 */
+.searchBar:focus::-moz-placeholder          { color: #6f535e; opacity: 1; } /* Fx 19+ */
+.searchBar:focus:-ms-input-placeholder      { color: #6f535e; } /* IE 10+ */
 /* Specyfing opacity for Fx is only resetting the defaults. Alpha from rgba will still work. */
 
 .searchBar:focus {
-    color: #6d7393;
+    color: #6f535e;
     font-size: 14;
 }
 

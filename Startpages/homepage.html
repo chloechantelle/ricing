@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>~ new tab ~</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 150x150" type="image/vnd.microsoft.icon" />
+
+</head>   
+
+    <main> 
+
+<img id="logo" src="search logo.png" draggable="false">
+
+            <header>
+                <h1> <span class="name-highlight"> </span></h1>
+                <p class="subtitle"> </p>
+            </header>
+            <section class="searchContainer">
+                <form class="searchForm" method="get" action="https://google.com/search">
+                    <input class="searchBar search_google" type="text" name="q" placeholder="" autofocus="autofocus" search_/>
+                </form>
+            </section>           
+            </nav>
+        </main>
+
+<links>
+<table width="100%" height="85%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="center"><table width="400" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+
+<br />
+<br />
+
+4chin - <a  href="http://boards.4chan.org/a/#catalog">/a/</a> ~ 
+              <a  href="http://boards.4chan.org/g/#catalog">/g/</a> ~ 
+              <a  href="http://boards.4chan.org/w/#catalog">/w/</a> ~ 
+              <a  href="http://boards.4chan.org/wg/#catalog">/wg/</a> ~ 
+              <a  href="http://boards.4chan.org/t/#catalog">/t/</a>
+<br />
+<br />
+
+weab - <a  href="http://anichart.net/">ani</a> ~ 
+               <a  href="https://www.bakabt.me/">baka</a> ~ 
+               <a  href="http://myanimelist.net/">mal</a> ~ 
+               <a  href="http://nyaa.se/">nyaa</a>
+<br />
+<br />
+
+ffxiv - <a  href="http://www.xenoveritas.org/static/ffxiv/timer.html">xivtimer</a>  ~ 
+<a  href="https://secure.square-enix.com/account/app/svc/mogstation">mog</a>  ~ 
+<a  href="http://ffxivclock.com/#/">xivclock</a>
+
+<br />
+<br />
+
+rice - <a  href="http://alpha.wallhaven.cc/random">wallhaven</a> ~ 
+          <a  href="https://userstyles.org/users/268662">userstyles</a>  ~ 
+           <a  href="http://decagonal.deviantart.com/">da</a> 
+
+<br />
+<br />
+
+misc - 
+<a  href="http://www.last.fm/home">l.fm</a> ~ 
+<a  href="http://calm.com/">calm</a>  ~ 
+<a  href="http://tumblr.com/">tmblr</a>  ~ 
+<a  href="https://maxfile.ro/">maxfile</a>  ~
+<a  href="http://pastebin.com/">pastebin</a> 
+
+<br />
+<br />
+<br />
+<br />
+
+        </table></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+</links>
+
+
+            </div>
+        </div>
+    </div>
+
+<style type="text/css">
+
+@font-face {
+    font-family:"Squada One";
+    font-style:normal;
+    font-weight:400;
+  /* src: url("../fonts/Fruity microfont.ttf"); */
+  src:local("Squada One"), local("SquadaOne-Regular"), url("../fonts/SquadaOne.woff") format("woff");
+}
+
+#logo {
+  height:100%;
+  float:center;
+  opacity:0.8;
+  visibility: visible;
+  pointer-events:none;
+  margin-top: -90px;
+}
+
+/*.search_google {
+    background-image: url('images/icons/google.png');
+}*/
+.search_youtube {
+    background-image: url('images/icons/youtube.png');
+}
+.search_ffxiv {
+    background-image: url('images/icons/ffxiv.png');
+}
+.search_image {
+    background-image: url('images/icons/image.png');
+}
+
+#search {
+    display: none !important;
+}
+
+@-webkit-keyframes animate-sites {
+    0% { transform:scale(0); opacity:0; }
+    25% { opacity:1; }
+    100% { transform:scale(1); }
+}
+
+body, html {
+    background: #1d1e2a;
+    background-repeat: repeat;
+    height:100%;
+    min-height:100%;
+    margin: 0 auto;
+    padding:0;
+}
+
+.searchBar {
+    width: 525px;
+    height: 30px;
+    padding: 0;
+    font-size: 14px;
+    margin-top: 5px;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 1;
+    color: #6f535e;
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #1a1b26;
+    border-color: #6f535e;
+    box-shadow: 0 0 4px #000;
+    text-align: center;
+}
+
+.searchBar:hover, .searchBar:focus {
+    cursor: text;
+    width: 525px;
+    background-position: center;
+    opacity: 1;
+    color: #6f535e;
+    box-shadow: 0 0 4px #000;
+   border-color: #6f535e;
+    color: #6f535e;
+    text-align: center;
+}
+
+/*
+main {
+    margin-left: 341px;
+}
+*/
+
+main {
+    background-color: #1d1e2a;  
+    width: 602px;
+    text-align: center;
+    font-size: 14px;
+    height: 80px;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 260px !important;
+    margin:0 auto;
+}
+
+#panel {
+    background:rgba(18,18,18,.9);
+    border:0px solid rgba(18,18,18,.9);
+    border-top:0px solid rgba(18,18,18,.9);
+    border-bottom:0px solid rgba(18,18,18,.9);
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:0px;
+    margin:auto;
+    box-shadow:#121212 0 0 10px;
+    -webkit-animation: animate-panel .7s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-animation: animate-panel .7s cubic-bezier(0.680, 0, 0.265, 1.550);
+}
+#panel, #sites, #search, button, input {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.jspTrack {
+    background: #323448 none repeat scroll 0% 0%;
+}
+.jspDrag {
+    background: #1d1e2a none repeat scroll 0% 0%;
+}
+
+#navigation {
+    display: none;
+    height:0px;
+    position:absolute;
+    top:-28px;
+    width:100%;
+    -webkit-animation: animate-opacity .8s ease-in;
+    -moz-animation: animate-opacity .8s ease-in;
+}
+#navigation ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+#navigation ul li {
+    background:rgba(18,18,18,.9);
+    border-bottom:1px solid rgba(18,18,18,.9);
+    display:inline-block;
+    position:relative;
+    height:10px;
+    width:10px;
+    border-radius:5px;
+}
+#navigation ul li.selected::before {
+    background:-moz-linear-gradient(top, #a9a9a9 0%, #a49999 35%, #898989 65%, #707070 101%);
+    background:-webkit-linear-gradient(top, #a9a9a9 0%, #a49999 35%, #898989 65%, #707070 101%);
+    content:'';
+    opacity:.5;
+    display:inline-block;
+    position:absolute;
+    top:3px;
+    left:3px;
+    width:4px;
+    height:4px;
+    border-radius:2px;
+    box-shadow:#060606 0 0 0px;
+}
+#wrapper {
+    margin:0 auto;
+    width:692px;
+}
+#sites {
+   /* height:230px;
+    width: 913px; */
+    border: 1px solid #6D7393;
+    padding:30px 10px;
+    text-align:center;
+    margin-top: -310px;
+    margin-left: -11px;
+    display: none;
+}
+#sites a {
+    background:rgba(18,18,18,.9);
+    color:#323448;
+    font-family:'Open Sans';
+    font-size:30px;
+    height:100px;
+    border: 1px solid #6D7393;
+    line-height:100px;
+    margin:5px;
+    position:relative;
+    text-align:center;
+    text-decoration:none;
+    text-shadow:#0f0f0f  0px 0px 5px;
+    width:100px;
+    z-index:1;
+    border-radius:0px;
+  
+    -webkit-transition: all .4s cubic-bezier(0, -0.550, 0.265, 1.550);
+  -moz-transition: all .4s cubic-bezier(0, -0.550, 0.265, 1.550);
+  
+  /* on page load tiles pop in */
+    -webkit-animation: animate-sites .5s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-animation: animate-sites .5s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+#sites a:hover, #sites a:active {
+    background: none;
+    color:#323448;
+    border: 1px solid #44496c;
+    z-index:2;
+}
+
+main {
+    background-color: #1d1e2a;
+    border-color: #1d1e2a;
+}
+
+.name-highlight {
+    color: #6f535e;;
+}
+
+h1 {
+    color: #6f535e;
+}
+
+.subtitle {
+    color: #6f535e;
+}
+
+table {
+    opacity: 0.8;
+    color: #926d7b;
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: -400px;
+}
+
+.jspTrack {
+    background: #323448 none repeat scroll 0% 0%;
+}
+.jspDrag {
+    background: #1d1e2a none repeat scroll 0% 0%;
+}
+
+a:link {
+    color: #6f535e;
+    text-decoration: none;
+}
+a:visited {
+    color: #6f535e;
+    text-decoration: none;
+}
+a:hover {
+    color: #496d60;
+    text-decoration: none;
+}
+a:active {
+    color: #6f535e;
+    text-decoration: none;
+}
+a {
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.searchBar::-webkit-input-placeholder { color: #6f535e; }
+.searchBar:-moz-placeholder           { color: #6f535e; opacity: 1; } /* Fx 4-18 */
+.searchBar::-moz-placeholder          { color: #6f535e; opacity: 1; } /* Fx 19+ */
+.searchBar:-ms-input-placeholder      { color: #6f535e; } /* IE 10+ */
+
+.searchBar:focus::-webkit-input-placeholder { color: #6f535e; }
+.searchBar:focus:-moz-placeholder           { color: #6f535e; opacity: 1; } /* Fx 4-18 */
+.searchBar:focus::-moz-placeholder          { color: #6f535e; opacity: 1; } /* Fx 19+ */
+.searchBar:focus:-ms-input-placeholder      { color: #6f535e; } /* IE 10+ */
+/* Specyfing opacity for Fx is only resetting the defaults. Alpha from rgba will still work. */
+
+/* Grey button */
+.button_grey > a,
+.button_grey > ul {
+    border-color: #373B41;
+}
+.button_grey > a,
+.button_grey > ul > li > a {
+    color: #81A2BE;
+    background: #1D1F21;
+}
+.button_grey > a:after {
+    border-left-color: #373B41;
+}
+.button_grey:hover > a,
+.button_grey > ul > li > a:hover {
+    color: #d67b96;
+    background: #70293b;
+}
+.button_grey:hover > a,
+.button_grey:hover > ul {
+    border-color: #70293b;
+}
+.button_grey:hover > a:after {
+    border-left-color: #d67b96;
+}
+
+/* Green button */
+.button_green > a,
+.button_green > ul {
+    border-color: #91b476;
+}
+.button_green > a,
+.button_green > ul > li > a {
+    color: #43644a;
+    background: #729a64;
+}
+.button_green > a:after {
+    border-left-color: #91b476;
+}
+.button_green:hover > a,
+.button_green > ul > li > a:hover {
+    color: #269926;
+    background: #67E667;
+}
+.button_green:hover > a,
+.button_green:hover > ul {
+    border-color: #67E667;
+}
+.button_green:hover > a:after {
+    border-left-color: #269926;
+}
+
+/* column standard colors */
+.column {
+    border-right-color: #373B41;
+}
+.column > a,
+.column > ul > li:before {
+    color: #1D1F21;
+}
+.column > a {
+    text-shadow: 0 0.5px #373B41;
+}
+.column > ul > li > a {
+    color: #81A2BE;
+}
+
+/* purple column highlight */
+.column_purple:hover > a,
+.column_purple:hover > ul > li:before {
+    color: #3c3a5c;
+}
+.column_purple:hover > a {
+    text-shadow: 0 0.5px #b9b6d9;
+}
+.column_purple > ul > li > a:hover {
+    color: #b9b6d9;
+}
+
+/* pink column highlight */
+.column_pink:hover > a,
+.column_pink:hover > ul > li:before {
+    color: #70293b;
+}
+.column_pink:hover > a {
+    text-shadow: 0 0.5px #d67b96;
+}
+.column_pink > ul > li > a:hover {
+    color: #d67b96;
+}
+
+/* green column highlight */
+.column_green:hover > a,
+.column_green:hover > ul > li:before {
+    color: #43644a;
+}
+.column_green:hover > a {
+    text-shadow: 0 0.5px #729a64;
+}
+.column_green > ul > li > a:hover {
+    color: #91b476;
+}
+
+</style>
+
+</body>
+</html>
+

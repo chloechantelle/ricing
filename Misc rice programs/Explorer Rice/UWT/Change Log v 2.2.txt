@@ -1,0 +1,25 @@
+Change Log 
+
+Ultimate Windows Tweaker v 2.2 now works on Internet Explorer 9
+
+Internet Explorer
++ Supports Internet Explorer 9 Beta
++ Enable Menu bar permanently
++ Always on InPrivate Filtering
++ Hide Compatibility View button
++ Disable sending keystrokes to your default search engine
++ Enable Quick Tabs
++ Manage no. of rows in about:Tabs (IE9 only)
++ Disable caching of SSL pages
++ Enable software rendering instead of GPU redering (IE9 only)
+
+User Accounts & UAC
++ Manage user accounts (improved)
+
+System Performance
++ Disable PAE
+
+# Extensive code optimization for speed improvement
+# Improved refreshing capability after applying  tweaks
+# No more prompts after each Apply clicks
+# Some UI and typo fixes
