@@ -9,7 +9,7 @@ Plugins that I've edited for bbLean, styles that I've made for it.
 
 <h2>FB2 - </h2>
 
-Includes all components that you'd need for the skins, if it doesn't work install the ncmp mod and follow the [faq](http://pastebin.com/QbGNnzsZ) for that, if you're already familar with fb (and installed the mod) you won't have any problems.
+Includes all components that you'd need for the skins in the zip, if it doesn't work install the ncmp mod and follow the [faq](http://pastebin.com/QbGNnzsZ) for that, if you're already familar with fb (and installed the mod) you won't have any problems.
 
 <h2>MISC RICE - </h2>
 
