@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>F:\Develop\foobar2000-Dev.2011-03-11\foobar2000\foo_uie_wsh_panel_mod\docs\Helpers.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="javascript">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+body { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+.Special { color: #ffa500; }
+.Label { color: #00ffff; }
+.Type { color: #98fb98; font-weight: bold; }
+.Number { color: #ffec8b; font-weight: bold; }
+.Conditional { color: #00ffff; font-weight: bold; }
+.Function { color: #87cefa; }
+.Comment { color: #66cdaa; font-style: italic; }
+-->
+</style>
+</head>
+<body>
+<pre>
+
+<span class="Comment">// Convert Point size to Pixel size (Useful in gdi.Font() and such)</span>
+<span class="Function">function</span> Point2Pixel(pt, dpi) {
+    <span class="Conditional">return</span> (pt * dpi / <span class="Number">72</span>);
+}
+
+<span class="Comment">// Generate/modify colours</span>
+<span class="Function">function</span> RGBA(r, g, b, a) {
+    <span class="Conditional">return</span> ((a &lt;&lt; <span class="Number">24</span>) | (r &lt;&lt; <span class="Number">16</span>) | (g &lt;&lt; <span class="Number">8</span>) | (b));
+}
+
+<span class="Function">function</span> RGB(r, g, b) {
+    <span class="Conditional">return</span> (<span class="Number">0xff000000</span> | (r &lt;&lt; <span class="Number">16</span>) | (g &lt;&lt; <span class="Number">8</span>) | (b));
+}
+
+<span class="Function">function</span> getAlpha(color) {
+    <span class="Conditional">return</span> ((color &gt;&gt; <span class="Number">24</span>) &amp; <span class="Number">0xff</span>);
+}
+
+<span class="Function">function</span> getRed(color) {
+    <span class="Conditional">return</span> ((color &gt;&gt; <span class="Number">16</span>) &amp; <span class="Number">0xff</span>);
+}
+
+<span class="Function">function</span> getGreen(color) {
+    <span class="Conditional">return</span> ((color &gt;&gt; <span class="Number">8</span>) &amp; <span class="Number">0xff</span>);
+}
+
+<span class="Function">function</span> getBlue(color) {
+    <span class="Conditional">return</span> (color &amp; <span class="Number">0xff</span>);
+}
+
+<span class="Function">function</span> setAlpha(color, a) {
+    <span class="Conditional">return</span> ((color &amp; <span class="Number">0x00ffffff</span>) | (a &lt;&lt; <span class="Number">24</span>));
+}
+
+<span class="Function">function</span> setRed(color, r) {
+    <span class="Conditional">return</span> ((color &amp; <span class="Number">0xff00ffff</span>) | (r &lt;&lt; <span class="Number">16</span>));
+}
+
+<span class="Function">function</span> setGreen(color, g) {
+    <span class="Conditional">return</span> ((color &amp; <span class="Number">0xffff00ff</span>) | (g &lt;&lt; <span class="Number">8</span>));
+}
+
+<span class="Function">function</span> setBlue(color, b) {
+    <span class="Conditional">return</span> ((color &amp; <span class="Number">0xffffff00</span>) | b);
+}
+
+<span class="Comment">// Helper function for DrawString() and MeasureString()</span>
+<span class="Comment">// args: h_align, v_align, trimming, flags</span>
+<span class="Function">function</span> StringFormat() {
+    <span class="Type">var</span> h_align = <span class="Number">0</span>, v_align = <span class="Number">0</span>, trimming = <span class="Number">0</span>, flags = <span class="Number">0</span>;
+    <span class="Conditional">switch</span> (arguments.length)
+    {
+<span class="Comment">    // fall-thru</span>
+    <span class="Conditional">case</span> <span class="Label">4</span>:
+        flags = arguments[<span class="Number">3</span>];
+    <span class="Conditional">case</span> <span class="Label">3</span>:
+        trimming = arguments[<span class="Number">2</span>];
+    <span class="Conditional">case</span> <span class="Label">2</span>:
+        v_align = arguments[<span class="Number">1</span>];
+    <span class="Conditional">case</span> <span class="Label">1</span>:
+        h_align = arguments[<span class="Number">0</span>];
+        <span class="Conditional">break</span>;
+    <span class="Conditional">default</span>:
+        <span class="Conditional">return</span> <span class="Number">0</span>;
+    }
+    <span class="Conditional">return</span> ((h_align &lt;&lt; <span class="Number">28</span>) | (v_align &lt;&lt; <span class="Number">24</span>) | (trimming &lt;&lt; <span class="Number">20</span>) | flags);
+}
+
+<span class="Comment">// Based on human hearing curve</span>
+<span class="Comment">// 0 &lt;= pos &lt;= 1</span>
+<span class="Comment">// return a value value: -100 &lt;= vol &lt;= 0</span>
+<span class="Function">function</span> pos2vol(pos) {
+     <span class="Conditional">return</span> (<span class="Number">50</span> * <span class="Special">Math</span>.log(<span class="Number">0.99</span> * pos + <span class="Number">0.01</span>) / <span class="Special">Math</span>.LN10);
+}
+
+<span class="Comment">// Inverse function of pos2vol()</span>
+<span class="Function">function</span> vol2pos(v){
+     <span class="Conditional">return</span> (<span class="Special">Math</span>.round(((<span class="Special">Math</span>.pow(<span class="Number">10</span>, v / <span class="Number">50</span>) - <span class="Number">0.01</span>) / <span class="Number">0.99</span>)));
+}
+
+<span class="Comment">// pre-calculated colors </span>
+Colors = {
+    <span class="Label">AliceBlue</span>           : <span class="Number">0xFFF0F8FF</span>,
+    <span class="Label">AntiqueWhite</span>         : <span class="Number">0xFFFAEBD7</span>,
+    <span class="Label">Aqua</span>                 : <span class="Number">0xFF00FFFF</span>,
+    <span class="Label">Aquamarine</span>         : <span class="Number">0xFF7FFFD4</span>,
+    <span class="Label">Azure</span>               : <span class="Number">0xFFF0FFFF</span>,
+    <span class="Label">Beige</span>               : <span class="Number">0xFFF5F5DC</span>,
+    <span class="Label">Bisque</span>             : <span class="Number">0xFFFFE4C4</span>,
+    <span class="Label">Black</span>               : <span class="Number">0xFF000000</span>,
+    <span class="Label">BlanchedAlmond</span>     : <span class="Number">0xFFFFEBCD</span>,
+    <span class="Label">Blue</span>                 : <span class="Number">0xFF0000FF</span>,
+    <span class="Label">BlueViolet</span>         : <span class="Number">0xFF8A2BE2</span>,
+    <span class="Label">Brown</span>               : <span class="Number">0xFFA52A2A</span>,
+    <span class="Label">BurlyWood</span>           : <span class="Number">0xFFDEB887</span>,
+    <span class="Label">CadetBlue</span>           : <span class="Number">0xFF5F9EA0</span>,
+    <span class="Label">Chartreuse</span>         : <span class="Number">0xFF7FFF00</span>,
+    <span class="Label">Chocolate</span>           : <span class="Number">0xFFD2691E</span>,
+    <span class="Label">Coral</span>               : <span class="Number">0xFFFF7F50</span>,
+    <span class="Label">CornflowerBlue</span>     : <span class="Number">0xFF6495ED</span>,
+    <span class="Label">Cornsilk</span>             : <span class="Number">0xFFFFF8DC</span>,
+    <span class="Label">Crimson</span>           : <span class="Number">0xFFDC143C</span>,
+    <span class="Label">Cyan</span>                 : <span class="Number">0xFF00FFFF</span>,
+    <span class="Label">DarkBlue</span>             : <span class="Number">0xFF00008B</span>,
+    <span class="Label">DarkCyan</span>             : <span class="Number">0xFF008B8B</span>,
+    <span class="Label">DarkGoldenrod</span>       : <span class="Number">0xFFB8860B</span>,
+    <span class="Label">DarkGray</span>             : <span class="Number">0xFFA9A9A9</span>,
+    <span class="Label">DarkGreen</span>           : <span class="Number">0xFF006400</span>,
+    <span class="Label">DarkKhaki</span>           : <span class="Number">0xFFBDB76B</span>,
+    <span class="Label">DarkMagenta</span>       : <span class="Number">0xFF8B008B</span>,
+    <span class="Label">DarkOliveGreen</span>     : <span class="Number">0xFF556B2F</span>,
+    <span class="Label">DarkOrange</span>         : <span class="Number">0xFFFF8C00</span>,
+    <span class="Label">DarkOrchid</span>         : <span class="Number">0xFF9932CC</span>,
+    <span class="Label">DarkRed</span>           : <span class="Number">0xFF8B0000</span>,
+    <span class="Label">DarkSalmon</span>         : <span class="Number">0xFFE9967A</span>,
+    <span class="Label">DarkSeaGreen</span>         : <span class="Number">0xFF8FBC8B</span>,
+    <span class="Label">DarkSlateBlue</span>       : <span class="Number">0xFF483D8B</span>,
+    <span class="Label">DarkSlateGray</span>       : <span class="Number">0xFF2F4F4F</span>,
+    <span class="Label">DarkTurquoise</span>       : <span class="Number">0xFF00CED1</span>,
+    <span class="Label">DarkViolet</span>         : <span class="Number">0xFF9400D3</span>,
+    <span class="Label">DeepPink</span>             : <span class="Number">0xFFFF1493</span>,
+    <span class="Label">DeepSkyBlue</span>       : <span class="Number">0xFF00BFFF</span>,
+    <span class="Label">DimGray</span>           : <span class="Number">0xFF696969</span>,
+    <span class="Label">DodgerBlue</span>         : <span class="Number">0xFF1E90FF</span>,
+    <span class="Label">Firebrick</span>           : <span class="Number">0xFFB22222</span>,
+    <span class="Label">FloralWhite</span>       : <span class="Number">0xFFFFFAF0</span>,
+    <span class="Label">ForestGreen</span>       : <span class="Number">0xFF228B22</span>,
+    <span class="Label">Fuchsia</span>           : <span class="Number">0xFFFF00FF</span>,
+    <span class="Label">Gainsboro</span>           : <span class="Number">0xFFDCDCDC</span>,
+    <span class="Label">GhostWhite</span>         : <span class="Number">0xFFF8F8FF</span>,
+    <span class="Label">Gold</span>                 : <span class="Number">0xFFFFD700</span>,
+    <span class="Label">Goldenrod</span>           : <span class="Number">0xFFDAA520</span>,
+    <span class="Label">Gray</span>                 : <span class="Number">0xFF808080</span>,
+    <span class="Label">Green</span>               : <span class="Number">0xFF008000</span>,
+    <span class="Label">GreenYellow</span>       : <span class="Number">0xFFADFF2F</span>,
+    <span class="Label">Honeydew</span>             : <span class="Number">0xFFF0FFF0</span>,
+    <span class="Label">HotPink</span>           : <span class="Number">0xFFFF69B4</span>,
+    <span class="Label">IndianRed</span>           : <span class="Number">0xFFCD5C5C</span>,
+    <span class="Label">Indigo</span>             : <span class="Number">0xFF4B0082</span>,
+    <span class="Label">Ivory</span>               : <span class="Number">0xFFFFFFF0</span>,
+    <span class="Label">Khaki</span>               : <span class="Number">0xFFF0E68C</span>,
+    <span class="Label">Lavender</span>             : <span class="Number">0xFFE6E6FA</span>,
+    <span class="Label">LavenderBlush</span>       : <span class="Number">0xFFFFF0F5</span>,
+    <span class="Label">LawnGreen</span>           : <span class="Number">0xFF7CFC00</span>,
+    <span class="Label">LemonChiffon</span>         : <span class="Number">0xFFFFFACD</span>,
+    <span class="Label">LightBlue</span>           : <span class="Number">0xFFADD8E6</span>,
+    <span class="Label">LightCoral</span>         : <span class="Number">0xFFF08080</span>,
+    <span class="Label">LightCyan</span>           : <span class="Number">0xFFE0FFFF</span>,
+    <span class="Label">LightGoldenrodYellow</span> : <span class="Number">0xFFFAFAD2</span>,
+    <span class="Label">LightGray</span>           : <span class="Number">0xFFD3D3D3</span>,
+    <span class="Label">LightGreen</span>         : <span class="Number">0xFF90EE90</span>,
+    <span class="Label">LightPink</span>           : <span class="Number">0xFFFFB6C1</span>,
+    <span class="Label">LightSalmon</span>       : <span class="Number">0xFFFFA07A</span>,
+    <span class="Label">LightSeaGreen</span>       : <span class="Number">0xFF20B2AA</span>,
+    <span class="Label">LightSkyBlue</span>         : <span class="Number">0xFF87CEFA</span>,
+    <span class="Label">LightSlateGray</span>     : <span class="Number">0xFF778899</span>,
+    <span class="Label">LightSteelBlue</span>     : <span class="Number">0xFFB0C4DE</span>,
+    <span class="Label">LightYellow</span>       : <span class="Number">0xFFFFFFE0</span>,
+    <span class="Label">Lime</span>                 : <span class="Number">0xFF00FF00</span>,
+    <span class="Label">LimeGreen</span>           : <span class="Number">0xFF32CD32</span>,
+    <span class="Label">Linen</span>               : <span class="Number">0xFFFAF0E6</span>,
+    <span class="Label">Magenta</span>           : <span class="Number">0xFFFF00FF</span>,
+    <span class="Label">Maroon</span>             : <span class="Number">0xFF800000</span>,
+    <span class="Label">MediumAquamarine</span>     : <span class="Number">0xFF66CDAA</span>,
+    <span class="Label">MediumBlue</span>         : <span class="Number">0xFF0000CD</span>,
+    <span class="Label">MediumOrchid</span>         : <span class="Number">0xFFBA55D3</span>,
+    <span class="Label">MediumPurple</span>         : <span class="Number">0xFF9370DB</span>,
+    <span class="Label">MediumSeaGreen</span>     : <span class="Number">0xFF3CB371</span>,
+    <span class="Label">MediumSlateBlue</span>   : <span class="Number">0xFF7B68EE</span>,
+    <span class="Label">MediumSpringGreen</span>   : <span class="Number">0xFF00FA9A</span>,
+    <span class="Label">MediumTurquoise</span>   : <span class="Number">0xFF48D1CC</span>,
+    <span class="Label">MediumVioletRed</span>   : <span class="Number">0xFFC71585</span>,
+    <span class="Label">MidnightBlue</span>         : <span class="Number">0xFF191970</span>,
+    <span class="Label">MintCream</span>           : <span class="Number">0xFFF5FFFA</span>,
+    <span class="Label">MistyRose</span>           : <span class="Number">0xFFFFE4E1</span>,
+    <span class="Label">Moccasin</span>             : <span class="Number">0xFFFFE4B5</span>,
+    <span class="Label">NavajoWhite</span>       : <span class="Number">0xFFFFDEAD</span>,
+    <span class="Label">Navy</span>                 : <span class="Number">0xFF000080</span>,
+    <span class="Label">OldLace</span>           : <span class="Number">0xFFFDF5E6</span>,
+    <span class="Label">Olive</span>               : <span class="Number">0xFF808000</span>,
+    <span class="Label">OliveDrab</span>           : <span class="Number">0xFF6B8E23</span>,
+    <span class="Label">Orange</span>             : <span class="Number">0xFFFFA500</span>,
+    <span class="Label">OrangeRed</span>           : <span class="Number">0xFFFF4500</span>,
+    <span class="Label">Orchid</span>             : <span class="Number">0xFFDA70D6</span>,
+    <span class="Label">PaleGoldenrod</span>       : <span class="Number">0xFFEEE8AA</span>,
+    <span class="Label">PaleGreen</span>           : <span class="Number">0xFF98FB98</span>,
+    <span class="Label">PaleTurquoise</span>       : <span class="Number">0xFFAFEEEE</span>,
+    <span class="Label">PaleVioletRed</span>       : <span class="Number">0xFFDB7093</span>,
+    <span class="Label">PapayaWhip</span>         : <span class="Number">0xFFFFEFD5</span>,
+    <span class="Label">PeachPuff</span>           : <span class="Number">0xFFFFDAB9</span>,
+    <span class="Label">Peru</span>                 : <span class="Number">0xFFCD853F</span>,
+    <span class="Label">Pink</span>                 : <span class="Number">0xFFFFC0CB</span>,
+    <span class="Label">Plum</span>                 : <span class="Number">0xFFDDA0DD</span>,
+    <span class="Label">PowderBlue</span>         : <span class="Number">0xFFB0E0E6</span>,
+    <span class="Label">Purple</span>             : <span class="Number">0xFF800080</span>,
+    <span class="Label">Red</span>               : <span class="Number">0xFFFF0000</span>,
+    <span class="Label">RosyBrown</span>           : <span class="Number">0xFFBC8F8F</span>,
+    <span class="Label">RoyalBlue</span>           : <span class="Number">0xFF4169E1</span>,
+    <span class="Label">SaddleBrown</span>       : <span class="Number">0xFF8B4513</span>,
+    <span class="Label">Salmon</span>             : <span class="Number">0xFFFA8072</span>,
+    <span class="Label">SandyBrown</span>         : <span class="Number">0xFFF4A460</span>,
+    <span class="Label">SeaGreen</span>             : <span class="Number">0xFF2E8B57</span>,
+    <span class="Label">SeaShell</span>             : <span class="Number">0xFFFFF5EE</span>,
+    <span class="Label">Sienna</span>             : <span class="Number">0xFFA0522D</span>,
+    <span class="Label">Silver</span>             : <span class="Number">0xFFC0C0C0</span>,
+    <span class="Label">SkyBlue</span>           : <span class="Number">0xFF87CEEB</span>,
+    <span class="Label">SlateBlue</span>           : <span class="Number">0xFF6A5ACD</span>,
+    <span class="Label">SlateGray</span>           : <span class="Number">0xFF708090</span>,
+    <span class="Label">Snow</span>                 : <span class="Number">0xFFFFFAFA</span>,
+    <span class="Label">SpringGreen</span>       : <span class="Number">0xFF00FF7F</span>,
+    <span class="Label">SteelBlue</span>           : <span class="Number">0xFF4682B4</span>,
+    <span class="Label">Tan</span>               : <span class="Number">0xFFD2B48C</span>,
+    <span class="Label">Teal</span>                 : <span class="Number">0xFF008080</span>,
+    <span class="Label">Thistle</span>           : <span class="Number">0xFFD8BFD8</span>,
+    <span class="Label">Tomato</span>             : <span class="Number">0xFFFF6347</span>,
+    <span class="Label">Transparent</span>       : <span class="Number">0x00FFFFFF</span>,
+    <span class="Label">Turquoise</span>           : <span class="Number">0xFF40E0D0</span>,
+    <span class="Label">Violet</span>             : <span class="Number">0xFFEE82EE</span>,
+    <span class="Label">Wheat</span>               : <span class="Number">0xFFF5DEB3</span>,
+    <span class="Label">White</span>               : <span class="Number">0xFFFFFFFF</span>,
+    <span class="Label">WhiteSmoke</span>         : <span class="Number">0xFFF5F5F5</span>,
+    <span class="Label">Yellow</span>             : <span class="Number">0xFFFFFF00</span>,
+    <span class="Label">YellowGreen</span>       : <span class="Number">0xFF9ACD32</span>
+};
+</pre>
+</body>
+</html>

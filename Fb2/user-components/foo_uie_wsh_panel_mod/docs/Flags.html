@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>F:\Develop\foobar2000-Dev.2011-03-11\foobar2000\foo_uie_wsh_panel_mod\docs\Flags.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="javascript">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+body { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+.Label { color: #00ffff; }
+.Number { color: #ffec8b; font-weight: bold; }
+.Underlined { color: #80a0ff; text-decoration: underline; }
+.Comment { color: #66cdaa; font-style: italic; }
+-->
+</style>
+</head>
+<body>
+<pre>
+
+<span class="Comment">// Flags, used with GdiDrawText()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/dd162498(VS.85).aspx">http://msdn.microsoft.com/en-us/library/dd162498(VS.85).aspx</a></span>
+DT_TOP = <span class="Number">0x00000000</span>;
+DT_LEFT = <span class="Number">0x00000000</span>;
+DT_CENTER = <span class="Number">0x00000001</span>;
+DT_RIGHT = <span class="Number">0x00000002</span>;
+DT_VCENTER = <span class="Number">0x00000004</span>;
+DT_BOTTOM = <span class="Number">0x00000008</span>;
+DT_WORDBREAK = <span class="Number">0x00000010</span>;
+DT_SINGLELINE = <span class="Number">0x00000020</span>;
+DT_EXPANDTABS = <span class="Number">0x00000040</span>;
+DT_TABSTOP = <span class="Number">0x00000080</span>;
+DT_NOCLIP = <span class="Number">0x00000100</span>;
+DT_EXTERNALLEADING = <span class="Number">0x00000200</span>;
+DT_CALCRECT = <span class="Number">0x00000400</span>;  <span class="Comment">// [1.2.1] Handles well</span>
+DT_NOPREFIX = <span class="Number">0x00000800</span>;  <span class="Comment">// NOTE: Please use this flag, or a '&amp;' character will become an underline '_'</span>
+DT_INTERNAL = <span class="Number">0x00001000</span>;
+DT_EDITCONTROL = <span class="Number">0x00002000</span>;
+DT_PATH_ELLIPSIS = <span class="Number">0x00004000</span>;
+DT_END_ELLIPSIS = <span class="Number">0x00008000</span>;
+DT_MODIFYSTRING = <span class="Number">0x00010000</span>;  <span class="Comment">// do not use</span>
+DT_RTLREADING = <span class="Number">0x00020000</span>;
+DT_WORD_ELLIPSIS = <span class="Number">0x00040000</span>;
+DT_NOFULLWIDTHCHARBREAK = <span class="Number">0x00080000</span>;
+DT_HIDEPREFIX = <span class="Number">0x00100000</span>;
+DT_PREFIXONLY = <span class="Number">0x00200000</span>;
+
+<span class="Comment">// Used in AppendMenuItem()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms647616(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms647616(VS.85).aspx</a></span>
+MF_SEPARATOR = <span class="Number">0x00000800</span>;
+MF_ENABLED = <span class="Number">0x00000000</span>;
+MF_GRAYED = <span class="Number">0x00000001</span>;
+MF_DISABLED = <span class="Number">0x00000002</span>;
+MF_UNCHECKED = <span class="Number">0x00000000</span>;
+MF_CHECKED = <span class="Number">0x00000008</span>;
+MF_STRING = <span class="Number">0x00000000</span>;
+<span class="Comment">//MF_BITMAP = 0x00000004;  // do not use</span>
+<span class="Comment">//MF_OWNERDRAW = 0x00000100;  // do not use</span>
+MF_POPUP = <span class="Number">0x00000010</span>;
+MF_MENUBARBREAK = <span class="Number">0x00000020</span>;
+MF_MENUBREAK = <span class="Number">0x00000040</span>;
+
+<span class="Comment">// Used in TrackPopupMenu()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms648002(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms648002(VS.85).aspx</a></span>
+TPM_LEFTALIGN       = <span class="Number">0x0000</span>;
+TPM_CENTERALIGN     = <span class="Number">0x0004</span>;
+TPM_RIGHTALIGN      = <span class="Number">0x0008</span>;
+TPM_TOPALIGN        = <span class="Number">0x0000</span>;
+TPM_VCENTERALIGN    = <span class="Number">0x0010</span>;
+TPM_BOTTOMALIGN     = <span class="Number">0x0020</span>;
+TPM_HORIZONTAL      = <span class="Number">0x0000</span>;     <span class="Comment">/* Horz alignment matters more */</span>
+TPM_VERTICAL        = <span class="Number">0x0040</span>;     <span class="Comment">/* Vert alignment matters more */</span>
+<span class="Comment">// Animations</span>
+TPM_HORPOSANIMATION = <span class="Number">0x0400</span>;
+TPM_HORNEGANIMATION = <span class="Number">0x0800</span>;
+TPM_VERPOSANIMATION = <span class="Number">0x1000</span>;
+TPM_VERNEGANIMATION = <span class="Number">0x2000</span>;
+TPM_NOANIMATION     = <span class="Number">0x4000</span>;
+
+<span class="Comment">// Used in mouse callbacks, as mask, used in on_mouse_lbtn_up(), on_mouse_rbtn_up() and so on</span>
+MK_LBUTTON  = <span class="Number">0x0001</span>;
+MK_RBUTTON  = <span class="Number">0x0002</span>;
+MK_SHIFT    = <span class="Number">0x0004</span>; <span class="Comment">// The SHIFT key is down.</span>
+MK_CONTROL  = <span class="Number">0x0008</span>; <span class="Comment">// The CTRL key is down.</span>
+MK_MBUTTON  = <span class="Number">0x0010</span>;
+MK_XBUTTON1 = <span class="Number">0x0020</span>;
+MK_XBUTTON2 = <span class="Number">0x0040</span>;
+MK_SHIFT = <span class="Number">0x0004</span>;
+MK_CONTROL = <span class="Number">0x0008</span>;
+
+<span class="Comment">// Used in window.SetCursor()</span>
+IDC_ARROW = <span class="Number">32512</span>;
+IDC_IBEAM = <span class="Number">32513</span>;
+IDC_WAIT = <span class="Number">32514</span>;
+IDC_CROSS = <span class="Number">32515</span>;
+IDC_UPARROW = <span class="Number">32516</span>;
+IDC_SIZE = <span class="Number">32640</span>;
+IDC_ICON = <span class="Number">32641</span>;
+IDC_SIZENWSE = <span class="Number">32642</span>;
+IDC_SIZENESW = <span class="Number">32643</span>;
+IDC_SIZEWE = <span class="Number">32644</span>;
+IDC_SIZENS = <span class="Number">32645</span>;
+IDC_SIZEALL = <span class="Number">32646</span>;
+IDC_NO = <span class="Number">32648</span>;
+IDC_APPSTARTING = <span class="Number">32650</span>;
+IDC_HAND = <span class="Number">32649</span>;
+IDC_HELP = <span class="Number">32651</span>;
+
+<span class="Comment">// Used in utils.Glob()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ee332330%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/ee332330%28VS.85%29.aspx</a></span>
+FILE_ATTRIBUTE_READONLY            = <span class="Number">0x00000001</span>;
+FILE_ATTRIBUTE_HIDDEN              = <span class="Number">0x00000002</span>;
+FILE_ATTRIBUTE_SYSTEM              = <span class="Number">0x00000004</span>;
+FILE_ATTRIBUTE_DIRECTORY           = <span class="Number">0x00000010</span>;
+FILE_ATTRIBUTE_ARCHIVE             = <span class="Number">0x00000020</span>;
+<span class="Comment">//FILE_ATTRIBUTE_DEVICE            = 0x00000040; // do not use</span>
+FILE_ATTRIBUTE_NORMAL              = <span class="Number">0x00000080</span>;
+FILE_ATTRIBUTE_TEMPORARY           = <span class="Number">0x00000100</span>;
+FILE_ATTRIBUTE_SPARSE_FILE         = <span class="Number">0x00000200</span>;
+FILE_ATTRIBUTE_REPARSE_POINT       = <span class="Number">0x00000400</span>;
+FILE_ATTRIBUTE_COMPRESSED          = <span class="Number">0x00000800</span>;
+FILE_ATTRIBUTE_OFFLINE             = <span class="Number">0x00001000</span>;
+FILE_ATTRIBUTE_NOT_CONTENT_INDEXED = <span class="Number">0x00002000</span>;
+FILE_ATTRIBUTE_ENCRYPTED           = <span class="Number">0x00004000</span>;
+<span class="Comment">//FILE_ATTRIBUTE_VIRTUAL           = 0x00010000; // do not use</span>
+
+<span class="Comment">// With window.DlgCode, can be combined.</span>
+<span class="Comment">// If you don't know what they mean, igonre them.</span>
+DLGC_WANTARROWS            = <span class="Number">0x0001</span>;     <span class="Comment">/* Control wants arrow keys         */</span>
+DLGC_WANTTAB               = <span class="Number">0x0002</span>;     <span class="Comment">/* Control wants tab keys           */</span>
+DLGC_WANTALLKEYS           = <span class="Number">0x0004</span>;     <span class="Comment">/* Control wants all keys           */</span>
+DLGC_WANTMESSAGE           = <span class="Number">0x0004</span>;     <span class="Comment">/* Pass message to control          */</span>
+DLGC_HASSETSEL             = <span class="Number">0x0008</span>;     <span class="Comment">/* Understands EM_SETSEL message    */</span>
+DLGC_DEFPUSHBUTTON         = <span class="Number">0x0010</span>;     <span class="Comment">/* Default pushbutton               */</span>
+DLGC_UNDEFPUSHBUTTON       = <span class="Number">0x0020</span>;     <span class="Comment">/* Non-default pushbutton           */</span>
+DLGC_RADIOBUTTON           = <span class="Number">0x0040</span>;     <span class="Comment">/* Radio button                     */</span>
+DLGC_WANTCHARS             = <span class="Number">0x0080</span>;     <span class="Comment">/* Want WM_CHAR messages            */</span>
+DLGC_STATIC                = <span class="Number">0x0100</span>;     <span class="Comment">/* Static item: don't include       */</span>
+DLGC_BUTTON                = <span class="Number">0x2000</span>;     <span class="Comment">/* Button item: can be checked      */</span>
+
+<span class="Comment">// Used in IFbTooltip.GetDelayTime() and IFbTooltip.SetDelayTime()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/bb760404(VS.85).aspx">http://msdn.microsoft.com/en-us/library/bb760404(VS.85).aspx</a></span>
+TTDT_AUTOMATIC             =   <span class="Number">0</span>;
+TTDT_RESHOW                =   <span class="Number">1</span>;
+TTDT_AUTOPOP               =   <span class="Number">2</span>;
+TTDT_INITIAL               =   <span class="Number">3</span>;
+
+<span class="Comment">// Used in gdi.Font(), can be combined</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534124(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534124(VS.85).aspx</a></span>
+FontStyle = {
+    <span class="Label">Regular</span>: <span class="Number">0</span>,
+    <span class="Label">Bold</span>: <span class="Number">1</span>,
+    <span class="Label">Italic</span>: <span class="Number">2</span>,
+    <span class="Label">BoldItalic</span>: <span class="Number">3</span>,
+    <span class="Label">Underline</span>: <span class="Number">4</span>,
+    <span class="Label">Strikeout</span>: <span class="Number">8</span>
+};
+
+<span class="Comment">// Used in SetTextRenderingHint()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534404(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534404(VS.85).aspx</a></span>
+TextRenderingHint = {
+    <span class="Label">SystemDefault</span>: <span class="Number">0</span>,
+    <span class="Label">SingleBitPerPixelGridFit</span>: <span class="Number">1</span>,
+    <span class="Label">SingleBitPerPixel</span>: <span class="Number">2</span>,
+    <span class="Label">AntiAliasGridFit</span>: <span class="Number">3</span>,
+    <span class="Label">AntiAlias</span>: <span class="Number">4</span>,
+    <span class="Label">ClearTypeGridFit</span>: <span class="Number">5</span>
+};
+
+<span class="Comment">// Used in SetSmoothingMode()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534173(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534173(VS.85).aspx</a></span>
+SmoothingMode = {
+    <span class="Label">Invalid</span>: -<span class="Number">1</span>,
+    <span class="Label">Default</span>: <span class="Number">0</span>,
+    <span class="Label">HighSpeed</span>: <span class="Number">1</span>,
+    <span class="Label">HighQuality</span>: <span class="Number">2</span>,
+    <span class="Label">None</span>: <span class="Number">3</span>,
+    <span class="Label">AntiAlias</span>: <span class="Number">4</span>
+};
+
+<span class="Comment">// Used in SetInterpolationMode()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534141(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534141(VS.85).aspx</a></span>
+InterpolationMode = {
+    <span class="Label">Invalid</span>: -<span class="Number">1</span>,
+    <span class="Label">Default</span>: <span class="Number">0</span>,
+    <span class="Label">LowQuality</span>: <span class="Number">1</span>,
+    <span class="Label">HighQuality</span>: <span class="Number">2</span>,
+    <span class="Label">Bilinear</span>: <span class="Number">3</span>,
+    <span class="Label">Bicubic</span>: <span class="Number">4</span>,
+    <span class="Label">NearestNeighbor</span>: <span class="Number">5</span>,
+    <span class="Label">HighQualityBilinear</span>: <span class="Number">6</span>,
+    <span class="Label">HighQualityBicubic</span>: <span class="Number">7</span>
+};
+
+<span class="Comment">// Used in RotateFlip()</span>
+<span class="Comment">// For more information, see: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534171(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534171(VS.85).aspx</a></span>
+RotateFlipType =
+{
+    <span class="Label">RotateNoneFlipNone</span>: <span class="Number">0</span>,
+    <span class="Label">Rotate90FlipNone</span>: <span class="Number">1</span>,
+    <span class="Label">Rotate180FlipNone</span>: <span class="Number">2</span>,
+    <span class="Label">Rotate270FlipNone</span>: <span class="Number">3</span>,
+
+    <span class="Label">RotateNoneFlipX</span>: <span class="Number">4</span>,
+    <span class="Label">Rotate90FlipX</span>: <span class="Number">5</span>,
+    <span class="Label">Rotate180FlipX</span>: <span class="Number">6</span>,
+    <span class="Label">Rotate270FlipX</span>: <span class="Number">7</span>,
+
+    <span class="Label">RotateNoneFlipY</span>: <span class="Number">6</span>,
+    <span class="Label">Rotate90FlipY</span>: <span class="Number">7</span>,
+    <span class="Label">Rotate180FlipY</span>: <span class="Number">4</span>,
+    <span class="Label">Rotate270FlipY</span>: <span class="Number">5</span>,
+
+    <span class="Label">RotateNoneFlipXY</span>: <span class="Number">2</span>,
+    <span class="Label">Rotate90FlipXY</span>: <span class="Number">3</span>,
+    <span class="Label">Rotate180FlipXY</span>: <span class="Number">0</span>,
+    <span class="Label">Rotate270FlipXY</span>: <span class="Number">1</span>
+};
+
+<span class="Comment">// h_align/v_align:</span>
+<span class="Comment">// </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534177(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534177(VS.85).aspx</a></span>
+StringAlignment = {
+    <span class="Label">Near</span>: <span class="Number">0</span>,
+    <span class="Label">Center</span>: <span class="Number">1</span>,
+    <span class="Label">Far</span>: <span class="Number">2</span>
+};
+
+<span class="Comment">// trimming:</span>
+<span class="Comment">// </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534403(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534403(VS.85).aspx</a></span>
+StringTrimming = {
+    <span class="Label">None</span>: <span class="Number">0</span>,
+    <span class="Label">Character</span>: <span class="Number">1</span>,
+    <span class="Label">Word</span>: <span class="Number">2</span>,
+    <span class="Label">EllipsisCharacter</span>: <span class="Number">3</span>,
+    <span class="Label">EllipsisWord</span>: <span class="Number">4</span>,
+    <span class="Label">EllipsisPath</span>: <span class="Number">5</span>
+};
+
+<span class="Comment">// flags, can be combined of:</span>
+<span class="Comment">// </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms534181(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534181(VS.85).aspx</a></span>
+StringFormatFlags = {
+    <span class="Label">DirectionRightToLeft</span>: <span class="Number">0x00000001</span>,
+    <span class="Label">DirectionVertical</span>: <span class="Number">0x00000002</span>,
+    <span class="Label">NoFitBlackBox</span>: <span class="Number">0x00000004</span>,
+    <span class="Label">DisplayFormatControl</span>: <span class="Number">0x00000020</span>,
+    <span class="Label">NoFontFallback</span>: <span class="Number">0x00000400</span>,
+    <span class="Label">MeasureTrailingSpaces</span>: <span class="Number">0x00000800</span>,
+    <span class="Label">NoWrap</span>: <span class="Number">0x00001000</span>,
+    <span class="Label">LineLimit</span>: <span class="Number">0x00002000</span>,
+    <span class="Label">NoClip</span>: <span class="Number">0x00004000</span>
+};
+
+<span class="Comment">// Used in utils.GetAlbumArt()</span>
+AlbumArtId = {
+    <span class="Label">front</span>: <span class="Number">0</span>,
+    <span class="Label">back</span>: <span class="Number">1</span>,
+    <span class="Label">disc</span>: <span class="Number">2</span>,
+    <span class="Label">icon</span>: <span class="Number">3</span>,
+    <span class="Label">artist</span>: <span class="Number">4</span>
+};
+
+<span class="Comment">// Used in fb.ShowPopupMessage()</span>
+IconId = {
+    <span class="Label">information</span>: <span class="Number">0</span>,
+    <span class="Label">error</span>: <span class="Number">1</span>,
+    <span class="Label">query</span>: <span class="Number">2</span>
+};
+
+<span class="Comment">// Used in window.GetColorCUI()</span>
+ColorTypeCUI = {
+    <span class="Label">text</span>: <span class="Number">0</span>,
+    <span class="Label">selection_text</span>: <span class="Number">1</span>,
+    <span class="Label">inactive_selection_text</span>: <span class="Number">2</span>,
+    <span class="Label">background</span>: <span class="Number">3</span>,
+    <span class="Label">selection_background</span>: <span class="Number">4</span>,
+    <span class="Label">inactive_selection_background</span>: <span class="Number">5</span>,
+    <span class="Label">active_item_frame</span>: <span class="Number">6</span>
+};
+
+<span class="Comment">// Used in window.GetFontCUI()</span>
+FontTypeCUI = {
+    <span class="Label">items</span>: <span class="Number">0</span>,
+    <span class="Label">labels</span>: <span class="Number">1</span>
+};
+
+<span class="Comment">// Used in window.GetColorDUI()</span>
+ColorTypeDUI = {
+    <span class="Label">text</span>: <span class="Number">0</span>,
+    <span class="Label">background</span>: <span class="Number">1</span>,
+    <span class="Label">highlight</span>: <span class="Number">2</span>,
+    <span class="Label">selection</span>: <span class="Number">3</span>
+};
+
+<span class="Comment">// Used in window.GetFontDUI()</span>
+FontTypeDUI = {
+    <span class="Label">defaults</span>: <span class="Number">0</span>,
+    <span class="Label">tabs</span>: <span class="Number">1</span>,
+    <span class="Label">lists</span>: <span class="Number">2</span>,
+    <span class="Label">playlists</span>: <span class="Number">3</span>,
+    <span class="Label">statusbar</span>: <span class="Number">4</span>,
+    <span class="Label">console</span>: <span class="Number">5</span>
+};
+
+<span class="Comment">/*</span>
+<span class="Comment">SupportColorFlagCUI = {</span>
+<span class="Comment">    text: 0x0,</span>
+<span class="Comment">    selection_text: 0x2,</span>
+<span class="Comment">    inactive_selection_text: 0x4,</span>
+<span class="Comment">    background: 0x8,</span>
+<span class="Comment">    selection_background: 0x10;</span>
+<span class="Comment">    inactive_selection_background: 0x20,</span>
+<span class="Comment">    active_item_frame: 0x40,</span>
+<span class="Comment">    group_foreground: 0x80,</span>
+<span class="Comment">    group_background: 0x100,</span>
+<span class="Comment">    colour_flag_all: 0x1ff</span>
+<span class="Comment">};</span>
+
+<span class="Comment">=== Colors ===</span>
+<span class="Comment">Used in GetColorCUI() as client_guid</span>
+<span class="Comment">NG Playlist: &quot;{C882D3AC-C014-44DF-9C7E-2DADF37645A0}&quot; Support Bits: 0x000001ff</span>
+<span class="Comment">Columns Playlist: &quot;{0CF29D60-1262-4F55-A6E1-BC4AE6579D19}&quot; Support Bits: 0x000001ff</span>
+<span class="Comment">Item Details: &quot;{4E20CEED-42F6-4743-8EB3-610454457E19}&quot; Support Bits: 0x00000009</span>
+<span class="Comment">Album List: &quot;{DA66E8F3-D210-4AD2-89D4-9B2CC58D0235}&quot; Support Bits: 0x00000049</span>
+<span class="Comment">Filter Panel: &quot;{4D6774AF-C292-44AC-8A8F-3B0855DCBDF4}&quot; Support Bits: 0x000001ff</span>
+<span class="Comment">Biography View: &quot;{1CE33A5C-1D79-48F7-82EF-089EC49A9CA3}&quot; Support Bits: 0x00000059</span>
+<span class="Comment">Artwork View: &quot;{E32DCBA9-A2BF-4901-AB43-228628071410}&quot; Support Bits: 0x00000008</span>
+<span class="Comment">Playlist Switcher: &quot;{EB38A997-3B5F-4126-8746-262AA9C1F94B}&quot; Support Bits: 0x000001ff</span>
+<span class="Comment">Item Properties: &quot;{862F8A37-16E0-4A74-B27E-2B73DB567D0F}&quot; Support Bits: 0x000001ff</span>
+
+<span class="Comment">=== Fonts ===</span>
+<span class="Comment">Used in GetFontCUI() as client_guid</span>
+<span class="Comment">Album List: &quot;{06B856CC-86E7-4459-A75C-2DAB5B33B8BB}&quot;</span>
+<span class="Comment">Item Properties: Group Titles: &quot;{AF5A96A6-96ED-468F-8BA1-C22533C53491}&quot;</span>
+<span class="Comment">Columns Playlist: Items: &quot;{82196D79-69BC-4041-8E2A-E3B4406BB6FC}&quot;</span>
+<span class="Comment">NG Playlist: Group Titles: &quot;{FB127FFA-1B35-4572-9C1A-4B96A5C5D537}&quot;</span>
+<span class="Comment">NG Playlist: Column Titles: &quot;{30FBD64C-2031-4F0B-A937-F21671A2E195}&quot;</span>
+<span class="Comment">Playlist Switcher: &quot;{70A5C273-67AB-4BB6-B61C-F7975A6871FD}&quot;</span>
+<span class="Comment">Filter Panel: Column Titles: &quot;{FCA8752B-C064-41C4-9BE3-E125C7C7FC34}&quot;</span>
+<span class="Comment">Columns Playlist: Column Titles: &quot;{C0D3B76C-324D-46D3-BB3C-E81C7D3BCB85}&quot;</span>
+<span class="Comment">Tab Stack: &quot;{6F000FC4-3F86-4FC5-80EA-F7AA4D9551E6}&quot;</span>
+<span class="Comment">Console: &quot;{26059FEB-488B-4CE1-824E-4DF113B4558E}&quot;</span>
+<span class="Comment">Biography View: &quot;{F692FE36-D0CB-40A9-A53E-1492D6EFAC65}&quot;</span>
+<span class="Comment">NG Playlist: Items: &quot;{19F8E0B3-E822-4F07-B200-D4A67E4872F9}&quot;</span>
+<span class="Comment">Playlist Tabs: &quot;{942C36A4-4E28-4CEA-9644-F223C9A838EC}&quot;</span>
+<span class="Comment">Status Bar: &quot;{B9D5EA18-5827-40BE-A896-302A71BCAA9C}&quot;</span>
+<span class="Comment">Item Details: &quot;{77F3FA70-E39C-46F8-8E8A-6ECC64DDE234}&quot;</span>
+<span class="Comment">Item Properties: Column Titles: &quot;{7B9DF268-4ECC-4E10-A308-E145DA9692A5}&quot;</span>
+<span class="Comment">Item Properties: Items: &quot;{755FBB3D-A8D4-46F3-B0BA-005B0A10A01A}&quot;</span>
+<span class="Comment">Filter Panel: Items: &quot;{D93F1EF3-4AEE-4632-B5BF-0220CEC76DED}&quot;</span>
+<span class="Comment">*/</span>
+</pre>
+</body>
+</html>

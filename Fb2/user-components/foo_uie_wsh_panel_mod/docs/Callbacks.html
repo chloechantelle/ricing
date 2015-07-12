@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>F:\Develop\foobar2000-Dev.2011-03-11\foobar2000\foo_uie_wsh_panel_mod\docs\Callbacks.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="javascript">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+body { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+.Underlined { color: #80a0ff; text-decoration: underline; }
+.Function { color: #87cefa; }
+.Comment { color: #66cdaa; font-style: italic; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="Comment">// Callback function prototypes</span>
+
+<span class="Comment">// [1.0.4] Updated: mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_lbtn_down(x, y, mask) {}
+
+<span class="Comment">// [1.0.4] Updated: mask, see Flags.txt for more details</span>
+<span class="Comment">// [1.3.6] NOTE: This callback will be suppressed while both VK_LSHIFT and VK_LWIN are pressed.</span>
+<span class="Function">function</span> on_mouse_lbtn_up(x, y, mask) {}
+
+<span class="Comment">// [1.1.8] Added: mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_lbtn_dblclk(x, y, mask) {}
+
+<span class="Comment">// [1.0.4] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_rbtn_down(x, y, mask) {}
+
+<span class="Comment">// [1.0.4] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Comment">// HINT: return true if you want to supress the default context menu.</span>
+<span class="Comment">// NOTE: {L-Win}+{L-Shift}+{Right Click} is reserved for poping up the default context menu.</span>
+<span class="Function">function</span> on_mouse_rbtn_up(x, y, mask) {}
+
+<span class="Comment">// [1.1.8] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_rbtn_dblclk(x, y, mask) {}
+
+<span class="Comment">// [1.1.8] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_mbtn_down(x, y, mask) {}
+
+<span class="Comment">// [1.1.8] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Comment">// Actions should be executed in this callback</span>
+<span class="Function">function</span> on_mouse_mbtn_up(x, y, mask) {}
+
+<span class="Comment">// [1.1.8] New:</span>
+<span class="Comment">// mask, see Flags.txt for more details</span>
+<span class="Function">function</span> on_mouse_mbtn_dblclk(x, y, mask) {}
+
+<span class="Comment">// [1.4.1] Updated:</span>
+<span class="Function">function</span> on_mouse_move(x, y, mask) {}
+
+<span class="Comment">// Called when mouse leaves WSH Panel Mod</span>
+<span class="Function">function</span> on_mouse_leave() {}
+
+<span class="Function">function</span> on_mouse_wheel(step) {}
+
+<span class="Comment">/* </span>
+<span class="Comment"> * NOTE: All keyboard related callbacks require &quot;Grab focus&quot; enabled in panel Properties.</span>
+<span class="Comment"> *       To capture arrow keys, set window.DlgCode</span>
+<span class="Comment"> */</span>
+
+<span class="Comment">// Keyboard key down</span>
+<span class="Comment">// HINT: Return true to suppress processing keyboard shortcuts</span>
+<span class="Comment">// vkey: Virtual Key Code, Refer to: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms927178.aspx">http://msdn.microsoft.com/en-us/library/ms927178.aspx</a></span>
+<span class="Function">function</span> on_key_down(vkey) {}
+
+<span class="Comment">// [1.3.2] New:</span>
+<span class="Comment">// Keyboard key up</span>
+<span class="Comment">// vkey: Virtual Key Code, Refer to: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms927178.aspx">http://msdn.microsoft.com/en-us/library/ms927178.aspx</a></span>
+<span class="Function">function</span> on_key_up(vkey) {}
+
+<span class="Comment">// [1.3.2] New:</span>
+<span class="Comment">// code: UTF16 encoded char.</span>
+<span class="Comment">// NOTE: in order to use this callback, set flag DLGC_WANTCHARS (#Flags.txt) to window.DlgCode.</span>
+<span class="Function">function</span> on_char(code) {}
+
+<span class="Comment">// Get or lost focus</span>
+<span class="Function">function</span> on_focus(is_focused) {}
+
+<span class="Comment">// After window is sized</span>
+<span class="Comment">// NOTE: DO NOT Call window.Repaint() and such to repaint window in this function</span>
+<span class="Function">function</span> on_size() {}
+
+<span class="Comment">// Called when window is ready to draw</span>
+<span class="Comment">// gr - Refer to IGdiGraphics, note that gr will be invalid out of this callback scope.</span>
+<span class="Function">function</span> on_paint(gr) {}
+
+<span class="Comment">// [1.1.1] New: Called when &quot;stop after current&quot; state is changed</span>
+<span class="Comment">// state: boolean, reflect current &quot;stop after current&quot; value</span>
+<span class="Function">function</span> on_playlist_stop_after_current_changed(state) {}
+
+<span class="Comment">// [1.1.1] New: Called when &quot;cursor follow playback&quot; state is changed</span>
+<span class="Comment">// state: boolean, reflect current &quot;cursor follow playback&quot;  value</span>
+<span class="Function">function</span> on_cursor_follow_playback_changed(state) {}
+
+<span class="Comment">// [1.1.1] New: Called when &quot;playback follow cursor&quot; state is changed</span>
+<span class="Comment">// state: boolean, reflect current &quot;playback follow cursor&quot; value</span>
+<span class="Function">function</span> on_playback_follow_cursor_changed(state) {}
+
+<span class="Comment">// [1.1.1] New: Called in other panels after window.NotifyOthers(name, info) is executed</span>
+<span class="Comment">// name and info is the same as in NotifyOthers()</span>
+<span class="Comment">// [1.3.0] Updated, see Interfaces.txt for more details.</span>
+<span class="Function">function</span> on_notify_data(name, info) {}
+
+<span class="Comment">// [1.1.10] New:</span>
+<span class="Comment">// [1.3.0] Updated:</span>
+<span class="Comment">//   image_path will point to the image file (or music file itself, if image is an embedded image)</span>
+<span class="Comment">// Get called while thread created by GetAlbumArtAsync() is done.</span>
+<span class="Function">function</span> on_get_album_art_done(metadb, art_id, image, image_path) {}
+
+<span class="Comment">// [1.3.2] New:</span>
+<span class="Comment">// Get called while thread created by gdi.LoadImageAsync() is done.</span>
+<span class="Function">function</span> on_load_image_done(cookie, image) {}
+
+<span class="Comment">// [1.1.10] New: </span>
+<span class="Comment">// NOTE 1: Always call window.GetBackgroundImage() during this callback</span>
+<span class="Comment">// NOTE 2: DO NOT call window.Repaint()</span>
+<span class="Function">function</span> on_refresh_background_done() {}
+
+<span class="Comment">// [1.1.10] New: </span>
+<span class="Comment">// Called when at least 60s of the track has been played, or the track has reached its end after at least 1/3 </span>
+<span class="Comment">//    of it has been played through.</span>
+<span class="Function">function</span> on_item_played(metadb) {}
+
+<span class="Comment">// cmd: (integer, begin with 0): default, play, next, prev, settrack, rand, resume</span>
+<span class="Function">function</span> on_playback_starting(cmd, is_paused) {}
+
+<span class="Comment">// [1.1.0] Updated: metadb - Refer to IFbMetadbHandle</span>
+<span class="Function">function</span> on_playback_new_track(metadb) {}
+
+<span class="Comment">// reason: (integer, begin with 0): user, eof, starting_another</span>
+<span class="Function">function</span> on_playback_stop(reason) {}
+
+<span class="Comment">// time - float value, in seconds.</span>
+<span class="Function">function</span> on_playback_seek(time) {}
+
+<span class="Comment">// state = true when paused, false when resumed</span>
+<span class="Function">function</span> on_playback_pause(state) {}
+
+<span class="Comment">// [1.4.3] Updated:</span>
+<span class="Comment">// Called when currently played file gets edited</span>
+<span class="Function">function</span> on_playback_edited(metadb) {}
+
+<span class="Comment">// Dynamic info (VBR bitrate etc) change</span>
+<span class="Function">function</span> on_playback_dynamic_info() {}
+
+<span class="Comment">// Per-track dynamic info (stream track titles etc) change. Happens less often than on_playback_dynamic_info().</span>
+<span class="Function">function</span> on_playback_dynamic_info_track() {}
+
+<span class="Comment">// Called every second, for time display</span>
+<span class="Comment">// time - float value, in sec</span>
+<span class="Function">function</span> on_playback_time(time) {}
+
+<span class="Comment">// val - volume level in dB; 0 for full volume.</span>
+<span class="Function">function</span> on_volume_change(val) {}
+
+<span class="Comment">// NEW: Called when playback order is changed</span>
+<span class="Comment">// new_order_index:</span>
+<span class="Comment">//      0 - &quot;Default&quot;</span>
+<span class="Comment">//      1 - &quot;Repeat (Playlist)&quot;</span>
+<span class="Comment">//      2 - &quot;Repeat (Track)&quot;</span>
+<span class="Comment">//      3 - &quot;Random&quot;</span>
+<span class="Comment">//      4 - &quot;Shuffle (tracks)&quot;</span>
+<span class="Comment">//      5 - &quot;Shuffle (albums)&quot;</span>
+<span class="Comment">//      6 - &quot;Shuffle (folders)&quot;</span>
+<span class="Function">function</span> on_playback_order_changed(new_order_index) {}
+
+<span class="Function">function</span> on_timer(timer_id) {}
+
+<span class="Comment">// [1.1.1] Updated: Called when playlist focus has been changed</span>
+<span class="Comment">// For those who what to implement &quot;follow cursor&quot;</span>
+<span class="Comment">// [1.5.0 Preview 6]: Changed: Add callback parameters &quot;playlist&quot;, &quot;from&quot; and &quot;to&quot;</span>
+<span class="Function">function</span> on_item_focus_change(playlist, from, to) {}
+
+<span class="Comment">// [1.1.3] New:</span>
+<span class="Comment">// [1.4.0] Changed:</span>
+<span class="Comment">// Called when metadb contents change. (Or, one of display hook component requests display update).</span>
+<span class="Comment">// Cooperated with window.WatchMetadb() and window.UnWatchMetadb()</span>
+<span class="Comment">// metadb_or_metadbs: </span>
+<span class="Comment">//          prior to &quot;v1.4.0&quot;   - The same metadb as in window.WatchMetadb(metadb)</span>
+<span class="Comment">//          &quot;v1.4.0&quot;            - Metadb handles</span>
+<span class="Comment">// fromhook: boolean, set to true when actual file contents haven't changed but one of metadb_display_field_provider </span>
+<span class="Comment">//   implementations requested an update so output of metadb_handle::format_title() etc has changed.</span>
+<span class="Comment">// NOTE: See Preprocessors.txt if you are using @feature directive.</span>
+<span class="Comment">// NOTE: metadb will be metadb handle list (already sorted) when preprocessor directive &quot;feature&quot;:</span>
+<span class="Comment">//   1. &quot;v1.4&quot; and later is set;</span>
+<span class="Comment">//   2. &quot;watch-metadb&quot; is set.</span>
+<span class="Function">function</span> on_metadb_changed(metadb_or_metadbs, fromhook) {}
+
+<span class="Comment">// [1.3.0] New:</span>
+<span class="Comment">// DUI and CUI</span>
+<span class="Comment">// On color setting changed</span>
+<span class="Comment">// Retrieve colors using window.GetColorXXX() method.</span>
+<span class="Function">function</span> on_colors_changed() {}
+
+<span class="Comment">// [1.3.0] New:</span>
+<span class="Comment">// DUI and CUI</span>
+<span class="Comment">// On font setting changed</span>
+<span class="Comment">// Retrieve fonts using window.GetFontXXX() method.</span>
+<span class="Function">function</span> on_font_changed() {}
+
+<span class="Comment">// [1.3.0] New:</span>
+<span class="Function">function</span> on_playlist_switch() {}
+
+<span class="Comment">// [1.3.0] New:</span>
+<span class="Comment">// Note: this callback is not guarantee to be called during unloading</span>
+<span class="Function">function</span> on_script_unload() {}
+
+<span class="Comment">// [1.3.2] New:</span>
+<span class="Comment">// Called when any playlist is removed/reordered/created/renamed.</span>
+<span class="Function">function</span> on_playlists_changed() {}
+
+<span class="Comment">// [1.3.2] New:</span>
+<span class="Comment">// [1.4.0 Beta 1] Changed:</span>
+<span class="Comment">// This behavior will be changed when &quot;Display-&gt;Selection viewers&quot; of foobar2000 preferences is changed.</span>
+<span class="Comment">// NOTE: metadb may be null.</span>
+<span class="Comment">// NOTE: metadb will be not valid while preprocessor: &quot;feature&quot; is &quot;v1.4&quot; or newer. (See Preprocessors.txt)</span>
+<span class="Function">function</span> on_selection_changed(metadb) {}
+
+<span class="Comment">// [1.5.0 Preview 7] New:</span>
+<span class="Function">function</span> on_playlist_item_ensure_visible(playlist, item) {}
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Comment">// playlist: index to indicate that which playlist has newly added items</span>
+<span class="Function">function</span> on_playlist_items_added(playlist) {}
+
+<span class="Comment">// [1.5.0 Preview] Added:</span>
+<span class="Comment">// Note this callback is different from on_playlists_changed(), which is applied to playlists, whenever</span>
+<span class="Comment">//   this applied to playlist items instead.</span>
+<span class="Function">function</span> on_playlist_items_reordered(playlist) {}
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Comment">// playlist: index to indicate that which playlist has items removed</span>
+<span class="Comment">// new_count: new items count of the playlist.</span>
+<span class="Function">function</span> on_playlist_items_removed(playlist, new_count) {}
+
+<span class="Comment">// [1.5.0] Added:</span>
+<span class="Comment">// origin:  0 - changed_user_added</span>
+<span class="Comment">//          1 - changed_user_removed</span>
+<span class="Comment">//          2 - changed_playback_advance</span>
+<span class="Function">function</span> on_playback_queue_changed(origin) {}
+
+<span class="Comment">/* </span>
+<span class="Comment"> * Note:</span>
+<span class="Comment"> * In order to get drag and drop callbacks work, you have to set feature=&quot;dragdrop&quot; in the preprocessor.</span>
+<span class="Comment"> * See Preprocessors.txt for more details.</span>
+<span class="Comment"> *</span>
+<span class="Comment"> * While dragging, you cannot receive callbacks like on_mouse_move().</span>
+<span class="Comment"> */</span>
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Comment">// x, y and mask have the same meaning as in on_mouse_*() callbacks.</span>
+<span class="Comment">// action: an object of IDropTargetAction interface.</span>
+<span class="Function">function</span> on_drag_enter(action, x, y, mask) {}
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Comment">// x, y and mask have the same meaning as in on_mouse_*() callbacks.</span>
+<span class="Comment">// action: an object of IDropTargetAction interface.</span>
+<span class="Function">function</span> on_drag_over(action, x, y, mask) {}
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Function">function</span> on_drag_leave() {}
+
+<span class="Comment">// [1.4.1] Added:</span>
+<span class="Comment">// x, y and mask have the same meaning as in on_mouse_*() callbacks.</span>
+<span class="Comment">// action: an object of IDropTargetAction interface.</span>
+<span class="Function">function</span> on_drag_drop(action, x, y, mask) {}
+
+
+<span class="Comment">// [1.5.0 Preview 8] New:</span>
+<span class="Comment">// gr - Refer to IGdiGraphics, note that gr will be invalid out of this callback scope.</span>
+<span class="Comment">// Please check your &quot;tooltip&quot; preprocessor directive before use.</span>
+<span class="Function">function</span> on_tooltip_custom_paint(gr) {}
+</pre>
+</body>
+</html>
