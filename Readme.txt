@@ -1,6 +1,4 @@
 
-<h2>Rice!~</h2>
-
 AHK - 
 
 All scripts that I use, change the locations in Scrot, and my tiling is setup for two monitors so obviously only some hotkeys would work with one, ~make sure numlock is turned off~.
@@ -9,9 +7,13 @@ BBLEAN -
 
 Plugins that I've edited for bbLean, styles that I've made for it.
 
+
+[text](link)
+
+
 FB2 - 
 
-Includes all components that you'd need for the skins, if it doesn't work install the ncmp mod and follow the <a href="http://pastebin.com/QbGNnzsZ">faq</a> for that, if you're already familar with fb (and installed the mod) you won't have any problems.
+Includes all components that you'd need for the skins, if it doesn't work install the ncmp mod and follow the [faq](http://pastebin.com/QbGNnzsZ) for that, if you're already familar with fb (and installed the mod) you won't have any problems.
 
 MISC RICE - 
 
