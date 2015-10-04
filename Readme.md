@@ -24,7 +24,7 @@ To get the temps and percentages to work:
  - Put a shortcut to it in your startup folder
  - Edit the System Info skin and change the hardware information to your own.
 
- ![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%Preview.png)
+ ![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%20Preview.png)
 
 <h2>STARTPAGES - </h2>
 
