@@ -1,0 +1,15 @@
+1. Run OpenHardwareMonitor from the folder, minimize to tray and put it in your startup folder (C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup) so it starts with your pc.
+
+2. If you can't move a skin go to settings and uncheck Keep on Screen and Snap to Edges.
+
+3. To change the weather go to www.weather.com and grab the part of the url after the slash but before the semicolon, replace it in Info.txt at the top.
+
+4. To get mail working replace 'EMAIL' and 'PASSWORD' with yours, don't include the @etc part of your email.
+eg. Url=https://tfwnogf:supersecretpassword@mail.google.com
+Replace mail.google with whatever alternative mail domain you use.
+
+5. The Virtuawin skin will only work if you have Virtuawin installed and running, it's literally pointless and you might as well unload it if you don't use workspaces.
+
+6. For Waifu as long as it's a render and around 500-600 in height then it'll work, just edit the filename in the skins .ini
+
+7. Bar is for 2 monitors and Bar2 is for one monitor.

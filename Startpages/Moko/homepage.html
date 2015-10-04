@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="refresh" content="60" > 
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48 150x150" type="image/vnd.microsoft.icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<title>Homepage</title>
+
+<div id="back"></div>
+
+<style type="text/css">
+
+#back {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+}​
+
+html, body {
+    background: url('images/bg/grid.png') fixed center;
+    background-size: repeat;
+    width: 100%; height: 100%;
+    font-family: open sans;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #1d1e2a;
+    color: #628383; 
+    animation: fadein 0.3s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+a, a:link, a:visited { 
+    color: #556b82;
+    text-decoration: none;
+    transition: .2s ease-out; 
+}
+
+a:hover, a:active, body { 
+     color: #6f535e; 
+ }
+
+img {
+   opacity: 0.5;
+   width:322px;
+   height:202px;
+   border:0;
+   padding:10px;
+   margin-top: 0px;
+   /*box-shadow: 0px 1px 10px -5px #000;*/
+   /*filter: grayscale(80%);*/
+}
+
+img:hover {
+   opacity: 0.8;
+}
+
+.image { 
+   position: relative; 
+   display: inline-block;
+}
+
+#section {
+    width: 690px;
+    height: 490px;
+   margin: auto;
+   margin-top: 0px;
+}
+
+/* transparent borders 
+#section, h3 {
+  background: #1a1b26;
+  padding: 0px;
+  border: 15px solid rgba(0, 0, 0, 0.3);
+  background-clip: border-box;      
+  background-clip: padding-box;     
+  background-clip: content-box;  
+}*/
+
+/* solid borders*/
+#section {
+  background: #1a1b26;
+  padding: 0px;
+  border: 0px solid #59444b;
+  border-radius: 10px;
+  box-shadow: 0px 5px 30px -15px #000;
+} 
+
+#section {
+  border-top: none;
+}
+
+/* no borders 
+#section {
+  background: #1a1b26;
+  padding: 0px;
+  border: 0px solid #59444b;
+}
+
+h3 {
+  background-color: #59444b;
+}*/
+
+/* title */
+h1 { 
+   position: absolute; 
+   top: 15px; 
+   left: 15px; 
+   width: 90%;
+   font-size: 15px;
+   /*font-family: Blank;*/
+   background: rgba(22, 23, 33, 0.7);
+   text-align: center;
+}
+
+/* links */
+h2 { 
+   position: absolute; 
+   top: 165px; 
+   left: 15px; 
+   width: 90%;
+   font-size: 15px;
+   /*font-family: Blank;*/
+   text-align: center;
+   background: rgba(22, 23, 33, 0.7);
+}
+
+h2:hover { 
+   font-family: Open Sans;
+}
+
+/* greeting and time */
+h3 {
+   color: #59444b;
+   font-family: open sans;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    width: 690px;
+    text-shadow: 1px 1px 5px #000;
+    margin: auto;
+    margin-top: 190px;
+    /*box-shadow: 0px 1px 20px -3px #000;*/
+    border-bottom: none;
+}
+
+</style>
+
+<div id="section">
+
+  <h3 id="message">
+    <script type="text/javascript">
+        var d = new Date();
+        var n = d.getHours();
+
+        if ( n == 23 || n == 0) {
+            message = "Good evening!";
+        } else if ( n >= 1 && n <= 4 ) {
+            message = "Good evening!";
+        } else if ( n >= 5 && n <= 11 ) {
+            message = "Good morning!";
+        } else if ( n >= 12 && n <= 16 ) {
+            message = "Good afternoon!";
+        } else if ( n >= 17 && n <= 22 ) {
+            message = "Good evening!";
+        }
+        document.getElementById("message").innerHTML = message;
+    </script>
+
+<!--Right now it is 
+<script type="text/javascript">
+
+var currentTime = new Date()
+var hours = currentTime.getHours()
+var minutes = currentTime.getMinutes()
+if (minutes < 10){
+minutes = "0" + minutes
+}
+document.write(hours + ":" + minutes + "~")
+if(hours > 11){
+document.write("PM")
+} else {
+document.write("AM")
+}
+
+</script>-->
+
+</h3>    
+
+<!--4chin links-->
+<div class="image">    
+     <img src="images/grid/ss/4chin.png">
+   <h1>4chin</h2> 
+      <h2><a  href="http://boards.4chan.org/a/#catalog">/a/</a> ~ 
+       <a  href="http://boards.4chan.org/g/#catalog">/g/</a> ~ 
+       <a  href="http://boards.4chan.org/w/#catalog">/w/</a> ~ 
+       <a  href="http://boards.4chan.org/wg/#catalog">/wg/</a></h2>
+</div>
+
+<!--weab links-->
+<div class="image">      
+     <img src="images/grid/ss/weab.png">
+     <h1>weab</h2> 
+            <h2><a  href="http://anichart.net/">ani</a> ~ 
+               <a  href="https://bakabt.me/">baka</a> ~ 
+               <a  href="http://myanimelist.net/">mal</a> ~ 
+               <a  href="http://nyaa.se/">nyaa</a></h2>
+</div>
+
+<!--ffxiv links-->
+<div class="image">      
+     <img src="images/grid/ss/xiv.png">
+   <h1>ffxiv</h2> 
+      <h2><a  href="http://ffxivclock.com/#/">xivclock</a> ~ 
+      <a  href="https://secure.square-enix.com/account/app/svc/mogstation">mog</a> ~ 
+<a  href="http://www.xenoveritas.org/static/ffxiv/timer.html">xivtimer</a></h2>
+</div>
+
+<!--rice links
+<div class="image">      
+     <img src="4chin - w.png">
+     <h1>rice</h2> 
+      <h2><a  href="http://alpha.wallhaven.cc/random">wallhaven</a> ~ 
+          <a  href="https://userstyles.org/users/268662">us</a> ~ 
+           <a  href="http://decagonal.deviantart.com/">da</a></h2>
+</div>-->
+
+<!--misc links-->
+<div class="image">      
+     <img src="images/grid/ss/misc.png">
+   <h1>misc</h2> 
+      <h2><a  href="http://www.last.fm/home">l.fm</a> ~ 
+      <a  href="http://calm.com/">calm</a>  ~ 
+      <a  href="http://tumblr.com/">tmblr</a>  ~ 
+      <a  href="https://userstyles.org/users/268662">us</a>  ~
+      <a  href="http://decagonal.deviantart.com/">da</a>      
+</div>
+
+<!--<script type="text/javascript">
+$(document).ready(function() {
+    $('#back').animate({opacity: 0}, 0).css({'background-image': 'url(images/bg/Beautiful-Cherry-Blossom-Wallpaper.jpg)'}).animate({opacity: 0.5}, 2500);
+});
+</script>-->
+
+</div>
+</body>
+</html>

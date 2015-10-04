@@ -1,0 +1,909 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>F:\Develop\foobar2000-Dev.2011-03-11\foobar2000\foo_uie_wsh_panel_mod\docs\Interfaces.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="java">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+body { font-family: monospace; color: #fff8dc; background-color: #233b5a; }
+.Underlined { color: #80a0ff; text-decoration: underline; }
+.String { color: #7fffd4; }
+.Function { color: #87cefa; }
+.Boolean { color: #ffec8b; font-weight: bold; }
+.Number { color: #ffec8b; font-weight: bold; }
+.Type { color: #98fb98; font-weight: bold; }
+.Label { color: #00ffff; }
+.StorageClass { color: #ffec8b; font-weight: bold; }
+.Comment { color: #66cdaa; font-style: italic; }
+-->
+</style>
+</head>
+<body>
+<pre>
+
+<span class="Comment">// Global objects:</span>
+<span class="Comment">//   window - IFbWindow</span>
+<span class="Comment">//   gdi - IGdiUtils</span>
+<span class="Comment">//   fb - IFbUtils</span>
+<span class="Comment">//   utils - IWSHUtils</span>
+<span class="Comment">//   plman - IFbPlaylistManager</span>
+
+<span class="StorageClass">interface</span> IGdiFont {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">int</span> Height;
+    <span class="Comment">// [1.5.0 Preview 2] New:</span>
+    (readonly) String Name(langid = <span class="Number">0</span>);
+    <span class="Comment">// [1.5.0 Preview 2] New:</span>
+    (readonly) <span class="Type">float</span> Size;
+    <span class="Comment">// [1.5.0 Preview 2] New:</span>
+    (readonly) <span class="Type">int</span> Style;
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> Dispose();
+}
+
+<span class="StorageClass">interface</span> IGdiBitmap {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">int</span> Width;
+    (readonly) <span class="Type">int</span> Height;
+
+<span class="Label">Methods</span>:
+    IGdiBitmap Clone(x, y, w, h);
+    <span class="Type">void</span> RotateFlip(mode);
+    IGdiBitmap ApplyAlpha(alpha);
+    <span class="Comment">// Changes will be saved in the current bitmap</span>
+    <span class="Type">boolean</span> ApplyMask(IGdiBitmap);
+    <span class="Comment">// Create a DDB bitmap from IGdiBitmap, which is used in GdiDrawBitmap()</span>
+    IGdiRawBitmap CreateRawBitmap();
+    <span class="Comment">// NOTE: Don't forget to use ReleaseGraphics() after operations on IGdiGraphics interface is done.</span>
+    IGdiGraphics GetGraphics();
+    <span class="Type">void</span> ReleaseGraphics(IGdiGraphics);
+    <span class="Type">void</span> BoxBlur(radius, iteration = <span class="Number">1</span>);
+    <span class="Comment">// [1.5.0 Beta 5]: Changed: Add parameter &quot;interpolationMode&quot;.</span>
+    <span class="Comment">// See Flags.txt meanings of modes.</span>
+    IGdiBitmap Resize(w, h, interpolationMode = <span class="Number">0</span>);
+    <span class="Comment">// [1.5.5]:</span>
+    VBArray GetColorScheme(max_count);
+    <span class="Type">void</span> Dispose();
+}
+
+<span class="StorageClass">interface</span> IGdiRawBitmap {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">int</span> Width;
+    (readonly) <span class="Type">int</span> Height;
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> Dispose();
+}
+
+<span class="StorageClass">interface</span> IGdiGraphics {
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> FillSolidRect(x, y, w, h, color);
+    <span class="Comment">// [1.3.4] Updated:</span>
+    <span class="Comment">// focus: Specify where the center color will be at its highest intensity, from 0.0 to 1.0</span>
+    <span class="Type">void</span> FillGradRect(x, y, w, h, angle, color1, color2, focus = <span class="Number">1.0</span>);
+    <span class="Type">void</span> FillRoundRect(x, y, w, h, arc_width, arc_height, color);
+    <span class="Type">void</span> FillEllipse(x, y, w, h, color);
+    <span class="Comment">// [1.3,2] New:</span>
+    <span class="Comment">// fillmode: 0 - Alternate, 1 - Winding</span>
+    <span class="Comment">// points is either a VBArray or JScript array.</span>
+    <span class="Type">void</span> FillPolygon(color, fillmode, points);
+    <span class="Type">void</span> DrawLine(x1, y1, x2, y2, line_width, color);
+    <span class="Type">void</span> DrawRect(x, y, w, h, line_width, color);
+    <span class="Type">void</span> DrawRoundRect(x, y, w, h, arc_width, arc_height, line_width, color);
+    <span class="Type">void</span> DrawEllipse(x, y, w, h, line_width, color);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// points is either a VBArray or JScript array.</span>
+    <span class="Type">void</span> DrawPolygon(color, line_width, points);
+    <span class="Type">void</span> DrawString(str, IGdiFont, color, x, y, w, h, flags = <span class="Number">0</span>);
+    <span class="Comment">// [1.3.0] Updated:</span>
+    <span class="Comment">// Returns a VBArray (also see utils.Glob()):</span>
+    <span class="Comment">//  index | meaning</span>
+    <span class="Comment">//   [0] left   (DT_CALCRECT) </span>
+    <span class="Comment">//   [1] top    (DT_CALCRECT)</span>
+    <span class="Comment">//   [2] right  (DT_CALCRECT)</span>
+    <span class="Comment">//   [3] bottom (DT_CALCRECT)</span>
+    <span class="Comment">//   [4] characters drawn</span>
+    <span class="Comment">// Always faster than DrawString and returns chars drawed</span>
+    VBArray GdiDrawText(str, IGdiFont, color, x, y, w, h, format = <span class="Number">0</span>);
+    <span class="Type">void</span> DrawImage(IGdiBitmap, dstX, dstY, dstW, dstH, srcX, srcY, srcW, srcH, angle = <span class="Number">0</span>, alpha = <span class="Number">255</span>);
+    <span class="Comment">// Always faster than DrawImage, do not support alpha channel</span>
+    <span class="Type">void</span> GdiDrawBitmap(IGdiRawBitmap, dstX, dstY, dstW, dstH, srcX, srcY, srcW, srcH);
+    <span class="Comment">// Used with GDI+ functions, such as DrawString().</span>
+    IMeasureStringInfo MeasureString(str, IGdiFont, x, y, w, h, flags = <span class="Number">0</span>);
+    <span class="Comment">// Used with GDI functions, such as GdiDrawText().</span>
+    uint CalcTextWidth(str, IGdiFont);
+    <span class="Comment">// [1.3.5] New:</span>
+    <span class="Comment">// Note that it will only calulate one line text height.</span>
+    uint CalcTextHeight(str, IGdiFont);
+    <span class="Comment">// [1.3.5] New:</span>
+    <span class="Comment">// Returns a VBArray</span>
+    <span class="Comment">//  index | meaning</span>
+    <span class="Comment">//   [0] text line 1</span>
+    <span class="Comment">//   [1] width of text line 1 (in pixel)</span>
+    <span class="Comment">//   [2] text line 2</span>
+    <span class="Comment">//   [3] width of text line 2 (in pixel)</span>
+    <span class="Comment">//   .</span>
+    <span class="Comment">//   .</span>
+    <span class="Comment">//   .</span>
+    <span class="Comment">//   [2n + 2] text line n</span>
+    <span class="Comment">//   [2n + 3] width of text line n (in pixel)</span>
+    VBArray EstimateLineWrap(str, IGdiFont, max_width);
+    <span class="Comment">// See Flags.txt meanings of modes.</span>
+    <span class="Type">void</span> SetTextRenderingHint(mode);
+    <span class="Comment">// See Flags.txt meanings of modes.</span>
+    <span class="Type">void</span> SetSmoothingMode(mode);
+    <span class="Comment">// See Flags.txt meanings of modes.</span>
+    <span class="Type">void</span> SetInterpolationMode(mode);
+    <span class="Type">void</span> GdiAlphaBlend(IGdiRawBitmap, dstX, dstY, dstW, dstH, srcX, srcY, srcW, srcH, alpha = <span class="Number">255</span>);
+}
+
+
+<span class="StorageClass">interface</span> IMeasureStringInfo {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">float</span> x;
+    (readonly) <span class="Type">float</span> y;
+    (readonly) <span class="Type">float</span> Width;
+    (readonly) <span class="Type">float</span> Height;
+    (readonly) <span class="Type">int</span> lines;
+    (readonly) <span class="Type">int</span> chars;
+}
+
+
+<span class="StorageClass">interface</span> IGdiUtils {
+<span class="Label">Methods</span>:
+    IGdiFont Font(name, ptSize, style = <span class="Number">0</span>);
+    IGdiBitmap Image(path);
+    <span class="Comment">// Create an image. By default, this image is transparent</span>
+    IGdiBitmap CreateImage(w, h);
+    <span class="Comment">// [1.3.0] Add: pngmode</span>
+    IStyleTextRender CreateStyleTextRender(pngmode = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// Returns a unique ID of this task.</span>
+    uint LoadImageAsync(window_id, path);
+}
+
+
+<span class="StorageClass">interface</span> IStyleTextRender {
+<span class="Label">Methods</span>:
+    <span class="Comment">// ---- Outline Mode ----</span>
+    <span class="Type">void</span> OutLineText(text_color, outline_color, outline_width);
+    <span class="Type">void</span> DoubleOutLineText(text_color, outline_color1, outline_color2, outline_width1, outline_width2);
+    <span class="Type">void</span> GlowText(text_color, glow_color, glow_width);
+    <span class="Comment">// ---- Shadow ----</span>
+    <span class="Type">void</span> EnableShadow(enable);
+    <span class="Comment">// if you have a *global* IStyleTextRender instance once called EnableShadow(), </span>
+    <span class="Comment">//   it's recommended to call ResetShadow() then.</span>
+    <span class="Type">void</span> ResetShadow();
+    <span class="Comment">// Mode: Default shadow, used in solid shadow color</span>
+    <span class="Type">void</span> Shadow(color, thickness, offset_x, offset_y);
+    <span class="Comment">// Mode: Soft shadow</span>
+    <span class="Type">void</span> DiffusedShadow(color, thickness, offset_x, offset_y);
+    <span class="Comment">// While using DiffusedShadow(), these two methods below are useful</span>
+    <span class="Type">void</span> SetShadowBackgroundColor(color, width, height);
+    <span class="Type">void</span> SetShadowBackgroundImage(img);
+    <span class="Comment">// ---- Render ----</span>
+    <span class="Comment">// Not recommended, if the flags contains something as &quot;center&quot;, this won't </span>
+    <span class="Comment">//  work properly, because it's lack of width and height information.</span>
+    <span class="Type">boolean</span> RenderStringPoint(g, str, font, x, y[, flags]);
+    <span class="Type">boolean</span> RenderStringRect(g, str, font, x, y, w, h[, flags]);
+    <span class="Comment">// [1.3.0] New</span>
+    <span class="Comment">// Only in pngmode, the image should be a transparent image created by gdi.CreateImage().</span>
+    <span class="Type">void</span> SetPngImage(IGdiBitmap);
+}
+
+
+<span class="StorageClass">interface</span> IFbFileInfo {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">int</span> MetaCount;
+    (readonly) <span class="Type">int</span> InfoCount;
+
+<span class="Label">Methods</span>:
+    <span class="Type">int</span> MetaValueCount(idx);
+    <span class="Comment">// returns idx</span>
+    <span class="Type">int</span> MetaFind(name);
+    <span class="Comment">// returns idx</span>
+    <span class="Type">int</span> InfoFind(name);
+    String MetaName(idx);
+    String MetaValue(idx, vidx);
+    <span class="Type">void</span> MetaRemoveField(name);
+    <span class="Type">int</span> MetaAdd(name, value);
+    <span class="Type">void</span> MetaInsertValue(idx, vidx, value);
+    String InfoName(idx);
+    String InfoValue(idx);
+    <span class="Type">void</span> MetaSet(name, value);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="StorageClass">interface</span> IFbMetadbHandle {
+<span class="Label">Properties</span>:
+    (readonly) String Path;
+    (readonly) String RawPath;
+    (readonly) <span class="Type">int</span> SubSong;
+    (readonly) int64 FileSize;
+    (readonly) <span class="Type">double</span> Length;
+
+<span class="Label">Methods</span>:
+    IFbFileInfo GetFileInfo();
+    <span class="Comment">// [Obsolete] do not use, use UpdateFileInfoSimple instead.</span>
+    <span class="Type">void</span> UpdateFileInfo(IFbFileInfo);
+    <span class="Comment">// It's recommended to use this method if you want to update tags</span>
+    <span class="Comment">// if value is a empty string, field will be removed</span>
+    <span class="Comment">// [Optional] multivalue_fields is a semicolon-separated list contains fields name which need to be treated as multivalue.</span>
+    <span class="Comment">// Usage: meta.UpdateFileInfoSimple(&quot;ARTIST&quot;, &quot;Enigma&quot;, &quot;GENRE&quot;, &quot;Downtempo;Ambient&quot;, &quot;GENRE&quot;);</span>
+    <span class="Comment">//     GENRE will be treated as a multivalue field. So GENRE[0] = &quot;Downtempo&quot;, GENRE[1] = &quot;Ambient</span>
+    <span class="Type">void</span> UpdateFileInfoSimple(field1, value1 [, filed2, value2 [,<span class="Function">...</span>] ] [, multivalue_fields]);
+    <span class="Comment">// [1.3.2] New</span>
+    <span class="Comment">// Compare two IFbMetadbHandle instances, pointer only.</span>
+    <span class="Comment">//   If you want to compare them physically, use the &quot;RawPath&quot; property, and compare these two values.</span>
+    <span class="Type">boolean</span> Compare(IFbMetadbHandle);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="Comment">// [1.4.0] New:</span>
+<span class="Comment">// [1.4.0 Beta 2] Updated:</span>
+<span class="StorageClass">interface</span> IFbMetadbHandleList
+{
+<span class="Label">Properties</span>:
+    (readonly) uint Count;
+    <span class="Comment">// [1.5.0 Preview 6]: Changed, now writable.</span>
+    (read, write) IFbMetadbHandle Item(idx);
+
+<span class="Label">Methods</span>:
+    IFbMetadbHandleList Clone();
+    <span class="Comment">// [1.5.0 Preview 6]: New:</span>
+    uint Insert(index, handle);
+    <span class="Comment">// [1.5.0 Preview 6]: New:</span>
+    uint InsertRange(index, handles);
+    uint Add(handle);
+    <span class="Comment">// [1.5.0 Preview 6]: New:</span>
+    <span class="Type">void</span> AddRange(handles);
+    <span class="Type">void</span> RemoveById(UINT idx);
+    <span class="Type">void</span> Remove(handle);
+    <span class="Comment">// [1.5.0 Preview 6]: New:</span>
+    <span class="Type">void</span> RemoveRange(from, num);
+    <span class="Type">void</span> RemoveAll();
+    <span class="Comment">// Sort and remove duplicates</span>
+    <span class="Type">void</span> Sort();
+    <span class="Comment">// If sorted, use BSearch instead</span>
+    uint Find(handle);
+    <span class="Comment">// Only works when sorted, faster than Find()</span>
+    uint BSearch(handle);
+    <span class="Comment">// Must be sorted</span>
+    <span class="Type">void</span> MakeIntersection(handles);
+    <span class="Comment">// Must be sorted</span>
+    <span class="Type">void</span> MakeUnion(handles);
+    <span class="Comment">// Must be sorted</span>
+    <span class="Type">void</span> MakeDifference(handles);
+    <span class="Type">void</span> Dispose();
+    <span class="Comment">// [1.5.0 Preview 4]: New:</span>
+    <span class="Comment">// titleformatObject: an instance of IFbTitleFormat.</span>
+    <span class="Comment">// direction: integer, ascending while &gt;0.</span>
+    <span class="Type">void</span> OrderByFormat(titleformatObject, direction);
+    <span class="Comment">// [1.5.0 Preview 4]: New:</span>
+    <span class="Type">void</span> OrderByPath();
+    <span class="Comment">// [1.5.0 Preview 4]: New:</span>
+    <span class="Type">void</span> OrderByRelativePath();
+}
+
+<span class="StorageClass">interface</span> IFbTitleFormat {
+<span class="Label">Methods</span>:
+    <span class="Comment">// By default, returns a valid value if there is track playing.</span>
+    <span class="Comment">// force: while true, Eval() will always return a valid value even there is no playing track, useful for</span>
+    <span class="Comment">//   title formatting without track-related fields like &quot;%title%&quot;, &quot;%artist%&quot;, etc.</span>
+    String Eval(force = <span class="Boolean">false</span>);
+    String EvalWithMetadb(IFbMetadbHandle);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="StorageClass">interface</span> IMenuObj {
+<span class="Label">Properties</span>:
+    <span class="Comment">// [1.5.0 Beta 2]: NOTE: In order to create popup menus, please use AppendTo() method.</span>
+    (readonly) uint ID;
+
+<span class="Label">Methods</span>:
+    <span class="Comment">// flags: see Flags.txt.</span>
+    <span class="Type">void</span> AppendMenuItem(flags, item_id, text);
+    <span class="Comment">// Same as AppendMenuItem(MF_SEPARATOR,...,...)</span>
+    <span class="Type">void</span> AppendMenuSeparator();
+    <span class="Comment">// [1.3.2] Changed:</span>
+    <span class="Comment">// Add bypos parameter.</span>
+    <span class="Type">void</span> EnableMenuItem(id_or_pos, enable, bypos = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.3.0] Changed: </span>
+    <span class="Comment">// check is now a boolean value.</span>
+    <span class="Comment">// [1.3.2] Changed:</span>
+    <span class="Comment">// Add bypos parameter.</span>
+    <span class="Type">void</span> CheckMenuItem(id_or_pos, check, bypos = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.3.2] Changed:</span>
+    <span class="Comment">// Add bypos parameter.</span>
+    <span class="Type">void</span> CheckMenuRadioItem(first, last, check, bypos = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.4.0 Beta 3] Updated:</span>
+    <span class="Comment">// flags: Control popup positions and animations. (See Flags.txt)</span>
+    <span class="Type">int</span> TrackPopupMenu(x, y, flags = <span class="Number">0</span>);
+    <span class="Comment">// [1.5.0 Beta 2] New:</span>
+    <span class="Type">void</span> AppendTo(parentMenu, flags, text);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="StorageClass">interface</span> IContextMenuManager {
+<span class="Label">Methods</span>:
+    <span class="Comment">// [1.4.0] Changed: accept handle list.</span>
+    <span class="Type">void</span> InitContext(handle_or_handles);
+    <span class="Type">void</span> InitNowPlaying();
+    <span class="Type">void</span> BuildMenu(IMenuObj, base_id, max_id);
+    <span class="Type">boolean</span> ExecuteByID(id);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="StorageClass">interface</span> IMainMenuManager {
+<span class="Label">Methods</span>:
+    <span class="Comment">// NOTE: Only root menu name</span>
+    <span class="Type">void</span> Init(root_name);
+    <span class="Comment">// NOTE: the last param is count, not max_id, this is different from what IContextMenuManager does.</span>
+    <span class="Type">void</span> BuildMenu(IMenuObj, base_id, count);
+    <span class="Type">boolean</span> ExecuteByID(id);
+    <span class="Type">void</span> Dispose();
+}
+
+
+<span class="StorageClass">interface</span> IFbProfiler {
+<span class="Label">Properties</span>:
+    <span class="Comment">// in ms</span>
+    <span class="Type">int</span> Time;
+
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> Reset();
+    <span class="Type">void</span> Print();
+}
+
+<span class="Comment">// [1.5.0 Preview 7] New:</span>
+<span class="StorageClass">interface</span> IFbUiSelectionHolder{
+<span class="Label">Methods</span>:
+    <span class="Comment">// REMEMBER: Call Dispose() after use in time.</span>
+    <span class="Type">void</span> Dispose();
+
+    <span class="Comment">// Sets the selected items.</span>
+    <span class="Comment">// It should not to clear the selection</span>
+    <span class="Type">void</span> SetSelection(handles);
+    <span class="Comment">// Sets selected items to playlist selection and enables tracking.</span>
+    <span class="Comment">// When the playlist selection changes, the stored selection is automatically updated.</span>
+    <span class="Comment">// Tracking ends when a set method is called on any ui_selection_holder or when</span>
+    <span class="Comment">// the last reference to this ui_selection_holder is released.</span>
+    <span class="Type">void</span> SetPlaylistSelectionTracking();
+    <span class="Comment">// Sets selected items to the contents of the active playlist and enables tracking.</span>
+    <span class="Comment">// When the active playlist or its contents changes, the stored selection is automatically updated.</span>
+    <span class="Comment">// Tracking ends when a set method is called on any ui_selection_holder or when</span>
+    <span class="Comment">// the last reference to this ui_selection_holder is released.</span>
+    <span class="Type">void</span> SetPlaylistTracking();
+}
+
+<span class="StorageClass">interface</span> IFbUtils {
+<span class="Label">Properties</span>:
+    (readonly) String ComponentPath;
+    (readonly) String FoobarPath;
+    (readonly) String ProfilePath;
+    (readonly) <span class="Type">boolean</span> IsPlaying;
+    (readonly) <span class="Type">double</span> PlaybackLength;
+    (readonly) <span class="Type">boolean</span> IsPaused;
+    (read, write) <span class="Type">double</span> PlaybackTime;
+    <span class="Comment">// Known playback orders:</span>
+    <span class="Comment">//      Default: 0,</span>
+    <span class="Comment">//      RepeatPlaylist: 1,</span>
+    <span class="Comment">//      RepeatTrack: 2,</span>
+    <span class="Comment">//      Random: 3,</span>
+    <span class="Comment">//      ShuffleTracks: 4,</span>
+    <span class="Comment">//      ShuffleAlbums: 5,</span>
+    <span class="Comment">//      ShuffleFolders: 6</span>
+    (read, write) uint PlaybackOrder;
+    <span class="Comment">// [1.0.2] New:</span>
+    (read, write) <span class="Type">boolean</span> StopAfterCurrent;
+    (read, write) <span class="Type">boolean</span> CursorFollowPlayback;
+    (read, write) <span class="Type">boolean</span> PlaybackFollowCursor;
+    (read, write) <span class="Type">float</span> Volume;
+    <span class="Comment">// [1.3.2] New:</span>
+    (readonly) uint PlaylistCount;
+    <span class="Comment">// [1.3.2] New:</span>
+    (read, write) uint ActivePlaylist;
+    <span class="Comment">// [1.3.2] New:</span>
+    (read, write) uint PlayingPlaylist;
+    <span class="Comment">// [1.4.0 Beta 4] New:</span>
+    (readonly) uint PlaylistItemCount(idx);
+
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> trace(<span class="Function">...</span>);
+    <span class="Comment">// [1.0.4] New:</span>
+    <span class="Comment">// iconid: See Flags.txt for more information</span>
+    <span class="Type">void</span> ShowPopupMessage(msg, title = <span class="String">&quot;WSH Panel Mod&quot;</span>, iconid = <span class="Number">0</span>);
+    IFbProfiler CreateProfiler(name = <span class="String">&quot;&quot;</span>);
+    IFbTitleFormat TitleFormat(expression);
+    IFbMetadbHandle GetNowPlaying();
+    <span class="Comment">// [1.3.0] Updated:</span>
+    <span class="Comment">// force: if this parameter is set to false, GetFocusItem() will only look for the focus item, otherwise, </span>
+    <span class="Comment">//   if the focus item not found, find the first item of the active playlist.</span>
+    IFbMetadbHandle GetFocusItem(force = <span class="Boolean">true</span>);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// Get Now playing item or selection, as you prefer, in &quot;Display-&gt;Selection viewers&quot; of foobar2000 preferences</span>
+    <span class="Comment">// NOTE: Selection contains but not limited to the playlist.</span>
+    <span class="Comment">// NOTE: The return value may be null.</span>
+    IFbMetadbHandle GetSelection();
+    <span class="Comment">// [1.4.0] New:</span>
+    <span class="Comment">// Works actually like GetSelection(), but returns a list of metadb handles.</span>
+    <span class="Comment">// Always returns a valid IFbMetadbHandleList instance instead of null.</span>
+    <span class="Comment">// flags: 1 - no now playing</span>
+    IFbMetadbHandleList GetSelections(flags = <span class="Number">0</span>);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// Retrieve what the selection is</span>
+    <span class="Comment">// Returns:</span>
+    <span class="Comment">//   0: undefined (no item)</span>
+    <span class="Comment">//   1: active_playlist_selection</span>
+    <span class="Comment">//   2: caller_active_playlist</span>
+    <span class="Comment">//   3: playlist_manager</span>
+    <span class="Comment">//   4: now_playing</span>
+    <span class="Comment">//   5: keyboard_shortcut_list</span>
+    <span class="Comment">//   6: media_library_viewer</span>
+    uint GetSelectionType();
+    <span class="Comment">// [1.5.0 Preview 7] New:</span>
+    IFbUiSelectionHolder AcquireUiSelectionHolder();
+
+    <span class="Type">void</span> Exit();
+    <span class="Type">void</span> Play();
+    <span class="Type">void</span> Stop();
+    <span class="Type">void</span> Pause();
+    <span class="Type">void</span> PlayOrPause();
+    <span class="Type">void</span> Next();
+    <span class="Type">void</span> Prev();
+    <span class="Type">void</span> Random();
+    <span class="Type">void</span> VolumeDown();
+    <span class="Type">void</span> VolumeUp();
+    <span class="Type">void</span> VolumeMute();
+    <span class="Type">void</span> AddDirectory();
+    <span class="Type">void</span> AddFiles();
+    <span class="Type">void</span> ShowConsole();
+    <span class="Type">void</span> ShowPreferences();
+    <span class="Type">void</span> ClearPlaylist();
+    <span class="Type">void</span> LoadPlaylist();
+    <span class="Type">void</span> SavePlaylist();
+    <span class="Comment">// NOTE: Now playing content only.</span>
+    <span class="Type">boolean</span> RunMainMenuCommand(command);
+    <span class="Comment">// NOTE: Now playing content only.</span>
+    <span class="Comment">// [1.5.0 Preview 2] Changed: Add new &quot;flags&quot; parameter</span>
+    <span class="Comment">// flags:   0 - default (depends on whether SHIFT key is pressed, flag_view_reduced or flag_view_full is selected)</span>
+    <span class="Comment">//          4 - flag_view_reduced</span>
+    <span class="Comment">//          8 - flag_view_full</span>
+    <span class="Type">boolean</span> RunContextCommand(command, flags = <span class="Number">0</span>);
+    <span class="Comment">// [1.4.0] Changed: Accept IFbMetadbHandleList interface for metadb handle list.</span>
+    <span class="Comment">// [1.5.0 Preview 2] Changed: Add new &quot;flags&quot; parameter</span>
+    <span class="Comment">// flags:   0 - default (depends on whether SHIFT key is pressed, flag_view_reduced or flag_view_full is selected)</span>
+    <span class="Comment">//          4 - flag_view_reduced</span>
+    <span class="Comment">//          8 - flag_view_full</span>
+    <span class="Type">boolean</span> RunContextCommandWithMetadb(command, handle_or_handles, flags = <span class="Number">0</span>);
+    IContextMenuManager CreateContextMenuManager();
+    <span class="Type">boolean</span> IsMetadbInMediaLibrary(metadb);
+    <span class="Comment">// [1.3.2] New:</span>
+    String GetPlaylistName(idx);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// if name is &quot;&quot;, then Create a playlist autonamed with &quot;New Playlist &lt;number&gt;&quot;.</span>
+    <span class="Comment">// return the index of the created playlist.</span>
+    uint CreatePlaylist(idx, name);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Type">boolean</span> RemovePlaylist(idx);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Type">boolean</span> MovePlaylist(from, to);
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Type">boolean</span> RenamePlaylist(idx, name);
+    <span class="Comment">// [1.4.1 Beta 6] New:</span>
+    <span class="Comment">// Duplicate all contents from one playlist to a new playlist.</span>
+    <span class="Comment">// NOTE: This method only duplicate contents of the playlist, not its properties (eg. autoplaylist).</span>
+    <span class="Comment">// from: Which index of playlist to copy from.</span>
+    <span class="Comment">// name: New playlist name, when empty, using the same name as 'from'.</span>
+    <span class="Comment">// Returns the index of newly created playlist.</span>
+    uint DuplicatePlaylist(from, name = <span class="String">&quot;&quot;</span>);
+    <span class="Comment">// [1.4.0] New:</span>
+    <span class="Type">boolean</span> IsAutoPlaylist(idx);
+    <span class="Comment">// [1.4.0] New:</span>
+    <span class="Comment">// sort: sort string expression.</span>
+    <span class="Comment">// flags: 1 - always sort.</span>
+    <span class="Type">boolean</span> CreateAutoPlaylist(idx, name, query, sort = <span class="String">&quot;&quot;</span>, flags = <span class="Number">0</span>);
+    <span class="Comment">// [1.4.0] New:</span>
+    <span class="Type">boolean</span> ShowAutoPlaylistUI(idx);
+}
+
+<span class="Comment">// [Obsolete] Please use window.SetInterval() and/or window.SetTimeout()</span>
+<span class="StorageClass">interface</span> ITimerObj {
+<span class="Label">Properties</span>:
+    (readonly) uint ID;
+
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> Dispose();
+}
+
+<span class="StorageClass">interface</span> IFbTooltip {
+<span class="Label">Properties</span>:
+    (read, write) Text; <span class="Comment">// Set tooltip text</span>
+    <span class="Comment">// [1.5.0 Preview 8]: New:</span>
+    <span class="Comment">// Set if enable tooltip tracking.</span>
+    (writeonly) <span class="Type">boolean</span> TrackActivate;
+    <span class="Comment">// [1.5.0 Preview 8]: New:</span>
+    <span class="Comment">// Used with custom paint only</span>
+    (read, write) <span class="Type">int</span> Width;
+    <span class="Comment">// [1.5.0 Preview 8]: New:</span>
+    <span class="Comment">// Used with custom paint only</span>
+    (read, write) <span class="Type">int</span> Width;
+
+<span class="Label">Methods</span>:
+    <span class="Comment">// NOTE: Don't try to update tooltip text when tooltip is activated, because it will flick in Windows Vista/7.</span>
+    <span class="Type">void</span> Activate();
+    <span class="Type">void</span> Deactivate();
+    <span class="Type">void</span> SetMaxWidth(width);
+    <span class="Type">void</span> Dispose();
+    <span class="Comment">// [1.3.4] New:</span>
+    <span class="Comment">// in milliseconds</span>
+    <span class="Comment">// type: See flags.txt</span>
+    <span class="Type">int</span> GetDelayTime(type);
+    <span class="Comment">// [1.3.4] New:</span>
+    <span class="Comment">// type: See flags.txt</span>
+    <span class="Type">void</span> SetDelayTime(type, time);
+    <span class="Comment">// [1.5.0 Preview 8]: New:</span>
+    <span class="Comment">// NOTE: You should make sure x, y is changed before call, or you will recive a blinking tooltip. </span>
+    <span class="Type">void</span> TrackPosition(x, y);
+}
+
+<span class="Comment">// [1.3.1] New interface</span>
+<span class="StorageClass">interface</span> IThemeManager {
+<span class="Label">Methods</span>:
+    <span class="Comment">// For parts and stats: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/bb773210%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/bb773210%28VS.85%29.aspx</a></span>
+    <span class="Comment">// You get vsstyle.h and vssym32.h (won't included in Flags because they are too large) here:</span>
+    <span class="Comment">//    </span><span class="Underlined"><a href="http://dl.dropbox.com/u/2451120/vsstyles_h.7z">http://dl.dropbox.com/u/2451120/vsstyles_h.7z</a></span>
+    <span class="Type">void</span> SetPartAndStateID(partid, stateid);
+    <span class="Comment">// NOTE: stateid should be 0, it's unused now.</span>
+    <span class="Type">boolean</span> IsThemePartDefined(partid, stateid = <span class="Number">0</span>);
+    <span class="Comment">// [1.3.2] Updated:</span>
+    <span class="Comment">// clip_*: set clipping area.</span>
+    <span class="Type">void</span> DrawThemeBackground(IGdiGraphics, x, y, w, h, clip_x = <span class="Number">0</span>, clip_y = <span class="Number">0</span>, clip_w = <span class="Number">0</span>, clip_h = <span class="Number">0</span>);
+}
+
+<span class="Comment">// [1.4.1 Beta 1] New interface</span>
+<span class="StorageClass">interface</span> IDropTargetAction {
+<span class="Label">Properties</span>:
+    <span class="Comment">// [1.4.1 Beta 4] Updated:</span>
+    <span class="Comment">// Set this value to true/false to enable/disable drag and drop.</span>
+    (read, write) bool Parsable;
+    <span class="Comment">// Default: -1 (active playlist)</span>
+    (read, write) <span class="Type">int</span> Playlist;
+    <span class="Comment">// Default: true</span>
+    (read, write) <span class="Type">boolean</span> ToSelect;
+
+<span class="Label">Methods</span>:
+    <span class="Comment">// Parse dropped items as playlist</span>
+    <span class="Type">void</span> ToPlaylist();
+}
+
+
+<span class="StorageClass">interface</span> IFbWindow {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">int</span> ID;
+    (readonly) <span class="Type">int</span> Width;
+    (readonly) <span class="Type">int</span> Height;
+    <span class="Comment">// [1.3.0] New:</span>
+    <span class="Comment">// Returns: 0 - CUI, 1 - DUI</span>
+    (readonly) <span class="Type">int</span> InstanceType;
+    (read, write) <span class="Type">int</span> MaxWidth;
+    (read, write) <span class="Type">int</span> MaxHeight;
+    (read, write) <span class="Type">int</span> MinWidth;
+    (read, write) <span class="Type">int</span> MinHeight;
+    <span class="Comment">// [1.3.2] New:</span>
+    <span class="Comment">// See Flags.txt for more details</span>
+    (read, write) <span class="Type">int</span> DlgCode;
+    <span class="Comment">// [1.3.3] New:</span>
+    (readonly) <span class="Type">boolean</span> IsTransparent;
+    <span class="Comment">// [1.3.7] New:</span>
+    (readonly) <span class="Type">boolean</span> IsVisible;
+
+<span class="Label">Methods</span>:
+    <span class="Type">void</span> Repaint(force = <span class="Boolean">false</span>);
+    <span class="Type">void</span> RepaintRect(x, y, w, h, force = <span class="Boolean">false</span>);
+    IMenuObj CreatePopupMenu();
+    <span class="Comment">// [Obsolete] Please use window.SetTimeout() instead.</span>
+    <span class="Comment">// Create an one shot timer, this timer will occur only once.</span>
+    ITimerObj CreateTimerTimeout(timeout);
+    <span class="Comment">// [Obsolete] Please use window.SetInterval() instead.</span>
+    <span class="Comment">// Create an periodic timer, this timer will occur periodicly.</span>
+    ITimerObj CreateTimerInterval(delay);
+    <span class="Comment">// [Obsolete] </span>
+    <span class="Comment">// Instead of KillTimer, you should use ITimerObj.Dispose()</span>
+    <span class="Type">void</span> KillTimer(ITimerObj);
+    <span class="Comment">// [1.5.0 Beta 4] New:</span>
+    <span class="Comment">// returns the id or newly created timer</span>
+    uint SetInterval(func, delay);
+    <span class="Comment">// [1.5.0 Beta 4] New:</span>
+    <span class="Comment">// returns the id or newly created timer</span>
+    uint SetTimeout(func, delay);
+    <span class="Comment">// [1.5.0 Beta 4] New;</span>
+    <span class="Type">void</span> ClearTimeout(timerID);
+    <span class="Comment">// [1.5.0 Beta 4] New:</span>
+    <span class="Type">void</span> ClearInterval(timerID);
+    <span class="Comment">// Notify other wsh panels with specified info thru callback function on_notify_data(name, info).</span>
+    <span class="Comment">// [1.3.0] Update:</span>
+    <span class="Comment">//  info can be any type now, but be aware of passing arrays and objects (because they may be unrecognized between</span>
+    <span class="Comment">//     JScript and VBScript). However, VBArrays, strings, booleans, integers and floats, are safe to use.</span>
+    <span class="Type">void</span> NotifyOthers(name, info);
+    <span class="Comment">// These two methods below are in cooperation with callback on_metadb_changed().</span>
+    <span class="Comment">// [1.4.0] Changed:</span>
+    <span class="Comment">// NOTE: Make sure you have read Preprocessors.txt if you are using &quot;feature&quot; directive.</span>
+    <span class="Comment">// [Obsolete] see on_metadb_changed() in Callbacks.txt</span>
+    <span class="Type">void</span> WatchMetadb(IFbMetadbHandle);
+    <span class="Comment">// [1.4.0] Changed:</span>
+    <span class="Comment">// NOTE: Make sure you have read Preprocessors.txt if you are using &quot;feature&quot; directive.</span>
+    <span class="Comment">// [Obsolete] see on_metadb_changed() in Callbacks.txt</span>
+    <span class="Type">void</span> UnWatchMetadb();
+    <span class="Comment">// Create a tooltip object</span>
+    IFbTooltip CreateTooltip();
+    <span class="Comment">// Show configuration window of current panel</span>
+    <span class="Type">void</span> ShowConfigure();
+    <span class="Comment">// Show properties window of current panel</span>
+    <span class="Type">void</span> ShowProperties();
+    <span class="Comment">// Get value of name from properties</span>
+    <span class="Comment">// If no value is present, store the defaultval for the name and returns</span>
+    variant GetProperty(name[, defaultval]);
+    <span class="Comment">// Set property value, if val is invalid, the remove it from properties</span>
+    <span class="Comment">// property values will be saved as per-instance config in CUI, and can be exported to FCLs.</span>
+    <span class="Type">void</span> SetProperty(name, val);
+    <span class="Comment">// Retrieve pseudo transparent bakground image.</span>
+    IGdiBitmap GetBackgroundImage();
+    <span class="Comment">// Set mouse cursor</span>
+    <span class="Comment">// For standard cursors, see Flags.txt for more details.</span>
+    <span class="Type">void</span> SetCursor(id);
+    <span class="Comment">// [1.3.0] New:</span>
+    <span class="Comment">// Only valid in CUI</span>
+    <span class="Comment">// for type and client_guid, see Flags.txt</span>
+    uint GetColorCUI(type, client_guid = <span class="String">&quot;&quot;</span>);
+    <span class="Comment">// [1.3.0] New:</span>
+    <span class="Comment">// Only valid in CUI</span>
+    <span class="Comment">// for type and client_guid, see Flags.txt</span>
+    <span class="Comment">// NOTE: If 'client_guid' is not an empty string, the 'type' will be ignored.</span>
+    <span class="Comment">//   Say that you can only specify 'type' or 'client_guid' at one time.</span>
+    IGdiFont GetFontCUI(type, client_guid = <span class="String">&quot;&quot;</span>);
+    <span class="Comment">// [1.3.0] New:</span>
+    <span class="Comment">// Only valid in DUI</span>
+    <span class="Comment">// for type, see Flags.txt</span>
+    uint GetColorDUI(type);
+    <span class="Comment">// [1.3.0] New:</span>
+    <span class="Comment">// Only valid in DUI</span>
+    <span class="Comment">// for type, see Flags.txt</span>
+    IGdiFont GetFontDUI(type);
+    <span class="Comment">// [1.3.1] New:</span>
+    <span class="Comment">// class list: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/bb773210%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/bb773210%28VS.85%29.aspx</a></span>
+    <span class="Comment">// e.g: var theme = window.CreateThemeManager(&quot;Button&quot;);</span>
+    IThemeManager CreateThemeManager(classlist);
+}
+
+
+<span class="StorageClass">interface</span> IWSHUtils {
+<span class="Label">Methods</span>:
+    <span class="Comment">// While is_dll is true, check component file name, for example: utils.CheckComponent(&quot;foo_uie_wsh_panel_mod&quot;, true);</span>
+    <span class="Comment">//   otherwise, check the name of the component only.</span>
+    <span class="Type">boolean</span> CheckComponent(name, is_dll = <span class="Boolean">false</span>);
+    <span class="Comment">// name: can be either in english or the localized name in your os.</span>
+    <span class="Type">boolean</span> CheckFont(name);
+    <span class="Comment">// For art_id, see Flags.txt: AlbumArtId</span>
+    <span class="Comment">// need_stub: Determine whether querying for stub image to display when there's no album art to show</span>
+    <span class="Comment">// this is set in &quot;Advanced&quot; page of fb2k preferences</span>
+    <span class="Comment">// return null if failed</span>
+    <span class="Comment">// NOTE: filename in rawpath, use IFbMetadbHandle.RawPath to retrieve that value</span>
+    IGdiBitmap GetAlbumArt(rawpath, art_id = <span class="Number">0</span>, need_stub = <span class="Boolean">true</span>);
+    <span class="Comment">// [1.3.0] New;</span>
+    <span class="Comment">// Use this instead of GetAlbumArt() to retrieve album art data (support fb2k 1.0 search patterns).</span>
+    IGdiBitmap GetAlbumArtV2(metadb, art_id = <span class="Number">0</span>, need_stub = <span class="Boolean">true</span>);
+    <span class="Comment">// Only read embedded album art</span>
+    IGdiBitmap GetAlbumArtEmbedded(rawpath, art_id = <span class="Number">0</span>);
+    <span class="Comment">// [1.3.0] CHG: Support fb2k 1.0 album art search patterns.</span>
+    <span class="Comment">// [1.3.3] CHG: New no_load parameter, if true, the image will not load into memory. so parameter &quot;image&quot; will be </span>
+    <span class="Comment">//     set to null in on_get_album_art_done() callback.</span>
+    <span class="Comment">// HINT: window_id can be retrieved by window.ID</span>
+    <span class="Comment">// NOTE: This function returns immediately, album art will be sent to on_get_album_art_done() callback as soon as album art is found</span>
+    uint GetAlbumArtAsync(window_id, IFbMetadbHandle, art_id = <span class="Number">0</span>, need_stub = <span class="Boolean">true</span>, only_embed = <span class="Boolean">false</span>, no_load = <span class="Boolean">false</span>);
+    <span class="Comment">// An INI file should like this:</span>
+    <span class="Comment">// [section]</span>
+    <span class="Comment">// key=val</span>
+    <span class="Comment">// NOTE: ReadINI() return up to 255 characters, more characters will be truncated, so use INI files to read/write simple values</span>
+    String ReadINI(filename, section, key[, defaultval]);
+    <span class="Type">boolean</span> WriteINI(filename, section, key, val);
+    <span class="Comment">// For virtual key codes: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms927178.aspx">http://msdn.microsoft.com/en-us/library/ms927178.aspx</a></span>
+    <span class="Type">boolean</span> IsKeyPressed(vkey);
+    <span class="Comment">// Using Microsoft MS-DOS wildcards match type. ex (&quot;*.txt&quot;, &quot;abc?.tx?&quot;)</span>
+    <span class="Type">boolean</span> PathWildcardMatch(pattern, str);
+    <span class="Comment">// [1.4.0] Updated:</span>
+    <span class="Comment">// Returns null if file cannot be read or doesn't exist.</span>
+    <span class="Comment">// If codepabe == 0, text file can be either: UTF-16 with BOM, UTF-8 with BOM and ANSI.</span>
+    <span class="Comment">// You can consider using helper routines for codepage in Codepages.txt.</span>
+    String ReadTextFile(filename, codepage = <span class="Number">0</span>);
+    <span class="Comment">// index: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms724371%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/ms724371%28VS.85%29.aspx</a></span>
+    <span class="Comment">// Returns 0 if failed.</span>
+    uint GetSysColor(index);
+    <span class="Comment">// index: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/ms724385%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/ms724385%28VS.85%29.aspx</a></span>
+    <span class="Comment">// Returns 0 if failed.</span>
+    <span class="Type">int</span> GetSystemMetrics(index);
+    <span class="Comment">// [1.3.0] New</span>
+    <span class="Comment">// for masks, see Flags.txt, you can ignore these two parameters in almost all circumstances.</span>
+    <span class="Comment">// VBArray is supported natived in VBScript and JScript: </span><span class="Underlined"><a href="http://msdn.microsoft.com/en-us/library/3s0fw3t2%28VS.80%29.aspx">http://msdn.microsoft.com/en-us/library/3s0fw3t2%28VS.80%29.aspx</a></span>
+    <span class="Comment">// If you want to convert it to a JScript array, use .toArray() method.</span>
+    <span class="Comment">// Sample usage: var arr = utils.Glob(&quot;C:\\*.*&quot;).toArray();</span>
+    VBArray Glob(pattern, exc_mask = FILE_ATTRIBUTE_DIRECTORY, inc_mask = <span class="Number">0xffffffff</span>);
+    <span class="Comment">// [1.3.0] New</span>
+    <span class="Comment">// [1.3.2] Updated</span>
+    <span class="Comment">// [1.4.1 Beta 7] Updated: new mode &quot;chardet&quot;</span>
+    <span class="Comment">// Test a file (or path)</span>
+    <span class="Comment">// modes (NOTE: Case sensitive):</span>
+    <span class="Comment">//   &quot;e&quot;: If path exists, return true</span>
+    <span class="Comment">//   &quot;s&quot;: Retrieve file size, in bytes</span>
+    <span class="Comment">//   &quot;d&quot;: If path is a directory, return true</span>
+    <span class="Comment">//   &quot;split&quot;: return a VBArray, array[0] is the directory, arr[1] is the file basename, arr[2] is the file extension.</span>
+    <span class="Comment">//          e.g: var arr = FileTest(&quot;D:\\Somdir\\Somefile.txt&quot;, &quot;split&quot;).toArray();</span>
+    <span class="Comment">//           arr[0] &lt;= &quot;D:\\Somedir\\&quot; (always include backslash at the end)</span>
+    <span class="Comment">//           arr[1] &lt;= &quot;Somefile&quot;</span>
+    <span class="Comment">//           arr[2] &lt;= &quot;.txt&quot;</span>
+    <span class="Comment">//   &quot;chardet&quot;: Guess the charset of a file, and return the codepage of it (it may not be accurate), returns 0 if error occured.</span>
+    VARIANT FileTest(path, mode);
+}
+
+
+<span class="Comment">// [1.5.0] New: new interface for playback queue</span>
+<span class="StorageClass">interface</span> IFbPlaybackQueueItem {
+<span class="Label">Methods</span>:
+    <span class="Comment">// item: an instance of IFbPlaybackQueueItem.</span>
+    <span class="Type">boolean</span> Equals(item);
+    <span class="Type">void</span> Dispose();
+
+<span class="Label">Properties</span>:
+    (read, write) IFbMetadbHandle Handle;
+    (read, write) uint PlaylistIndex;
+    (read, write) uint PlaylistItemIndex;
+}
+
+<span class="Comment">// [1.5.0 Preview 3] New:</span>
+<span class="StorageClass">interface</span> IFbPlayingItemLocation {
+<span class="Label">Properties</span>:
+    (readonly) <span class="Type">boolean</span> IsValid;
+    (readonly) uint PlaylistIndex;
+    (readonly) uint PlaylistItemIndex;
+}
+
+
+<span class="Comment">// [1.5.0] New: This interface is added in 1.5.0</span>
+<span class="StorageClass">interface</span> IFbPlaylistManager {
+<span class="Label">Methods</span>:
+    <span class="Comment">// [1.5.0 Preview 5]: New:</span>
+    <span class="Comment">// Inserts new items into specified playlist, at specified position.</span>
+    uint InsertPlaylistItems(playlistIndex, base, handles, select = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.5.0 Preview 5]: New:</span>
+    uint InsertPlaylistItemsFilter(playlistIndex, base, handles, select = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.5.0 Preview 5]: New:</span>
+    <span class="Type">void</span> MovePlaylistSelection(playlistIndex, delta);
+    <span class="Comment">// [1.5.0 Preview 5]: New:</span>
+    <span class="Type">void</span> RemovePlaylistSelection(playlistIndex, crop = <span class="Boolean">false</span>);
+    <span class="Comment">// [1.5.0 Preview 4]: New:</span>
+    <span class="Comment">// Note that it's different from fb.GetSelection()</span>
+    IFbMetadbHandleList GetPlaylistSelectedItems(playlistIndex);
+    <span class="Comment">// Get all items into an instance of IFbMetadbHandleList from specified playlist</span>
+    IFbMetadbHandleList GetPlaylistItems(playlistIndex);
+    <span class="Comment">// state = true: select, deselect otherwise</span>
+    <span class="Type">void</span> SetPlaylistSelectionSingle(playlistIndex, itemIndex, state);
+    <span class="Comment">// state = true: select, deselect otherwise</span>
+    <span class="Comment">// affectedItems: array of item indexes, </span>
+    <span class="Comment">// ex: </span>
+    <span class="Comment">//      affectedItems = [1, 3, 23]; </span>
+    <span class="Comment">//      plman.SetPlaylistSelection(0, affectedItems, false); /* clear selection on item 1, 3 and 23.</span>
+    <span class="Type">void</span> SetPlaylistSelection(playlistIndex, affectedItems, state);
+    <span class="Comment">// Clear selection of specified playlist</span>
+    <span class="Type">void</span> ClearPlaylistSelection(playlistIndex);
+    <span class="Comment">// [1.5.0 Preview 4]: New:</span>
+    <span class="Comment">// Retrieves index of focus item on specified playlist; returns -1 when no item has focus.</span>
+    <span class="Type">int</span> GetPlaylistFocusItemIndex(playlistIndex);
+    IFbMetadbHandle GetPlaylistFocusItemHandle(force);
+    <span class="Type">void</span> SetPlaylistFocusItem(playlistIndex, itemIndex);
+    <span class="Type">void</span> SetPlaylistFocusItemByHandle(playlistIndex, itemHandle);
+    String GetPlaylistName(idx);
+    <span class="Comment">// if name is &quot;&quot;, then Create a playlist autonamed with &quot;New Playlist &lt;number&gt;&quot;.</span>
+    <span class="Comment">// return the index of the created playlist.</span>
+    uint CreatePlaylist(idx, name);
+    <span class="Type">boolean</span> RemovePlaylist(idx);
+    <span class="Type">boolean</span> MovePlaylist(from, to);
+    <span class="Type">boolean</span> RenamePlaylist(idx, name);
+    <span class="Comment">// Duplicate all contents from one playlist to a new playlist.</span>
+    <span class="Comment">// NOTE: This method only duplicate contents of the playlist, not its properties (eg. autoplaylist).</span>
+    <span class="Comment">// from: Which index of playlist to copy from.</span>
+    <span class="Comment">// name: New playlist name, when empty, using the same name as 'from'.</span>
+    <span class="Comment">// Returns the index of newly created playlist.</span>
+    uint DuplicatePlaylist(from, name = <span class="String">&quot;&quot;</span>);
+    <span class="Comment">// [1.5.0 Preview 3] New:</span>
+    <span class="Type">void</span> EnsurePlaylistItemVisible(playlistIndex, itemIndex);
+    <span class="Comment">// [1.5.0 Preview 3] New:</span>
+    <span class="Comment">// Retrieves playlist position of currently playing item.</span>
+    <span class="Comment">// On failure (not playing or currently played item has been removed from the playlist it was on when starting),</span>
+    <span class="Comment">//   the property &quot;IsValid&quot; of IFbPlayingItemLocation interface will be set to false.</span>
+    IFbPlayingItemLocation GetPlayingItemLocation();
+    <span class="Comment">// [1.5.0 Preview 3] New:</span>
+    <span class="Comment">// Executes default doubleclick/enter action for specified item on specified playlist (starts playing </span>
+    <span class="Comment">//   the item unless overridden by a lock to do something else).</span>
+    <span class="Type">boolean</span> ExecutePlaylistDefaultAction(playlistIndex, playlistItemIndex);
+    <span class="Comment">// [1.5.0 Preview 4] New:</span>
+    <span class="Type">boolean</span> IsPlaylistItemSelected(playlistIndex, itemIndex);
+    <span class="Comment">// [1.5.0 Preview 5] New:</span>
+    <span class="Comment">// WORKAROUND: In DUI, you cannot run playlist commands of edit menu because they are invalid.</span>
+    <span class="Type">void</span> SetActivePlaylistContext();
+
+    <span class="Comment">// [1.5.0 Preview 2] New:</span>
+    IFbPlaybackQueueItem CreatePlaybackQueueItem();
+    <span class="Comment">// Remove single item from playback queue</span>
+    <span class="Type">void</span> RemoveItemFromPlaybackQueue(index);
+    <span class="Comment">// affectedItems: array of item indexes</span>
+    <span class="Type">void</span> RemoveItemsFromPlaybackQueue(affectedItems);
+    <span class="Type">void</span> AddPlaylistItemToPlaybackQueue(playlistIndex, playlistItemIndex);
+    <span class="Type">void</span> AddItemToPlaybackQueue(IFbMetadbHandle);
+    uint GetPlaybackQueueCount();
+    <span class="Comment">// returns an array of IFbPlaybackQueueItem instances.</span>
+    VBArray GetPlaybackQueueContents();
+    <span class="Comment">// returns -1 on failure.</span>
+    <span class="Type">int</span> FindPlaybackQueueItemIndex(IFbMetadbHandle, playlistIndex, playlistItemIndex);
+    <span class="Type">void</span> FlushPlaybackQueue();
+    <span class="Comment">// This is actually the same as GetPlaybackQueueCount() &gt; 0</span>
+    <span class="Type">boolean</span> IsPlaybackQueueActive();
+
+    <span class="Comment">// [1.5.3] New:</span>
+    <span class="Comment">// Sorts specified playlist - entire playlist or selection only - by specified title formatting pattern, or randomizes the order.</span>
+    <span class="Comment">// playlistIndex: Index of playlist to alter.</span>
+    <span class="Comment">// pattern: Title formatting pattern to sort by. Set to &quot;&quot; to randomize the order of items.</span>
+    <span class="Comment">// selOnly: Set to false to sort/randomize whole playlist, or to true to sort/randomize only selection on the playlist.</span>
+    <span class="Comment">// returns true on success, false on failure (playlist locked etc).</span>
+    <span class="Type">boolean</span> SortByFormat(playlistIndex, pattern, selOnly = <span class="Boolean">false</span>);
+
+    <span class="Comment">// [1.5.4] New:</span>
+    <span class="Comment">// direction: 1= Sort ascendingly, -1= Sort descendingly</span>
+    <span class="Type">boolean</span> SortByFormatV2(playlistIndex, pattern, direction = <span class="Number">1</span>);
+
+<span class="Label">Properties</span>:
+    <span class="Comment">// Known playback orders:</span>
+    <span class="Comment">//      Default: 0,</span>
+    <span class="Comment">//      RepeatPlaylist: 1,</span>
+    <span class="Comment">//      RepeatTrack: 2,</span>
+    <span class="Comment">//      Random: 3,</span>
+    <span class="Comment">//      ShuffleTracks: 4,</span>
+    <span class="Comment">//      ShuffleAlbums: 5,</span>
+    <span class="Comment">//      ShuffleFolders: 6</span>
+    (read, write) uint PlaybackOrder;
+    (read, write) uint ActivePlaylist;
+    (read, write) uint PlaylingPlaylist;
+    (readonly) uint PlaylistCount;
+    (readonly) uint PlaylistItemCount;
+    <span class="Comment">// [1.5.0 Preview 9] New:</span>
+    (readonly) IFbPlaylistRecyclerManager PlaylistRecyclerManager;
+}
+
+<span class="Comment">// [1.5.0 Preveiw 9] New:</span>
+<span class="StorageClass">interface</span> PlaylistRecyclerManager {
+<span class="Label">Properties</span>:
+    <span class="Comment">// Purge multiple content at once.</span>
+    <span class="Comment">// affectedItems is an array contains the indexes.</span>
+    <span class="Type">void</span> Purge(affectedItems);
+    <span class="Type">void</span> Restore(index);
+    <span class="Type">void</span> RestoreById(id);
+    <span class="Comment">// returns the index</span>
+    uint FindById(id);
+
+<span class="Label">Methods</span>:
+    (readonly) uint Count;
+    (readonly) String Name(index);
+    (readonly) IFbMetadbHandleList Content(index);
+    (readonly) uint Id(index);
+}
+</pre>
+</body>
+</html>
