@@ -22,14 +22,14 @@
 }​
 
 html, body {
-    background: url('images/bg/grid.png') fixed center;
+    /*background: url('images/bg/grid.png') fixed center;*/
     background-size: repeat;
     width: 100%; height: 100%;
     font-family: open sans;
     font-weight: 600;
     font-size: 14px;
     background-color: #1d1e2a;
-    color: #628383; 
+    color: #8a7b70; 
     animation: fadein 0.3s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
@@ -50,23 +50,24 @@ a, a:link, a:visited {
     transition: .2s ease-out; 
 }
 
-a:hover, a:active, body { 
-     color: #6f535e; 
+a:hover, a:active { 
+     color: #8a7b70; 
  }
 
 img {
-   opacity: 0.5;
-   width:322px;
-   height:202px;
+   opacity: 1;
+   width:700px;
+   height:250px;
    border:0;
-   padding:10px;
-   margin-top: 0px;
-   /*box-shadow: 0px 1px 10px -5px #000;*/
+   padding:0px;
+   margin-left: -5px;
+   margin-top: 5px;
+   box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.2);
    /*filter: grayscale(80%);*/
 }
 
 img:hover {
-   opacity: 0.8;
+   opacity: 0.9;
 }
 
 .image { 
@@ -75,10 +76,10 @@ img:hover {
 }
 
 #section {
-    width: 690px;
-    height: 490px;
+    width: 720px;
+    height: 385px;
    margin: auto;
-   margin-top: 0px;
+   margin-top: 150px;
 }
 
 /* transparent borders 
@@ -95,14 +96,10 @@ img:hover {
 #section {
   background: #1a1b26;
   padding: 0px;
-  border: 0px solid #59444b;
-  border-radius: 10px;
-  box-shadow: 0px 5px 30px -15px #000;
+  border: 8px solid #14151f;
+  border-radius: 0px;
+  box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.2);
 } 
-
-#section {
-  border-top: none;
-}
 
 /* no borders 
 #section {
@@ -129,14 +126,17 @@ h1 {
 
 /* links */
 h2 { 
-   position: absolute; 
-   top: 165px; 
-   left: 15px; 
-   width: 90%;
-   font-size: 15px;
-   /*font-family: Blank;*/
-   text-align: center;
-   background: rgba(22, 23, 33, 0.7);
+   color: #74857c;
+   font-family: open sans;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    width: 690px;
+    text-shadow: 1px 1px 5px #000;
+    margin: auto;
+    margin-top: 5px;
+    /*box-shadow: 0px 1px 20px -3px #000;*/
+    border-bottom: none;
 }
 
 h2:hover { 
@@ -145,25 +145,93 @@ h2:hover {
 
 /* greeting and time */
 h3 {
-   color: #59444b;
+   color: #74857c;
    font-family: open sans;
-    font-weight: 600;
-    font-size: 32px;
+    font-weight: 500;
+    font-size: 26px;
     text-align: center;
     width: 690px;
     text-shadow: 1px 1px 5px #000;
     margin: auto;
-    margin-top: 190px;
+    margin-top: 5px;
     /*box-shadow: 0px 1px 20px -3px #000;*/
     border-bottom: none;
 }
 
+ul{
+        padding: 0;
+        list-style: none;
+        background: #14151f;
+        width: 420px;
+        color: #8a7b70;
+        box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.2);
+        display: inline-block;
+        top: 50%;
+        margin-left: 140px;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        color: #8a7b70;
+        width: 80px;
+    }
+    ul li a{
+        display: block;
+        padding: 18px 45px;
+        color: #8a7b70;
+        text-decoration: none;
+        text-align: center;
+    }
+    ul li a:hover{
+        color: #74857c;
+    }
+ul li ul.dropdown{
+        min-width: 125px; /* Set width of the dropdown */
+        background: #14151f;
+        color: #8a7b70;
+        display: none;
+        z-index: 999;
+        width: 40px;
+        margin-top: 60px;
+        margin-left: -30px;
+    }
+    ul li:hover ul.dropdown{
+        display: block; /* Display the dropdown */
+         position: fixed;
+    }
+    ul li ul.dropdown li{
+        display: block;
+        color: #181310;
+    }
+
 </style>
 
 <div id="section">
+<h3 id="message2">
+
+<script type="text/javascript">
+                        var d = new Date();
+                        var n = d.getHours();
+ 
+                        if ( n == 23 || n == 0) {
+                                message = "<img src='images/sky/night.jpg'></img>";
+                        } else if ( n >= 1 && n <= 4 ) {
+                                message = "<img src='images/sky/night.jpg'></img>";
+                        } else if ( n >= 5 && n <= 11 ) {
+                                message = "<img src='images/sky/morning.jpg'></img>";
+                        } else if ( n >= 12 && n <= 17 ) {
+                                message = "<img src='images/sky/afternoon.jpg'></img>";
+                        } else if ( n >= 18 && n <= 22 ) {
+                                message = "<img src='images/sky/evening.jpg'></img>";
+                        }
+ 
+                        document.getElementById("message2").innerHTML = message;
+                </script>               
+</h3>
 
   <h3 id="message">
-    <script type="text/javascript">
+    <script>
         var d = new Date();
         var n = d.getHours();
 
@@ -181,8 +249,8 @@ h3 {
         document.getElementById("message").innerHTML = message;
     </script>
 
-<!--Right now it is 
-<script type="text/javascript">
+<!--It is 
+<script>
 
 var currentTime = new Date()
 var hours = currentTime.getHours()
@@ -190,65 +258,74 @@ var minutes = currentTime.getMinutes()
 if (minutes < 10){
 minutes = "0" + minutes
 }
-document.write(hours + ":" + minutes + "~")
+document.write(hours + ":" + minutes + "")
 if(hours > 11){
-document.write("PM")
+document.write("")
 } else {
-document.write("AM")
+document.write("")
 }
 
 </script>-->
 
 </h3>    
+  
 
-<!--4chin links-->
-<div class="image">    
-     <img src="images/grid/ss/4chin.png">
-   <h1>4chin</h2> 
-      <h2><a  href="http://boards.4chan.org/a/#catalog">/a/</a> ~ 
-       <a  href="http://boards.4chan.org/g/#catalog">/g/</a> ~ 
-       <a  href="http://boards.4chan.org/w/#catalog">/w/</a> ~ 
-       <a  href="http://boards.4chan.org/wg/#catalog">/wg/</a></h2>
-</div>
+<ul>
+<!--4chin-->      
+        <li>
+            <p>🍀</p>
+            <ul class="dropdown">
+                <li><a  href="http://boards.4chan.org/a/#catalog">/a/</a></li>
+                <li><a  href="http://boards.4chan.org/g/#catalog">/g/</a></li>
+                <li><a  href="http://boards.4chan.org/w/#catalog">/w/</a></li>
+                 <li><a  href="http://boards.4chan.org/wg/#catalog">/wg/</a></li>
+            </ul>
+        </li>    
 
-<!--weab links-->
-<div class="image">      
-     <img src="images/grid/ss/weab.png">
-     <h1>weab</h2> 
-            <h2><a  href="http://anichart.net/">ani</a> ~ 
-               <a  href="https://bakabt.me/">baka</a> ~ 
-               <a  href="http://myanimelist.net/">mal</a> ~ 
-               <a  href="http://nyaa.se/">nyaa</a></h2>
-</div>
+<!--weab-->
+<li>
+            <p>💢</p>
+            <ul class="dropdown">
+                <li><a  href="http://anichart.net/">ani</a></li>
+                 <li><a  href="https://bakabt.me/">baka</a></li>
+                <li><a  href="http://myanimelist.net/">mal</a></li>
+                 <li><a  href="http://nyaa.se/">nyaa</a></li>
+            </ul>
+        </li>
 
-<!--ffxiv links-->
-<div class="image">      
-     <img src="images/grid/ss/xiv.png">
-   <h1>ffxiv</h2> 
-      <h2><a  href="http://ffxivclock.com/#/">xivclock</a> ~ 
-      <a  href="https://secure.square-enix.com/account/app/svc/mogstation">mog</a> ~ 
-<a  href="http://www.xenoveritas.org/static/ffxiv/timer.html">xivtimer</a></h2>
-</div>
+<!--music-->
+<li>
+            <p> 🎧</p>
+            <ul class="dropdown">
+          <li><a href="http://www.last.fm/">Last.fm</a></li>
+          <li><a href="http://rutracker.org/forum/tracker.php">Rutr</a></li>
+          <li><a href="http://newalbumreleases.net/">Nar</a></li>
+         <li><a href="https://kickass.unblocked.la/">KAT</a></li>         
+            </ul>
+        </li>                
 
-<!--rice links
-<div class="image">      
-     <img src="4chin - w.png">
-     <h1>rice</h2> 
-      <h2><a  href="http://alpha.wallhaven.cc/random">wallhaven</a> ~ 
-          <a  href="https://userstyles.org/users/268662">us</a> ~ 
-           <a  href="http://decagonal.deviantart.com/">da</a></h2>
-</div>-->
+<!--ff-->
+<li>
+            <p>🎮</p>
+            <ul class="dropdown">
+<li><a  href="http://ffxivclock.com/#/">xivclock</a></li>
+<li><a  href="https://secure.square-enix.com/account/app/svc/mogstation">mog</a></li>
+<li><a  href="http://www.xenoveritas.org/static/ffxiv/timer.html">xivtimer</a></li>
+            </ul>        
+</li>
 
-<!--misc links-->
-<div class="image">      
-     <img src="images/grid/ss/misc.png">
-   <h1>misc</h2> 
-      <h2><a  href="http://www.last.fm/home">l.fm</a> ~ 
-      <a  href="http://calm.com/">calm</a>  ~ 
-      <a  href="http://tumblr.com/">tmblr</a>  ~ 
-      <a  href="https://userstyles.org/users/268662">us</a>  ~
-      <a  href="http://decagonal.deviantart.com/">da</a>      
-</div>
+<!--misc-->
+<li>
+            <p>🌍</p>
+            <ul class="dropdown">
+                <li><a href="http://decagonal.deviantart.com/" class="link">DA</a></li>
+<li><a  href="https://userstyles.org/users/268662">US</a></li>
+<li><a href="http://www.ebay.com.au/" class="link">eBay</a></li>
+<li><a  href="http://tumblr.com/">tmblr</a></li>
+            </ul>
+        </li> 
+
+    </ul>
 
 <!--<script type="text/javascript">
 $(document).ready(function() {
