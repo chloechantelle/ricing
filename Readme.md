@@ -1,7 +1,7 @@
 
 <h2>AHK - </h2>
 
-All scripts that I use, change the locations in Scrot, and my tiling is setup for two monitors so obviously only some hotkeys would work with one, ~make sure numlock is turned off~.
+All scripts that I use, change the locations in Scrot, make sure that you have IrfanView downloaded, and my tiling is setup for two monitors so obviously only some hotkeys would work with one, ~make sure numlock is turned off~.
 
 <h2>BBLEAN - </h2>
 
