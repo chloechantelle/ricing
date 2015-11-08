@@ -13,6 +13,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
     Run Notepad
     Return
 
+; Win+w - Open DualWallpaper
+#w::
+    Run "Location of DualWallpaper.exe"
+    Return    
+
 ; Win+H - Hide Titlebar (Manual)
     #h::
       WinSet, Style, -0xc00000, A
@@ -23,17 +28,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
       WinSet, Style, +0xc00000, A
     return
 
- ; Alt/Ctrl+Up - Turn volume up 
-     !Up::
+ ; Ctrl+Up - Turn volume up 
      ^Up::
      SoundSet +5
      Return    
 
-; Alt/Ctrl+Down - Turn volume down
-      !Down::
+; Ctrl+Down - Turn volume down
       ^Down::
      SoundSet -5
      Return 
+
+; F7 to play/pause MPC-HC
+F7::
+    SendMessage,0x0111,889,,,ahk_class MediaPlayerClassicW  
+Return     
 
 ; Move windows using Alt and left click (altdrag replacement), and left and right click together
 ~LButton & RButton::
