@@ -1,0 +1,1 @@
+If you want to adjust the size of the borders, in Personalization go to Window Color and then Advanced Appearance Settings and adjust either Inactive or Active Window Border size to around 6 to match the Rainmeter, otherwise to whatever size you want. ^_^
