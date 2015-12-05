@@ -38,7 +38,7 @@ Contains multiple startpages I've made, see the live previews [here](http://moko
 
 Read [this](http://neiio.deviantart.com/art/How-to-Install-Custom-Themes-262833454) if you've never installed a VS, make sure to patch your windows before complaining in desktop threads about a VS not working.
 
-All versions of Nocturnal are included, also contains a updated Mokocchi (looks a little better than Version 1), Siren (Nocturnal but blue basically) and Neko which I'm currently using and constantly changing.
+All versions of Nocturnal are included, also contains a updated Mokocchi (looks a little better than Version 1) and Siren (Nocturnal but blue basically).
 
 I upload my CSS [here](https://userstyles.org/users/268662) now and update them pretty frequently so I won't bother keeping them at git/gist.
 VS's and other things are uploaded [here](http://decagonal.deviantart.com/)~
