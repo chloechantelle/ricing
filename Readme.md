@@ -27,7 +27,9 @@ For the InfoBar skin it should work out of the box, obviously you do need OpenHa
 The commands that currently work in the bar are: shot, google [searchtext], phait, moko, tmblr and /w/.
 Edit bar.lua and scroll to the bottom to make your own commands.
 
-![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/RainmeterBar.webm)
+[Webm](http://mokocchi.cf/u/RainmeterBar.webm) of how the bar works.
+
+![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%20Preview2.png)
 
 To get the temps and percentages to work in System Info:
  - Run OpenHardwareMonitor (included) 
