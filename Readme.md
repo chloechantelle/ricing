@@ -1,7 +1,10 @@
 
+Other stuff is here: http://mokocchi.cf
+
 <h2>AHK - </h2>
 
-All scripts that I use, change the locations in Scrot, make sure that you have IrfanView downloaded, and my tiling is setup for two monitors so obviously only some hotkeys would work with one, ~make sure numlock is turned off~.
+All scripts that I use including Scrot, Hotkeys, Tiling, Opacity and TbarIconBlanker.
+Change the locations in Scrot, make sure that you have IrfanView downloaded, and my tiling is setup for two monitors so obviously only some hotkeys would work with one, ~make sure numlock is turned off~.
 
 <h2>BBLEAN - </h2>
 
@@ -19,26 +22,32 @@ As the title says, programs that make ricing a lot easier.
 
 Skins that I use, either made from scratch or super super edited from someone else.
 
-To get the temps and percentages to work:
+For the InfoBar skin it should work out of the box, obviously you do need OpenHardware running though.
+
+The commands that currently work in the bar are: shot, google [searchtext], phait, moko, tmblr and /w/.
+Edit bar.lua and scroll to the bottom to make your own commands.
+
+![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%20Preview2.png)
+
+To get the temps and percentages to work in System Info:
  - Run OpenHardwareMonitor (included) 
  - Put a shortcut to it in your startup folder
  - Edit the System Info skin and change the hardware information to your own.
 
  ![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%20Preview.png)
 
-<h2>STARTPAGES - </h2>
+<h2>HOMEPAGES - </h2>
 
-Contains multiple startpages I've made, see the live previews [here](http://mokocchi.cf/homepage) and [here](http://mokocchi.cf/Aperture).
+Contains multiple homepages I've made, see the live previews [here](http://mokocchi.cf/homepages).
 
- ![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Moko Preview.png)
+ ![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage.png)
  
-![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Aperture Preview.png)
+![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage2.png)
+
+![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage3.png)
+
+![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage4.png)
 
 <h2>VS - </h2>
 
-Read [this](http://neiio.deviantart.com/art/How-to-Install-Custom-Themes-262833454) if you've never installed a VS, make sure to patch your windows before complaining in desktop threads about a VS not working.
-
-All versions of Nocturnal are included, also contains a updated Mokocchi (looks a little better than Version 1) and Siren (Nocturnal but blue basically).
-
-I upload my CSS [here](https://userstyles.org/users/268662) now and update them pretty frequently so I won't bother keeping them at git/gist.
-VS's and other things are uploaded [here](http://decagonal.deviantart.com/)~
+Read [this](http://neiio.deviantart.com/art/How-to-Install-Custom-Themes-262833454) if you've never installed a VS, these are all just backups, I'd recommend getting a VS from [here](http://decagonal.deviantart.com/) as I update them there.
