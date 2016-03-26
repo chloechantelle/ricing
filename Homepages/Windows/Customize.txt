@@ -1,0 +1,18 @@
+Weather - 
+
+Go to line 60 and change the api.openweathermap.org link to where your location is.
+To find your location go to openweathermap.org, find your location, and in the url grab the numbers and replace the weather ID in the url, so for example for London it becomes
+http://api.openweathermap.org/data/2.5/weather?id=2643743&appid=832719dabc0aaac91c4a93c2a64e12d4&units=metric
+You can also change units=metric to imperial, depending if you want it in celcius or not.
+
+Name - 
+
+On line 592, change all of the Anon's.
+
+Images - 
+
+Just find the line that sets the background or the side images and change the location.
+
+Music - 
+
+Scroll down to the bottom and on line 658 change the embed link, you can find a Soundcloud song's embed link by clicking Share on it's page.
