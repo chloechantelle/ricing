@@ -1,5 +1,5 @@
 
-Other stuff is here: http://mokocchi.cf
+Other stuff is linked here: http://mokocchi.cf
 
 <h2>AHK - </h2>
 
@@ -38,17 +38,17 @@ To get the temps and percentages to work in System Info:
 
  ![alt tag](https://github.com/decagonal/rice/blob/master/Rain%28entry%20level%20ricing%29meter/Moko/Rainmeter%20Preview.png)
 
-<h2>HOMEPAGES - </h2>
+<h2>STARTPAGES - </h2>
 
-Contains multiple homepages I've made, see the live previews [here](http://mokocchi.cf/homepages).
+Contains multiple startpages I've made, see the live previews [here](http://mokocchi.cf/startpages).
 
- ![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage.png)
+ ![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Windows.png)
  
-![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage2.png)
+![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Greeting.png)
 
-![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage3.png)
+![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Diurnal.png)
 
-![alt tag](https://github.com/decagonal/rice/blob/master/Homepages/Homepage4.png)
+![alt tag](https://github.com/decagonal/rice/blob/master/Startpages/Aperture.png)
 
 <h2>VS - </h2>
 
