@@ -11,7 +11,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<!-- Random Bg
+<script language="JavaScript">
+var randnum = Math.random();
+var inum = 4;
+// Change this number to the number of images you are using.
+var rand1 = Math.round(randnum * (inum-1)) + 1;
+images = new Array
+images[1] = "images/bg/bg1.jpg"
+images[2] = "images/bg/bg2.jpg"
+images[3] = "images/bg/bg3.jpg"
+images[4] = "images/bg/bg4.jpg"
+var image = images[rand1]
+</script>
+
+<body>
+<script language="JavaScript">
+document.write('<body background="' + image + '" text="white">')
+</script>
+</body>
+-->
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 <title>Home 🌙</title>
 
@@ -20,7 +41,7 @@
 
 <div id="tfsearch">
     <form id="tfnewsearch" method="get" action="https://duckduckgo.com/?q=">
-            <input type="" id="sbox-query" name="q" size="21" maxlength="120" placeholder="ayy lmao" autofocus="autofocus">
+            <input type="" id="sbox-query" name="q" size="21" maxlength="120" placeholder="ayy !i, !yt, !arr, !tpb, !nyaa, !ebau, !w, !ebg" autofocus="autofocus">
     </form>
   </div>
 
@@ -32,12 +53,13 @@
 </div>   
 
 <div class="button">   
-<button><img src="images/boop/menu.png"></a></button>
+<button><img src="images/boop/menu2.png"></a></button>
 </div>
 <div class="slide">     
 <p style="display: none">  
 <a href="http://mokocchi.cf/" target="_blank">Home</a> <br />
 <a href="http://mokocchi.cf/rice" target="_blank">Rice</a> <br />
+<a href="http://mokocchi.cf/f" target="_blank">Favorites</a> <br />
 <a href="http://mokocchi.cf/homepages" target="_blank">Homepages</a> <br />
 <a href="http://mokocchi.cf/snow" target="_blank">Let it snow</a> <br />
 <a href="mailto:moko@mokocchi.cf" target="_blank">Contact</a> <br />
@@ -88,13 +110,13 @@ function insertWeatherInfo() {
 <style type="text/css">
 
 html, body {
-    background: url('images/bg/Leaves Edit.png') fixed center;
-    background-size: cover; /*repeat or cover*/
+    background: url('images/bg/bg1.jpg') fixed center;
+    background-size: cover; 
+    background-color: #14151f;
     width: 80%; height: 97%;
     font-family: open sans;
     font-weight: 600;
     font-size: 14px;
-    background-color: #14151f;
     color: #bbb; 
 }
 
@@ -292,6 +314,10 @@ font-size: 16px;
   text-align: center; 
 }
 
+h22, #description {
+    color: #ddd !important
+}
+
 #header {
   background-color: #14151f;
   width: 100%;
@@ -310,7 +336,7 @@ left: 97%;
 /*width: 50px;
 height: 49px;*/
 width: 2.7%;
-height: 5.2%;
+height: 5.3%;
 position: fixed; 
 top: 0.7%;
 }
@@ -342,7 +368,7 @@ top: 0.7%;
   width: 370px;  
   text-align: left;
   margin-left: 144px;  
-  margin-top: 6px;  
+  margin-top: 10px;  
   background-color: #14151f;
   border: none;
     z-index: 5;
@@ -360,15 +386,15 @@ cursor: pointer;
   top: 0;
   z-index: 5;
   opacity: 1;
-  margin-left: 15px;
-  margin-top: 10px;
+  margin-left: 27px;
+  margin-top: 15px;
   position: fixed; 
 }
 
 #slide, p {
 background-color: #1a1b26;
 margin-left: 0px;
-height: 130px;
+height: 140px;
 width: 110px;
 padding: 15px;
  margin-top: 56px;
@@ -379,7 +405,7 @@ padding: 15px;
 div.search, .search > img:nth-child(1) {
 opacity: 0.9;
 margin-left: 43px;  
-margin-top: 8px;  
+margin-top: 10px;  
 width: 20px;
 height: 20px;
 position: fixed; 
@@ -454,7 +480,7 @@ cursor: default;
 
 #media, #content > div:nth-child(1) {
  position: fixed; 
- left: 19%;
+ left: 19.7%;
   top: 41.4%;
  font-size: 20px;
 opacity: 1;
@@ -505,7 +531,7 @@ opacity: 1;
 
 #buy {
  position: fixed; 
- left: 51.4%;
+ left: 51.2%;
   font-size: 20px;
 }
 
@@ -531,6 +557,10 @@ h20 {
   z-index: 20;
   position: fixed; 
   opacity: 0;
+}
+
+#temp_curr > a:nth-child(1) {
+  color: #ddd !important
 }
 
 </style>
@@ -605,10 +635,10 @@ Media
 </div> 
 
 <div id="medialinks">    
-  <a href="https://www.youtube.com/feed/subscriptions">YT</a><br/>  
-  <a href="http://tumblr.com">Tmblr</a><br/>
+  <a href="https://www.youtube.com/feed/subscriptions">YT Feed</a><br/>  
+<a href="https://flipboard.com/">Flipboard</a><br/>
+<a href="http://tumblr.com">Tumblr</a><br/>
 <a href="http://anichart.net/">Ani</a><br/>
-<a href="http://nyaa.se/">Nyaa</a><br/>
 </div> 
 
 <div id="music">    
@@ -632,6 +662,7 @@ Vidya
 <a href="http://www.gog.com/">Gog</a><br/>
 <a href="http://store.steampowered.com/">Steam</a><br/>
 <a href="https://secure.square-enix.com/account/app/svc/mogstation">Mogstation</a><br/>
+<a href="http://ffxivclock.com">XIVTimer</a><br/>
 </div> 
 
 <div id="rice">    
@@ -643,6 +674,7 @@ Rice
 <a href="https://userstyles.org/users/268662">Userstyles</a><br/>
 <a href="http://decagonal.deviantart.com/">DeviantArt</a><br/>
 <a href="https://github.com/decagonal/">Github</a><br/>
+<a href="https://dribbble.com">Dribbble</a><br/>
 </div> 
 
 <div id="buy">    
@@ -654,6 +686,7 @@ $$$
 <a href="http://ebay.com.au">eBay</a><br/>
 <a href="http://www.boohoo.com/aus/page/home">BH</a><br/>
 <a href="http://asos.com">Asos</a><br/>
+<a href="https://www.etsy.com">Etsy</a><br/>
 </div> 
 
 <div class="music">
@@ -673,7 +706,7 @@ $$$
 <div id="content2"> 
 
 <div id="boximg">
-<img src="images/sky/leaves.jpg">
+<img src="images/box/leaves.jpg">
 </div>
 
 </div>
