@@ -1,1 +1,1 @@
-All downloads moved to here: http://mokocchi.cf
+All downloads moved to here: http://mokocchi.com
