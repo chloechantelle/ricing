@@ -1,0 +1,30 @@
+My Foobar themes, base is ncmpcpp_mod and SP8.
+
+[http://twnsnd.deviantart.com/art/foobar-ncmpcpp-mod-289083149]
+[http://slowboyfast.deviantart.com/art/SP8-351608739]
+
+To use:
+
+	Install Foobar in portable mode
+	In your Foobar directory delete the file called "user_profiles_enabled"
+	Move the contents from this zip to that folder, overwrite any files.
+	Then in Foobar go to Preferences > Display > UI > select Columns UI
+	Then go to Columns UI > Main and Import FCL.
+
+If it doesn't work try uninstalling Foobar and then download this zip file which contains my entire Foobar directory, easiest way to install it and have it work w/o errors tbh.
+
+[https://www.dropbox.com/s/d9z5nj82uoj401p/foobar2000.zip]
+
+To customize right click the song list and the top bar and go to Settings.
+
+To customize the search bar click just before the the Search text or click the search icon and look in Options
+
+Right click to collapse/expand albums
+
+Right click song list > Settings > Style to bring back scrollbar
+
+Sometimes elements will bug out but minimizing and then restoring Foobar will fix them, or switching to playlists then back. 
+
+
+
+In depth guide of how to change colors: http://pastebin.com/QbGNnzsZ

@@ -1,1 +1,1 @@
-All downloads moved to here: http://chloechantelle.com
+More configs can be found here: http://chloechantelle.com/dl
