@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <title>Windows Style Builder Guide</title> 
+    <link rel="icon" href="../img/ricebowl.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">      
+    <script src="../js/script.js"></script>    
+
+</head>
+<body>
+
+<a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#ccc; color:#555; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<style>
+
+.load {
+    background: url('../img/wsb.png') center;
+    background-size: cover;
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.github-corner:hover .octo-arm{
+    animation:octocat-wave 500ms infinite;
+    }
+
+@keyframes octocat-wave {
+0%,100%{
+    transform:rotate(0deg)
+    }
+
+20%,60%{
+        transform:rotate(-15deg)
+        }
+
+40%,80%{
+    transform:rotate(0deg)
+}
+
+}    
+
+    /*@keyframes octocat-wave {
+0%,100%{
+    transform:rotate(10deg)
+    }
+
+20%,60%{
+        transform:rotate(-25deg)
+        }
+
+40%,80%{
+    transform:rotate(10deg)
+}
+
+}*/
+
+@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+
+</style>
+
+    <header>
+
+  <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <!-- <a href="#!" class="brand-logo">Logo</a> -->
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+
+             <li><a href="#basic">Basics</a></li>
+              <li><a href="#scrollbar">Scrollbar</a></li>
+              <li><a href="#drives">Drives</a></li>
+              <li><a href="#progress">Progress</a></li>
+              <li><a href="#task">Task Manager</a></li>              
+              <li><a href="#desktop">Desktop Context Menu</a></li>
+              <li><a href="#taskcontext">Taskbar Context Menu</a></li>
+              <li><a href="#tooltip">Tooltip</a></li>
+              <li><a href="#taskbar">Taskbar</a></li>      
+
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+             <li><a href="#basic">Basics</a></li>
+              <li><a href="#scrollbar">Scrollbar</a></li>
+              <li><a href="#drives">Drives</a></li>
+              <li><a href="#progress">Progress</a></li>
+              <li><a href="#task">Task Manager</a></li>              
+              <li><a href="#desktop">Desktop Context Menu</a></li>
+              <li><a href="#taskcontext">Taskbar Context Menu</a></li>
+              <li><a href="#tooltip">Tooltip</a></li>
+              <li><a href="#taskbar">Taskbar</a></li>      
+        </ul>
+    </div>
+</nav>
+</div>
+
+</header>
+
+<div class="load">
+    <div class="load wsb">
+
+        <h1>Windows Style Builder</h1>
+        <h2>Guide to using Windows/Vista/Aves Style Builder for Windows 10</h2>
+
+<a href="https://www.dropbox.com/s/x0ssn4cftmr5fyn/WSB.zip?dl=1" onclick="Materialize.toast('Downloading!', 5000)" class="waves-effect waves-light btn-large"><i class="material-icons left">file_download</i>Download WSB</a>
+
+        <h3>
+<p><a target="blank" href="http://vistastylebuilder.com/forum/index.php?PHPSESSID=390l8b5fqcpcqfhbop47nucua5&board=27.0">Forums</a> | <a target="blank" href="https://www.dropbox.com/s/ab9n9u3ncp5en30/WSBGuide.pdf">Original PDF Guide For W7</a> | <a target="blank" href="http://vistastylebuilder.com/forum/index.php?topic=2130.0">Buy a registration</a></p>
+<p>Tip: In WSB, right click anywhere on the sidebar and select 'Go To Path' to easily find these locations.</p>
+        </h3>
+
+    </div>
+</div>
+
+<div class="content">
+
+        <div class="title" id="basic">Basics</div>
+
+<div id="imagecontainer">
+
+<div data-content="Explorer Basics" class="image">
+<a target="_blank" href="http://i.imgur.com/jObl3vp.png"><img src="http://i.imgur.com/jObl3vp.png"></a></div>
+
+
+<ul>
+          <li>Explorer Background and Main Text Color <input type="text" name="A1" value="Explorer & Shell > Explorer > Items View > ItemsView > FillColor and Text Color. (Main text color is also found in Fonts, Colors, & System Metrics > Fonts & System Metrics > Windowtext)." readonly></li>
+
+          <li>Navigation Pane Bg <input type="text" name="A2" value="Explorer & Shell > Explorer > ProperTree > Background > FillColor and FillColorHint" readonly></li>
+
+          <li>Navigation Pane Selected Bg and Text Color <input type="text" name="A3" value="Explorer & Shell > Explorer > TreeView > TreeItem > Image under every section." readonly></li>
+
+          <li>Navigation Bar Bg <input type="text" name="A4" value="Toolbars, Headers, & Rebar > Rebar > NavBar > Aero > Normal > Active > Background
+" readonly></li>
+
+          <p><input type="text" name="A44" value="Toolbars, Headers, & Rebar > Rebar > NavBar > Aero > Normal > Inactive > Background" readonly></li></p>
+
+          <li>Back and forward Buttons <input type="text" name="A5" value="Buttons, Boxes, & Controls > Buttons > Navigation > BackButton" readonly>
+
+            <p><input type="text" name="A55" value="Buttons, Boxes, & Controls > Buttons > Navigation > ForwardButton" readonly><p>
+          </li>          
+
+          <li>Navigation Pane Text Color <input type="text" name="A6" value="Styles > TextStyle > BodyText > TextColor" readonly></li>
+
+          <li>Address Bar Bg <input type="text" name="A7" value="WSB: Address, Breadcrumb, & Search > Address > AddressBand > Basic > AddressBand > Background" readonly> </li>
+
+          <li>Address Bar Arrows - Search for 'SplitButtonDropDown' and 'Chevron', quickest way to grab them all.</li>
+
+          <li>Address Bar Text Color <input type="text" name="A9" value="Address, Breadcrumb, & Search > Breadcrumb > Aero > Normal > Active and Inactive Crumbs" readonly></li>
+
+          <li>Search Bar Bg and Text Color <input type="text" name="A10" value="Address, Breadcrumb, & Search > Search > SearchBox > Basic > Normal > Active > Background > Image" readonly>
+            <p><input type="text" name="A100" value="Address, Breadcrumb, & Search > Search > Edit > SearchEdit > TextBox > Normal Text > TextColor" readonly></p>            
+          </li>
+
+          <li>Search Icon <input type="text" name="A11" value="Address, Breadcrumb, & Search > Search > SearchBox > Basic > Normal > Active > <3> > Image" readonly></li>
+
+                    <li>Titlebar Color <input type="text" name="A12" value="Windows & Caption Buttons > Aero > DWM Window > Frames > Details > Glows > Text > Image" readonly></i>
+
+          <br><br><i>If you want a custom titlebar color/image change all the values from <1> to <4> and set the Opacity and Colorization Opacity to 0, if you want the titlebar to use the Windows accent color set them all to 100.</i></li>
+
+          <li>Window Buttons <input type="text" name="A13" value="Windows & Caption Buttons > Aero > DWM Window > 11, Start, 65, 68, 72, 76, 80 and 84" readonly></li>
+
+          <p><li>Border and shadows <input type="text" name="A14" value="Windows & Caption Buttons > Aero > DWM Window > Frames > Window" readonly></p>
+            <p><input type="text" name="A15" value="Windows & Caption Buttons > Aero > DWM Window > Frames > Details > Shadows" readonly></p></li>
+
+          <li>Spacing <input type="text" name="A16" value="Remove Go Button Etc - Address, Breadcrumb, & Search > Address > AddressBand > Basic > AddressBand > Background set ContentMargins to: -20, -35, 1, 1" readonly></li>
+</ul>  
+
+
+
+
+        <div class="title" id="scrollbar">Scrollbar</div>
+
+<div data-content="Scrollbar" class="image">
+<a target="_blank" href="http://i.imgur.com/X3fEsw2.png"><img src="http://i.imgur.com/X3fEsw2.png"></a></div>
+
+<ul>
+<li>Scrollbar <input type="text" name="B1" value="Buttons, Boxes, & Controls > Scroll Bars & Trackers > ScrollBar > ThumbButtonVertical" readonly> </li>
+
+<li>Scrollbar Background <input type="text" name="B2" value="Buttons, Boxes, & Controls > Scroll Bars & Trackers > ScrollBar > UpperTrackVertical and LowerTrackVertical" readonly></li>
+
+<li>Scrollbar Buttons <input type="text" name="B3" value="Buttons, Boxes, & Controls > Scroll Bars & Trackers > ScrollBar > ArrowButton > Main Image and Glyph 1" readonly> </li>   
+</ul>
+
+        <div class="title" id="drives">Drives</div>
+
+<div data-content="Drives" class="image">
+<a target="_blank" href="http://i.imgur.com/GSsL62K.png"><img src="http://i.imgur.com/GSsL62K.png"></a></div>
+
+<ul>              
+<li>Separator <input type="text" name="C1" value="Explorer & Shell > Explorer > Items View > ListView > GroupHeaderLine" readonly> </li>
+
+<li>Heading Text Color <input type="text" name="C2" value="Explorer & Shell > Explorer > Items View > ListView > GroupHeader > TextColor" readonly> </li>
+
+<li>Drive Text Color <input type="text" name="C3" value="Fonts, Colors, & System Metrics > Fonts & System Metrics > Window Text Color" readonly> </li>
+
+<li>Hard Drive Space Background <input type="text" name="C4" value="Buttons, Boxes, & Controls > Progress Bars > Normal > Fill > Device Storage > Image" readonly> </li>
+
+<li>Hard Drive Empty Space Background <input type="text" name="C5" value="Buttons, Boxes, & Controls > Progress Bars > Normal > TransparentBar > Device Storage Background > Image" readonly> </li>
+
+<li>Space Left Text Color <input type="text" name="C6" value="Explorer & Shell > Explorer > Items View > ItemsView > Details > Property > TextColor" readonly> </li>
+</ul>
+
+        <div class="title" id="progress">Progress</div>
+
+<div data-content="Progress" class="image">
+<a target="_blank" href="http://i.imgur.com/hYRVirW.png"><img src="http://i.imgur.com/hYRVirW.png"></a></div> 
+
+<ul>
+                  <li>Bottom Pane Background <input type="text" name="D1" value="Explorer & Shell > Shell > TaskDialog > SecondaryPanel > Image" readonly> </li>
+
+                  <li>Bottom Pane Arrow <input type="text" name="D2" value="Explorer & Shell > Shell > TaskDialog > ExpandoButton > Normal Etc" readonly> </li>
+
+                  <li>Top Background <input type="text" name="D3" value="Explorer & Shell > Shell > TaskDialog > PrimaryPanel > FillColor" readonly> </li>
+
+                  <li>Progress Complete <input type="text" name="D4" value="Buttons, Boxes, & Controls > Progress Bars > Normal > Fill > Image" readonly> </li>
+
+                  <li>Progress Empty <input type="text" name="D5" value="Buttons, Boxes, & Controls > Progress Bars > Normal > TransparentBar > Image" readonly> </li>
+</ul>  
+
+        <div class="title" id="task">Task Manager</div>
+
+
+<div data-content="Task Manager" class="image">
+<a target="_blank" href="http://i.imgur.com/0b6Ti69.png"><img src="http://i.imgur.com/0b6Ti69.png"></a></div>
+
+<ul>   
+                <li>Graph Full <input type="text" name="E1" value="Windows 8 (For Testing Purposes Only) > Task Manager > Performance Charts > CPU > Utilization Fill and both Kerning values" readonly> </li>
+
+                <li>Graph Border <input type="text" name="E2" value="Windows 8 (For Testing Purposes Only) > Task Manager > Performance Charts > CPU > Utilization Border" readonly> </li>
+
+                <li>Background <input type="text" name="E3" value="Windows 8 (For Testing Purposes Only) > Task Manager > Performance Charts > CPU > Background > FillColor" readonly> </li>
+
+                <li>Grid Lines <input type="text" name="E4" value="Windows 8 (For Testing Purposes Only) > Task Manager > Performance Charts > CPU > Grid and Border" readonly> </li>
+</ul>
+
+<p>Make sure the alpha level for all the colors is 255 otherwise it won’t look how you want.</p>
+
+        <div class="title" id="desktop">Desktop Context Menu</div>
+
+<div data-content="Desktop Context Menu" class="image">
+<a target="_blank" href="http://i.imgur.com/X4OIIVi.png"><img src="http://i.imgur.com/X4OIIVi.png"></a></div>
+
+<ul>
+              <li>Desktop Context Menu Background Color <input type="text" name="F1" value="Unknown > ImmersiveStart::Menu > PopUpItem > Image" readonly> </li>
+
+              <li>Text Color <input type="text" name="F2" value="Unknown > ImmersiveStart::Menu > PopUpItem > TextColor" readonly> </li>
+
+              <li>Inactive Text Color <input type="text" name="F3" value="Unknown > ImmersiveStart::Menu > PopUpItem > Disabled" readonly> </li>
+
+              <li>Gutter Background <input type="text" name="F4" value="Unknown > ImmersiveStart::Menu > PopUpGutter" readonly> </li>
+</ul>  
+
+<div class="title" id="taskcontext">Taskbar Context Menu</div>
+
+<div data-content="Taskbar Context Menu" class="image">
+<a target="_blank" href="http://i.imgur.com/KwHb5e1.png"><img src="http://i.imgur.com/KwHb5e1.png"></a></div>
+
+<ul>
+              <li>Taskbar Context Menu Background Color <input type="text" name="G1" value="Unknown > ImmersiveStartDark::Menu > PopUpItem > Image and Color" readonly> </li>
+
+              <li>Text Color <input type="text" name="G2" value="Unknown > ImmersiveStartDark::Menu > PopUpItem > TextColor" readonly> </li>
+
+              <li>Hover Text Color <input type="text" name="G3" value="Unknown > ImmersiveStartDark::Menu > PopUpItem > Hot > TextColor" readonly> </li>
+
+              <li>Hover Background Color <input type="text" name="G4" value="Unknown > ImmersiveStartDark::Menu > PopUpItem > Hot > Image" readonly> </li>
+</ul>    
+
+<div class="title" id="tooltip">Tooltip</div>
+
+<div data-content="Tooltip" class="image">
+<a target="_blank" href="http://i.imgur.com/foioduE.png"><img src="http://i.imgur.com/foioduE.png"></a></div> 
+
+<ul>
+              <li>Tooltip Background Color <input type="text" name="H1" value="Explorer & Shell > Explorer > Tooltip > Standard > Image" readonly> </li>
+
+              <li>Tooltip Text Color <input type="text" name="H2" value="Styles > TooltipStyle > Standard and StandardTitle" readonly> </li>
+
+</ul> 
+
+<div class="title" id="taskbar">Taskbar</div>
+
+<div data-content="Taskbar" class="image">
+<a target="_blank" href="http://i.imgur.com/OGXbzm4.png"><img src="http://i.imgur.com/OGXbzm4.png"></a></div>
+
+<ul>
+              <li>Start Menu Icon <input type="text" name="I1" value="Unknown > TaskbarPearl > <1> and <2>" readonly> </li>
+
+              <li>Task and Clock Text Color <input type="text" name="I2" value="Taskbar & System Tray > TaskBand > Basic > TaskBand > TextColor" readonly> </li>
+
+              <li>System Tray Arrow <input type="text" name="I3" value="Unknown > TrayNotifyHorizHCWhite::Button" readonly> </li>
+<p></p>
+<p><input type="text" name="I4" value="Unknown > TrayNotifyHorizOpenHCWhite::Button" readonly></p>
+
+<p><input type="text" name="I5" value="Unknown > TrayNotifyVertHCWhite::Button" readonly></p>
+
+<p><input type="text" name="I6" value="Unknown > TrayNotifyVertOpenHCWhite::Button" readonly></p>
+</ul> 
+       
+</div> <!-- end of imagecontainer -->
+
+</div> <!-- close content -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h5>Changelog</h5>
+      <p class="logboo">3rd of February, 2018</p>
+
+<p>Include more VS information and fix for 100% usage of disk space issue.</p>    
+    
+<p class="logboo">11th of November, 2017</p>
+
+<p>Updated browser HTML/CSS info.</p>
+
+<p class="logboo">10th of November, 2017</p>
+
+<p>Included ICO files for Winremix.</p>
+
+<p class="logboo">3rd of September, 2017</p>
+
+<p>Included links for Numix and Paper Icons.</p>
+
+<p class="logboo">25th of August, 2017</p>
+
+<p>Updated Basic section information.</p>
+
+<p class="logboo">20th of August, 2017</p>
+
+<p>Included basic rice links, fixed a lot of my grammar jfc damn.</p>
+
+<p class="logboo">17th of June, 2017</p>
+
+<p>Updated VS editing information and included link to WSB Guide.</p>
+
+
+<p class="logboo">23rd of April, 2017</p>
+<p>Updated Mactype zip, now includes version for Creators Update and instructions, included info about VS's for latest update.</p>
+
+
+<p class="logboo">13th of March, 2017</p>
+<p>Included instructions for EdgeDeflector, fixed page font.</p>
+
+
+<p class="logboo">17th of February, 2017</p>
+<p>Included solutions to Cortana defaulting to Bing and Edge.</p>
+<p>Included startpage/CSS section.</p>
+
+
+<p class="logboo">11th of January, 2017 </p>
+<p>Updated keyboard shortcuts.</p>
+
+
+<p class="logboo">9th of January, 2017</p>
+<p>Included guide for removing shortcut arrow.</p>
+
+
+<p class="logboo">4th of November, 2016</p>
+<p>Included download for Quick Access icons.</p>
+
+
+<p class="logboo">22nd of October, 2016</p>
+<p>Included tutorial to change drive icons.</p>
+
+
+<p class="logboo">21st of October, 2016</p>
+<p>Included information about AHK and Classic Shell.</p>
+
+
+<p class="logboo">16th of October, 2016</p>
+<p>Moved from Pastebin to site</p>
+<p>Included better descriptions </p>
+<p>Included Start Is Back</p> 
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div>
+
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+
+               <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Credits</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://tenforums.com">Ten Forums</a> and <a class="grey-text text-lighten-3" target="_blank" href="http://sevenforums.com">Seven Forums</a></li>
+                 <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.deviantart.com/tag/ricing">DeviantArt</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://neiio.deviantart.com">The late Jamie Green</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://boards.4chan.org/w/catalog#s=desktop">Anons and tripfags everywhere</a></li>
+                </ul>
+              </div>
+
+               <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">About Ricing</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://nanami-tan.info">W7 Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://wiki.installgentoo.com/index.php/GNU/Linux_ricing">Linux Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://pastebin.com/YiEvADUw">Mac Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.reddit.com/r/unixporn">r/Unix Porn</a></li>
+                </ul>
+              </div>
+
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Resources</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://pastebin.com/mtgSWp42">Beginner FAQ</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://www.tenforums.com/tutorials/4571-system-restore-point-create-windows-10-a.html">Restore Points</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="html/wsb.html">VS Creating Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://pastebin.com/UwAHd0zm">Ricing Firefox 56+</a></li>                                  
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            <a href="http://chloechantelle.com" target="_blank" class="luv">made w/ love by coco</a>
+            </div>
+          </div>
+        </footer>
+            
+
+
+</body>
+</html>

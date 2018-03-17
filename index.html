@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <title>Windows 10 Ricing Guide</title> 
+    <link rel="icon" href="img/ricebowl.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">      
+    <script src="js/script.js"></script>    
+
+</head>
+<body>
+
+<a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#ccc; color:#555; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<style>
+
+.github-corner:hover .octo-arm{
+    animation:octocat-wave 500ms infinite;
+    }
+
+@keyframes octocat-wave {
+0%,100%{
+    transform:rotate(0deg)
+    }
+
+20%,60%{
+        transform:rotate(-15deg)
+        }
+
+40%,80%{
+    transform:rotate(0deg)
+}
+
+}    
+
+    /*@keyframes octocat-wave {
+0%,100%{
+    transform:rotate(10deg)
+    }
+
+20%,60%{
+        transform:rotate(-25deg)
+        }
+
+40%,80%{
+    transform:rotate(10deg)
+}
+
+}*/
+
+@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+
+</style>
+
+    <header>
+
+  <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <!-- <a href="#!" class="brand-logo">Logo</a> -->
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+
+            <li><a href="#basics">Basics</a></li>
+            <li><a href="#browser">Browser</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#vs">Visual Styles</a></li>
+            <li><a href="#advanced">Advanced</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a class="waves-effect" href="#basics"><i class="material-icons">wallpaper</i>Basics</a></li>
+            <li><a class="waves-effect" href="#browser"><i class="material-icons">web_asset</i>Browser</a></li>
+            <li><a class="waves-effect" href="#solutions"><i class="material-icons">assignment</i>Solutions</a></li>
+            <li><a class="waves-effect" href="#vs"><i class="material-icons">invert_colors</i>Visual Styles</a></li>
+            <li><a class="waves-effect" href="#advanced"><i class="material-icons">build</i>Advanced</a></li>
+        </ul>
+    </div>
+</nav>
+</div>
+
+</header>
+
+<div class="load">
+    <div class="load center">
+
+        <h1>ri • cing</h1>
+        <h2>/ry-sing/</h2>
+        <h3>1. Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless. </h3>
+        <h3>2. Wasting time because <i>aesthetic.</i></h3>
+
+    </div>
+</div>
+
+    <div class="credit">       
+          <div class="chip tooltipped" data-position="bottom" data-delay="10" data-tooltip="View the changelog">
+            <img src="img/avi.jpg">
+            <a href="#modal1">Created by Coco • Last updated 3rd of February '18</a>
+        </div>
+    </div>
+
+<div class="content">
+
+<div id="basics"><h4>Basics</h4></div>
+
+<h5>Accent Colors</h5>    
+<p>Settings > Personalization > Color.</p>
+
+<h5>Small Taskbar</h5>    
+<p>Settings > Personalization > Taskbar > Never Combine and Use Small Taskbar Buttons.</p>
+
+<h5>Remove Status Pane/Bars:</h5>    
+<p>Shift+Alt+P to remove the status pane in Explorer.</p>
+<p>Tools > Folder Options > View > Disable Show Status Bar.</p>
+<p>Classic Shell makes a status bar by default, open Classic Explorer Settings to disable it.</p>
+
+<h5><a target="_blank" href="http://www.msfn.org/board/topic/170375-oldnewexplorer-117">OldNewExplorer</a></h5> 
+<p>A v basic program to remove the ribbon and bring back the command bar.</p>
+<p>Settings should look like this:</p>
+
+    <a target="_blank" href="img/ONE.png"><img class="responsive-img tooltipped" data-position="bottom" data-delay="5" data-tooltip="View image" src="img/ONE.png"></a>
+
+<h5><a target="_blank" href="http://classicshell.net">Classic Shell</a></h5> 
+<p>Change the taskbar color, start menu and explorer options.</p>
+<p><i>Note: Most options are irrelevent since the updates to Personalization in the Creators Update.</i></p>
+
+<h5><a target="_blank" href="http://startisback.com">StartIsBack</a></h5>
+<p>Bring back the W7 start menu, extremely customizable.</p>
+
+<h5><a target="_blank" href="http://www.askvg.com/fix-input-indicator-icon-comes-back-in-taskbar-notification-area-after-restarting-windows">Remove the language indicator.</a></h5>
+<p>Permanently remove language indicator from the taskbar.</p>
+
+<h5><a target="_blank" href="http://lifehacker.com/set-windows-10-to-search-all-file-contents-with-this-se-1733511735">Fix search indexing</a></h5>
+<p>Start menu will search through files and file contents.</p>
+
+<h5><a href="https://www.dropbox.com/s/nyaxc8h1hb6lcx2/MacType.zip">Mactype</a></h5>
+<p>Better font rendering, includes version for W7 and W10 (also works on 8.1). Follow the instructions to install.</p>
+<p><i>Refer to solutions for issues with Mactype when updating.</i></p>
+
+<h5><a target="_blank" href="http://www.autohotkey.com">AHK</a></h5>
+<p>AutoHotKey is a fantastic hotkey tool, and for ricing it can do a few very helpful jobs like making hotkeys to certain programs, tiling, removing taskbar/titlebar icons and hiding titlebars.</p>
+
+<blockquote>
+<p><b>Usage</b></p>
+<p>Download my backups from <a target="_blank" href="https://www.dropbox.com/s/t325mcmd2v0z1gt/AHK.zip">here</a></p>
+<p>Move the scripts you want to your startup folder (C:\Users\%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup)</p>
+<p>Run the scripts and reopen your programs to see a difference</p>
+<p><i>Note: Right click the script's tray icon to edit, use Windows Spy to configure tiling</i></p>
+</blockquote>
+
+<h5><a href="http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts">List of new and most helpful shortcuts</a></h5>
+
+<p>
+        <ul>
+                <li>Win + i - Open Settings</li>
+                <li>Win + Tab - Task View</li>
+                <li>Win + Ctrl + Left/Right Arrow - Switch desktops</li>
+                <li>Alt + P - Show/Hide Preview Pane</li>
+                <li>Shift + Alt + P - Show/Hide Status Pane</li>
+                <li>Win + G - Game bar</li>
+                <li>Win X - Open Quick Link - Same as right clicking start button</li>
+                <li>Win + M - Minimize all</li>
+                <li>Win + Shift + M - Restore all</li>
+                <li>Win + Down - Minimize window</li>
+                <li>Win + Shift + C - Activate Cortana</li>
+                <li>Win + Alt + D - Show/Hide Calendar</li>
+                <li>Win + L - Lock pc</li>
+        </ul>
+</p>
+
+<h5><a target="_blank" href="http://www.tenforums.com/tutorials/4200-recovery-drive-create-windows-10-a.html">Recovery Drive</a></h5>
+
+<span class="underline">Thinking of updating drivers, playing w/ "advanced" rice, or it's your first time updating to 10?</span><br> Do you have Windows 10 or want to try Windows 10? Set up a <a target="_blank" href="http://www.tenforums.com/tutorials/4200-recovery-drive-create-windows-10-a.html">recovery drive</a> rn.</p>
+
+<h5><a target="_blank" href="http://www.tenforums.com/tutorials/3841-take-ownership-add-context-menu-windows-10-a.html">Take Ownership</a></h5>
+<p>Very easy to set up, it basically just adds a context menu option to take complete ownership of a file.</p>
+<p>If your getting an error that you don't have permission of a file this will fix that, you'll need this if your editing system files/Visual Styles.</p>
+
+<h5>Misc basic rice related links</h5>
+
+<i>Note: <a href="http://nanami-tan.info" target="_blank">Nanami-tan</a> goes into more detail of these topics.</i>
+
+<h6><a href="http://qttabbar.wikidot.com" target="blank">QtTabBar</a></h6>
+<p>Adds a lot more functionality to Explorer, including tabs, hotkeys and alternative navigation panes.</p>
+
+<h6><a href="https://jundai.deviantart.com/art/QuickView-129693435" target="blank">QuickView</a> by <a href="https://jundai.deviantart.com" target="blank">Jundai</a></h6>
+<p>Extremely aesthetic image viewer, barely any functionality.</p>
+
+<h6><a href="http://mpc-hc.sourceforge.net" target="blank">MPC-HC</a></h6>
+
+<p>It's the best video player honestly.</p>
+
+<h6><a href="http://www.foobar2000.org" target="blank">Foobar</a></h6>
+<p>If you've seen a pretty music player in a screenshot guaranteed this is (probably) it, it's portable and has every function you'd need, plus there's <a target="blank" href="http://browse.deviantart.com/customization/skins/media/foobar2000">so many god damn skins available.</a></p>
+
+<h6><a href="https://www.deviantart.com/customization/icons/os/win" target="blank">Icons</a></h6>
+
+<p><a href="https://www.dropbox.com/s/93xkslb6mpzrdwe/Numix.zip" target="blank">Numix</a> - Ported from the Linux icons, reuploaded due to <a href="https://neiio.deviantart.com">author deactivation.</a></p>
+    
+<p><a href="https://www.dropbox.com/s/wjxqjbjzumcorje/Paper.zip" target="blank">Paper</a> - Another port, beautifully made, reuploaded due to <a href="https://neiio.deviantart.com">author deactivation.</a></p>
+
+<p><a href="https://unisira.deviantart.com/art/WinRemix-Icon-Pack-for-Windows-10-601279163" target="blank">Winremix</a> - Material design inspired, <span class="underline">no pack all seperate files</span> has been updated to a pack, download the ICO's seperately <a target="_blank" href="https://www.dropbox.com/s/uier75v8ipctw2h/WinRemix.zip">from here</a>.</p>
+
+<p><a href="https://ayychloe.deviantart.com/art/Temmie-Icons-595581080" target="_blank">Temmie</a> - A+ aesthetic icons, little biased tbqh, no pack, all seperate files.</p>
+
+<p><a href="https://ap-graphik.deviantart.com/art/Flat-Starter-Pack-357642798" target="_blank">Flat</a> and <a href="https://ap-graphik.deviantart.com/art/Flat-Starter-Pack-357642798" target="_blank">Kare</a> - Beautiful square icons, all seperate files.</p>
+
+<p><a href="https://munanazzal.deviantart.com/art/Minimal-Folder-Icons-1-0-678724365" target="_blank">Minimal Folder Icons</a> - What the name says, available in a range of colors, all seperate files, and they actually scale down correctly!</p>
+
+
+<div id="browser"><h4>Browser</h4></div>
+
+<p>I'm not going to go super into detail as this is a W10 guide not a browser theme/startpage FAQ, but here are some of the basics explained:</p>
+
+<h6><i>Person has changed how a site looks? How?</i></h6>
+<p>Browser theme, they used <a target="_blank" href="https://addons.mozilla.org/en-us/firefox/addon/stylish/">Stylish for Firefox</a> or <a target="_blank" href="https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en">Stylish for Chrome</a>, and a CSS script that changes how it appears for only them, find themes on <a target="_blank" href="https://userstyles.org">Userstyles</a> or make your own with Inspect Element and a bit of CSS knowledge. On later versions of Firefox they've killed Stylish (rip), so instead you can use <a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/" target="_target">Stylus</a> for website themes (when it wants to work).</p>
+
+<h6><i>But their browser looks so nice??</i></h6>
+<p>It's either Firefox or Vivaldi. You can customize how Firefox looks with <a target="_blank" href="https://addons.mozilla.org/en-us/firefox/addon/stylish/">Stylish</a> or by creating a <a href="http://kb.mozillazine.org/index.php?title=UserChrome.css" target="_target">UserChrome.css</a>. You can either search for an updated UserChrome or I uploaded <a target="_blank" href="https://pastebin.com/UwAHd0zm">mine here</a>. You can customize Vivaldi by <a href="https://forum.vivaldi.net/topic/10549/modding-vivaldi" target="_blank">editing the browser CSS</a>, again you can search for Vivaldi CSS or I <a href="http://chloechantelle.com/dl" target="_blank">uploaded mine</a>.</p>
+
+<p>You can customize Chrome's browser, but not by very much, by using <a target="_blank" href="https://www.themebeta.com/chrome-theme-creator-online.html">Chrome Theme Maker</a>.</p>
+
+<h6><i>I don't know how to do the thing, where are the premade themes?? </i></h6>
+
+<p>Browse on <a target="_blank" href="https://userstyles.org">Userstyles</a> for web themes.<br> You can browse the <span class="underline"><a target="_blank" href="https://userstyles.org/styles/browse?search_terms=firefox">Firefox tag of Userstyles</a> for browser themes</span> lmao jk Userstyles is fucking trash now, browse threads or look on Github for browser themes.</p>
+
+<h6><i>Pretty new tab page with links on it?</i></h6>
+<p>Startpages are generally local (can be hosted) webpages, here's one I made as an example of what they are.</p>
+<a target="_blank" href="img/W10DN.gif"><img class="responsive-img tooltipped" data-position="bottom" data-delay="5" data-tooltip="View image" src="img/W10DN.gif"></a>
+<p>They usually contain links, have some pretty background, tell you the weather, refer to you by name etc etc.</p>
+
+<h6><i>How on earth do I make one and/or get started??</i></h6>
+
+<p>Edit someone elses, there are <b><i>so</i></b> many that people upload and share, find one and rip it apart while searching on <a target="blank" href="http://w3schools.com">W3</a> for anything you don't understand to teach yourself HTML/CSS. There's also <a target="blank" href="https://www.codecademy.com/learn">online courses</a> you can do to learn more.</p>
+
+<p><a target="_blank" href="http://startpages.github.io/">Popular startpages to download.</a></p>
+
+<p><a target="_blank" href="http://pastebin.com/ZJvDn0eN">More startpage links.</a></p>
+
+<p>There's also a pretty popular <a target="_blank" href="http://boards.4chan.org/wg/catalog#s=start">HTML/CSS general on /wsg/</a> which you can lurk/post in.</p>
+
+<div id="solutions"><h4>Solutions</h4></div>
+
+<h5><a target="_blank" href="http://www.howtogeek.com/224471/how-to-prevent-windows-10-from-automatically-downloading-updates">Prevent automatic updates</a></h5>
+
+<p>You should also do this w/ your <a target="_blank" href="http://www.tomshardware.com/faq/id-2763685/stop-windows-automatically-updating-device-drivers.html">drivers</a> as updating both W10 and your drivers has been known to cause problems.</p>
+
+<p><i>When updating make sure you make a system restore point prior to installing the update, uninstall UxStyle/UltraUXThemePatcher, disable the theme you're using, and remove Mactype from startup.</i> Can't be too careful w/ the last few big W10 builds.</p>
+
+<h5>About "muh privacy" with W10 or "are the NSA watching me on pornhub just because I updated my PC?"</h5>
+
+<p><a href="http://www.zdnet.com/article/no-microsoft-is-not-spying-on-you-with-windows-10">No Microsoft Is Not Spying On You With Windows 10</a><br/>
+<a href="http://lifehacker.com/what-windows-10s-privacy-nightmare-settings-actually-1722267229">What Windows 10's "Privacy Nightmare" Settings Actually Do</a><br/>
+<a href="https://www.reddit.com/r/Windows10/comments/3h5wwg">Windows 10 disabling pirated software? Not so fast</a></p>
+<p>TLDR; No, take your tin foil hat off and chill out.</p>
+
+<h5><a href="http://lifehacker.com/prevent-windows-10-from-automatically-restarting-your-p-1723647582">Automatically restarting after updating</a></h5>
+<p>Fix the issue of Windows automatically restarting after updating.</p>
+
+<h5>Fix broken UI issues</h5>
+<p>Start menu stops working, W10 apps don't open, blue screen of death, doesn't perform properly?</p>
+<p>Restart explorer, if not then your PC, it's depressing how much time you can waste troubleshooting when restarting either fixes most problems.</p>
+<p>But, it could also be corrupt files or broken W10 apps, which happens a lot if you didn't clean install W10 and just updated from W7, so <a target="_blank" href="http://home.bt.com/tech-gadgets/computing/has-your-windows-10-start-menu-stopped-working-here-are-four-ways-to-fix-it-11364000314532">look into it.</a></p>
+
+<h5>Thumbnails don't show?</h5>
+<p><a href="https://www.windowscentral.com/how-reset-thumbnail-cache-windows-10">Reset the thumbnail cache.</a></p>
+
+<h5>Square in taskbar clock</h5>
+<p>Fix issue where a square shows up in your taskbar clock instead of a semicolon.</p>
+<a target="_blank" href="img/square.jpg"><img class="responsive-img tooltipped" data-position="bottom" data-delay="5" data-tooltip="View image" src="img/square.jpg"></a>
+
+<blockquote>
+<p>Go to HKCU\ControlPanel\International</p>
+<p>Double click on "sShortTime"</p>
+<p>Open up Character Map, switch to unicode and search for "colon"</p>
+<p>Pick the last one that shows up (U+A789: Modifier Letter Colon)</p>
+<p>Copy that and replace the colon in the sShortTime string</p>
+<p>Hit "OK" and wait for the clock to change to the next minute</p>
+</blockquote>
+
+<h5>Program icons and file thumbs don't show</h5>
+
+<blockquote>
+<p>Open Regedit and go to</p>
+<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIcons</code>
+<p>Change the value:</p>
+<p>String 29 - C:\Windows\System32\shell32.dll,29</p>
+<p>Or if you have string 9 - C:\Windows\System32\shell32.dll</p>
+</blockquote>
+
+<h5>Disk usage issue on Fall Update (1709)</h5>
+<p>On 1709 there's a common issue of the disk space usage jumping to 100% and staying there because of Windows services.
+
+<p>To fix stop Superfetch and Windows Search, if you notice an immediate difference then disable them from startup.</p>
+
+<p>Neither affect how your PC runs/searches, these are purely processes that run in the background.</p>
+
+<p>Guide to <a href="https://www.drivereasy.com/knowledge/fix-100-disk-usage-in-task-manager-improve-pc-performance-on-windows-10" target="_blank">stopping/disabling services.</a></p>
+
+<h5>Stop Cortana Defaulting to Edge and Bing</h5>
+
+<i>Change the default web browser in Cortana:</i>
+<p><a target="_blank" href="https://github.com/da2x/EdgeDeflector/blob/v1.0.1.0/README.md#installation">EdgeDeflector</a></p>
+<p>Open up Settings > System > Default Apps > Choose default apps by protocol > Url:Microsoft Edge > EdgeDeflector.</p>
+<p><i>Change the default search engine in Cortana:</i></p>
+
+<p>Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/bing-google-1">Bing To Google</a>.<br>
+Chrome: <a href="https://chrome.google.com/webstore/detail/chrometana-redirect-bing/kaicbfmipfpfpjmlbpejaoaflfdnabnc?hl=en">Chrometana</a> (such a good name).</p>
+
+
+<div id="vs"><h4>Visual Styles</h4></div>
+
+
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-2">
+          <!-- <div class="row valign-wrapper"> -->
+            <div class="col s10">
+              <span class="black-text">
+                
+<p>Create a system restore point before delving into any of this.</p>
+
+<p>Don't use Visual Styles that aren't for your build, it will brick your PC. Always make sure your using the latest version of <a target=_"blank" href="http://www.syssel.net/hoefs/software_uxtheme.php?lang=en">UltraUX</a>, and when updating your patcher uninstall your old version prior to updating.</p>
+
+<p>In the start menu search for "winver" and use that to check what build you're using.</p></span>
+         <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+<h5>Patching</h5>
+
+<p>On the Fall Update (1709), the Creators Update (1703), and the Anniversary Update (1607) you install themes how you always have.</p>
+<p>1. Install the latest version of <a target=_"blank" href="http://www.syssel.net/hoefs/software_uxtheme.php?lang=en">UltraUXThemePatcher</a> from the source (rip UxStyle).</p>
+1.a. Cleo also hosts the latest versions if the site is down</p>
+<p>2. Copy the theme folder to C:\Windows\Resources\Themes.</p>
+<p>3. Make sure the .theme file is in Resources\Themes and the .msstyles is in Resources\Themes\ThemeName.</p>
+<p>4. Settings > Personalization > Themes > Apply the theme.</p>
+
+<p>If your on Build 1511 patch using <a href="http://pastebin.com/Fsn6RrJe">this guide.</a></p>
+
+<h5>Patching FAQ:</h5>
+
+<h6><i>UxStyle doesn't work/gives error?</i></h6>
+
+<p>Uninstall previous versions of UxStyle and/or UltraUXThemePatcher, use Microsoft's <a href="https://support.microsoft.com/en-us/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed">Fix It</a> program or <a href="https://www.piriform.com/ccleaner/download">CCleaner</a> to uninstall the old versions completely.
+</p>
+
+<h6><i>After I lock my pc/put it to sleep parts of the theme breaks or when switching between themes the patcher doesn't work anymore?</i></h6>
+<p>Known UxStyle problem, switch to Aero theme, uninstall and reinstall UxStyle, re-enable your theme.</p>
+
+<h6><i>Difference between UxStyle and UltraUXThemePatcher?</i></h6>
+
+<p>UxStyle doesn't replace system files, which right now means that it only temporarily patches and works like a band-aid, so you have to run the .exe again or reapply themes when you log off/restart etc, it's safe but it can be inconvenient.</p>
+
+<p>UltraUXThemePatcher replaces system files which can cause problems, it's also been known to cause problems when uninstalling and leave users with a bsod, but it doesn't need reinstalling after shutting down and also doesn't require WinAero to change fonts.</p>
+
+
+<h6><i>I broke explorer/broke my pc, halp?</i></h6>
+<p>That's why you <i>create a system restore point</i>. And make a recovery drive, if you don't have one and you're using W10, change that immediately.</p>
+
+<h6><i>How do I make my own/edit someones Visual Style?</i></h6>
+<p>Using Windows Style Builder, I made a <a target="_blank" href="http://chloechantelle.com/WSB">guide for it here.</a></p>
+
+
+<div id="advanced"><h4>Advanced</h4></div>
+
+<h5>Registry Tweaks</h5>
+
+<i>Note: Create a <a target="_blank" href="http://www.tenforums.com/tutorials/4571-system-restore-point-create-windows-10-a.html">restore point</a> and triple check what you're doing.</i></p>
+
+<blockquote>
+
+<p><a target="_blank" href="http://www.sevenforums.com/tutorials/23825-folder-icon-change-windows-7-default-folder-icon.html">Change default folder icon.</a></p>
+
+<p><a target="_blank" href="http://www.sevenforums.com/tutorials/23878-open-folder-icon-change.html">Change default open folder icon.</a></p>
+
+<p><a target="_blank" href="http://www.sevenforums.com/tutorials/65828-drive-icon-change.html">Change drive icons</a> - Follow method 3.</p>
+
+<p><a target="_blank" href="http://www.askvg.com/windows-10-tip-remove-onedrive-quick-access-homegroup-and-network-icons-from-navigation-pane-of-this-pc/">Remove One Drive, Network etc from Navigation Pane</a></p>
+
+<p><a target="_blank" href="http://www.tenforums.com/tutorials/24936-display-settings-desktop-context-menu-add-remove-windows-10-a.html">Remove Display Settings from desktop context menu</a></p>
+
+<p><a target="_blank" href="http://www.tenforums.com/tutorials/25058-personalize-desktop-context-menu-add-remove-windows-10-a.html">Remove Personalize from desktop context menu</a></p>
+
+<p><a target="_blank" href="http://windowscustoms.blogspot.com.au/2016/02/how-to-change-windows-10-quick-access.html">Custom Quick Access icon</a>: Change data path to the location of your custom icon, <a target="_blank" href="https://www.dropbox.com/s/n62j8wlbur5ady3/Icons.zip?dl=0">here's some</a> you can use.</p>
+
+<p><a target="_blank" href="http://www.howtogeek.com/howto/windows-vista/add-any-application-to-the-desktop-right-click-menu-in-vista">Add programs to desktop context menu.</a></p>
+
+<p><a target="_blank" href="https://www.tenforums.com/tutorials/8974-shortcut-arrow-icon-change-remove-restore-windows-10-a.html">Remove shortcut arrow on folders and programs:</a> Method 3, leave the field blank, restart Explorer.</p>
+
+<p><a target="_blank" href="http://www.sevenforums.com/tutorials/48535-thumbnail-previews-change-border.html">Remove border for video files</a>: Follow Method 2.</p>
+
+<p><a target="_blank" href="http://www.sevenforums.com/tutorials/57455-file-extension-icon-change-default-icon.html">Change default file type icons:</a> Change the file icon for all .png's or .mp4's etc.</p>
+
+</blockquote>
+
+<h5>Debloat</h5>
+
+<p>Disable features you don't use, follow <a target="_blank" href="http://www.tenforums.com/tutorials/7247-windows-features-turn-off-windows-10-a.html">this guide.</a></p>
+
+<h5><a target="_blank" href="http://winaero.com/download.php?view.1796">WinAero</a></h5>
+
+<p>Change fonts, border size, titlebar color and much more. It can be buggy, and could easily break explorer. Be careful w/ a lot of the options, I'd suggest only using it to globally change fonts.</p>
+
+<h5><a href="http://www.motzek.org/MyTile.rar">Custom Start Menu Tiles</a></h5>
+<p>Tile.png is a template of the size and placement of the icon that your tiles should have.</p>
+<blockquote>
+<p>Usage</p>
+<p>First make a shortcut (make sure it's a .lnk) of the program you want to change, then go to "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs" and move it there.</p>
+<p>Then find the path in MyTile and change the image, if you did it correct the image will change immediately.</p>
+<p><i>Note: Some programs, especially 10 apps, won't show up in MyTile because they won't be a .lnk.</i></p>
+<p>To set it back to the default image delete the tile and pin it again.</p>
+</blockquote>
+
+</div> <!-- close content -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h5>Changelog</h5>
+      <p class="logboo">3rd of February, 2018</p>
+
+<p>Include more VS information and fix for 100% usage of disk space issue.</p>    
+    
+<p class="logboo">11th of November, 2017</p>
+
+<p>Updated browser HTML/CSS info.</p>
+
+<p class="logboo">10th of November, 2017</p>
+
+<p>Included ICO files for Winremix.</p>
+
+<p class="logboo">3rd of September, 2017</p>
+
+<p>Included links for Numix and Paper Icons.</p>
+
+<p class="logboo">25th of August, 2017</p>
+
+<p>Updated Basic section information.</p>
+
+<p class="logboo">20th of August, 2017</p>
+
+<p>Included basic rice links, fixed a lot of my grammar jfc damn.</p>
+
+<p class="logboo">17th of June, 2017</p>
+
+<p>Updated VS editing information and included link to WSB Guide.</p>
+
+
+<p class="logboo">23rd of April, 2017</p>
+<p>Updated Mactype zip, now includes version for Creators Update and instructions, included info about VS's for latest update.</p>
+
+
+<p class="logboo">13th of March, 2017</p>
+<p>Included instructions for EdgeDeflector, fixed page font.</p>
+
+
+<p class="logboo">17th of February, 2017</p>
+<p>Included solutions to Cortana defaulting to Bing and Edge.</p>
+<p>Included startpage/CSS section.</p>
+
+
+<p class="logboo">11th of January, 2017 </p>
+<p>Updated keyboard shortcuts.</p>
+
+
+<p class="logboo">9th of January, 2017</p>
+<p>Included guide for removing shortcut arrow.</p>
+
+
+<p class="logboo">4th of November, 2016</p>
+<p>Included download for Quick Access icons.</p>
+
+
+<p class="logboo">22nd of October, 2016</p>
+<p>Included tutorial to change drive icons.</p>
+
+
+<p class="logboo">21st of October, 2016</p>
+<p>Included information about AHK and Classic Shell.</p>
+
+
+<p class="logboo">16th of October, 2016</p>
+<p>Moved from Pastebin to site</p>
+<p>Included better descriptions </p>
+<p>Included Start Is Back</p> 
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div>
+
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+
+               <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Credits</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://tenforums.com">Ten Forums</a> and <a class="grey-text text-lighten-3" target="_blank" href="http://sevenforums.com">Seven Forums</a></li>
+                 <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.deviantart.com/tag/ricing">DeviantArt</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://neiio.deviantart.com">The late Jamie Green</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://boards.4chan.org/w/catalog#s=desktop">Anons and tripfags everywhere</a></li>
+                </ul>
+              </div>
+
+               <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">About Ricing</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://nanami-tan.info">W7 Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://wiki.installgentoo.com/index.php/GNU/Linux_ricing">Linux Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://pastebin.com/YiEvADUw">Mac Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.reddit.com/r/unixporn">r/Unix Porn</a></li>
+                </ul>
+              </div>
+
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Resources</h5>
+                <hr class="divider">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://pastebin.com/mtgSWp42">Beginner FAQ</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="http://www.tenforums.com/tutorials/4571-system-restore-point-create-windows-10-a.html">Restore Points</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="html/wsb.html">VS Creating Guide</a></li>
+                  <li><a class="grey-text text-lighten-3" target="_blank" href="https://pastebin.com/UwAHd0zm">Ricing Firefox 56+</a></li>                                  
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            <a href="http://chloechantelle.com" target="_blank" class="luv">made w/ love by coco</a>
+            </div>
+          </div>
+        </footer>
+            
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+* {
+	margin: 0;
+	padding: 0;	
+}
+
+a, .grey-text.text-lighten-3 {
+	color: #777 !important;
+}
+
+a:hover, .grey-text.text-lighten-3:hover {
+	color: #333 !important;
+	transition: ease-in-out .2s;
+}
+
+#sidenav-overlay{
+	z-index: 0;
+}
+
+.github-corner > svg:nth-child(1) {
+	z-index: 99999 !important;
+}
+
+nav {
+	background: #eee;
+	width: 100%;
+	box-shadow: none;
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.navbar-fixed, .navbar-fixed nav, nav ul a, nav li {
+    height: 30px;
+    padding: 0px;
+    line-height: 30px;
+}
+
+.side-nav li > a {
+	height: 48px;
+	padding: 0 32px;
+	line-height: 48px;
+	margin: 20px 0px 20px 0px;
+}
+
+#top {
+	position: fixed;
+	right: 50px;
+	bottom: 200px;
+}
+
+nav ul a {
+	padding: 0px 20px 0px 20px;
+}
+
+nav ul a:hover {
+	background: #222;
+	color: #ddd !important;
+}
+
+.load {
+	/*background: #e5e5e5;*/
+	background: url('../img/ricealt.png') center;
+  	background-size: tile;
+	width: 100%;
+	height: 350px;	
+	/*filter: blur(1px);*/	
+}
+
+.load.center {
+	padding: 60px;
+	text-align: left;
+	max-width: 50%;
+	margin: 0 auto;
+	/*background: #fff;*/
+}
+
+.load.wsb {
+	padding: 60px;
+	text-align: center;
+	margin: 0 auto;
+	/*background: #fff;*/
+}
+
+.image {
+	width: 40%;
+}
+
+.btn-large {
+	background: #fff;
+	color: #111;
+	border-radius: 10px;
+}
+
+.btn-large:hover, .btn-large:focus {
+	background: #ddd !important;
+}
+
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    background: #eee;
+    color: #111;
+    /*width: 50%;*/
+    /*height: auto;*/
+    /*min-height: 48px;*/
+    /*margin: 0 auto;*/
+}
+
+.load.wsb p {
+	padding: 10px;
+}
+
+h1, h2, h3, h4, h5 {
+	cursor: default;
+}
+
+h1, h2 { 
+	padding: 10px;
+	margin: 0;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+ }
+
+h3 { 
+	padding: 10px;
+	margin: 0;
+ }
+
+ h4 {
+ 	padding: 60px;
+ 	font-family: "Roboto";
+ 	font-weight: 900;
+ 	font-style: italic;
+ 	letter-spacing: 3px;
+ }
+
+ h5 {
+ 	padding: 10px;
+ 	font-size: 20px;
+ 	font-family: "Roboto";
+ 	font-weight: 900;
+ }
+
+ h6 {
+ 	padding: 10px;
+ 	font-size: 18px;
+ }
+
+ .logboo {
+  font-style: italic;
+  color: #aaa;
+}
+
+h1 { font-weight: 500; font-size: 40px }
+h2 { font-weight: 500; font-size: 25px }
+h3 { font-weight: 350; font-size: 16px }
+
+.credit {
+	text-align: center;
+	padding: 20px;
+}
+
+.content {
+	/*background: #111;*/
+	margin: 0 auto;
+	width: 90%;
+	padding-left: 30px
+}
+
+ .underline {
+text-decoration: line-through;  
+}    
+
+.content img {
+	max-width: 30%;
+	/*float: right;*/
+	box-shadow: 4px 4px 1px rgba(0,0,0,0.5);
+}
+
+.content img:hover {
+	opacity: 0.9;
+	box-shadow: 4px 4px 1px rgba(0,0,0,0.3);
+	transition: ease-in-out .2s;
+}
+
+blockquote {
+	border-left: 2px solid #777;
+}
+
+blockquote p {
+	padding: 10px;
+}
+
+.title {
+text-align: center;
+font-family: var(--font1);
+font-size: 35px;
+cursor: default;
+padding: 40px 0px 40px 0px;
+}
+
+input {
+  /*background: #eee !important;*/
+  color: #222;
+  padding: 10px;
+  border-bottom: 1px #999 solid !important;
+  width: 40%;
+  cursor: default;
+}
+
+input:focus {
+border-bottom: 1px #ddd solid !important;
+background: #eee !important;
+}
+
+footer .row {
+	/*float: left;*/
+}
+
+.container {
+    width: 100%;
+}
+
+.row .col.s12 {
+	width: 33.33%;
+}	
+
+.page-footer {
+	background: #111;
+}
+
+.container {
+	width: 100%;
+}
+
+.row .col.offset-l2 {
+	padding: 100px 0px 130px 0px;
+}
+
+.divider {
+   border: none;	
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    /*border-width: 1px 0 0 0;*/
+    background: transparent;    
+    width: 70%;    
+    margin: 30px auto;
+}
+
+.page-footer, .container, .row .col.offset-l2, .container .row, .row {
+	margin: 0 auto;
+	text-align: center;	
+}
+
+/* <3 */
+footer .luv {
+    text-align: center;
+    color: #777;
+}
+
+footer .luv::before, footer .luv::after {
+    content: "♥";
+    margin: 0px 5px 0px 5px;
+    opacity: 0;
+    transition: ease-in-out .3s;
+}
+
+footer .luv:hover:before, footer .luv:hover:after {
+    opacity: 1 !important;
+    transition: ease-in-out .3s;
+}
+
+		/* responsive */
+
+@media only screen and (max-width: 900px) {
+	.load.center {
+		padding: 35px;
+		max-width: 100%;		
+	}
+	.load.wsb {
+		padding: 35px;
+		max-width: 100%;		
+	}	
+	h3 {
+		font-size: 14px;
+	}
+
+	nav a.button-collapse, nav a.button-collapse i {
+    	line-height: 32px;
+    	margin-left: 5px;
+	}
+}	
+@media only screen and (max-width: 500px) {
+	.load.wsb p, .load.wsb h2 {
+		display: none;
+	}
+}	
